@@ -3,3 +3,7 @@
 *.ico binary
 *.png binary
 *.gif binary
+*.jpg binary
+*.eot binary
+*.ttf binary
+*.woff binary

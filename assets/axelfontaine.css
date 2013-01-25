@@ -1,18 +1,138 @@
+#main {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 2px solid #808080;
+    border-right: 2px solid #808080;
+}
+
 #header {
     margin-top: 10px;
 }
 
+#logo {
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #title {
+    float: left;
     line-height: 64px;
     font-size: 48px;
     font-weight: bold;
 }
 
 #subtitle {
+    float: left;
     line-height: 24px;
     font-size: 20px;
 }
 
+#talks {
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-top: 5px;
+    line-height: 18px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 15px;
+    margin-left: auto;
+    float: right;
+}
+
+#bigsell {
+    margin-top: 150px;
+    margin-bottom: 120px;
+    text-align: center;
+    font-size: 64px;
+    line-height: 80px;
+    color: #000000;
+}
+
+#photos {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#photos img {
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+    width: 240px;
+    height: 180px;
+}
+
+#offering-navbar {
+    margin-bottom: 0;
+}
+
+#offering-navbar .nav,
+#offering-navbar .nav > li {
+    float: none;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#offering-navbar .navbar-inner {
+    text-align: center;
+    border-radius: 0;
+}
+
+.navbar-fixed-top {
+    left: auto;
+    right: auto;
+}
+
+.marketing-section {
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.15)), color-stop(25%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 100%); /* IE10+ */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */    padding-bottom: 80px;
+}
+
+.marketing-section-head {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 150%;
+    padding-top: 20px;
+}
+
+.marketing-section-sub {
+    color: #808080;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px auto 25px;
+    text-align: center;
+    line-height: 150%;
+}
+
+.marketing-item {
+    margin-bottom: 40px;
+}
+
+.marketing-item-icon i {
+    font-size: 48px;
+    color: #808080;
+    padding-left: 80px;
+}
+
+.marketing-item-head {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.call-to-action {
+    text-align: center;
+}
+
 #footer {
     text-align: center;
+    font-size: 10px;
 }
