@@ -115,9 +115,13 @@
     margin-bottom: 40px;
 }
 
-.marketing-item-icon i {
+.marketing-item-icon {
     font-size: 48px;
     color: #808080;
+    text-align: center;
+}
+
+.marketing-item-icon i {
     padding-left: 80px;
 }
 
@@ -130,6 +134,25 @@
 
 .call-to-action {
     text-align: center;
+}
+
+.course {
+    padding: 10px;
+    border: 2px black solid;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+
+.course .section-head {
+    text-align: left;
+    font-weight: bold;
+}
+
+.course .section-text {
+    text-align: left;
 }
 
 #footer {
