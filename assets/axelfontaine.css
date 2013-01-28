@@ -121,10 +121,6 @@
     text-align: center;
 }
 
-.marketing-item-icon i {
-    padding-left: 80px;
-}
-
 .marketing-item-head {
     font-size: 20px;
     font-weight: bold;
@@ -155,7 +151,23 @@
     text-align: left;
 }
 
+#client-logos {
+    text-align: center;
+}
+
+#client-logos img {
+    padding: 20px;
+}
+
 #footer {
     text-align: center;
     font-size: 10px;
+}
+
+.modal.fade{
+    -webkit-transition: opacity .2s linear, none;
+    -moz-transition: opacity .2s linear, none;
+    -ms-transition: opacity .2s linear, none;
+    -o-transition: opacity .2s linear, none;
+    transition: opacity .2s linear, none;
 }
