@@ -159,9 +159,28 @@
     padding: 20px;
 }
 
+.tweet {
+    font-size: 14px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.tweet-link {
+    font-size: 10px;
+}
+
+#twitter-follow {
+    text-align: center;
+}
+
 #footer {
     text-align: center;
     font-size: 10px;
+    line-height: 12px;
+}
+
+body.modal-open {
+    overflow: hidden;
 }
 
 .modal.fade{

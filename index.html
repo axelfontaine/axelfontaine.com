@@ -316,65 +316,29 @@ layout: default
         <img src="/assets/clients/zurich.png" alt="Design Affairs"/>
     </div>
 </div>
-<script type="text/javascript">
-    function loadOnStartup() {
-        var navBar = $('#offering-navbar');
-        var lastId;
-        var topMenuHeight = navBar.outerHeight() + 15;
-        // All list items
-        var menuItems = navBar.find("a");
-        // Anchors corresponding to menu items
-        var scrollItems = menuItems.map(function () {
-            return $($(this).attr("href"));
-        });
 
-        $(document).scroll(function () {
-            // If has not activated (has no attribute "data-top"
-            if (!navBar.attr('data-top')) {
-                // If already fixed, then do nothing
-                if (navBar.hasClass('navbar-fixed-top')) return;
-                // Remember top position
-                var offset = navBar.offset();
-                navBar.attr('data-top', offset.top);
-            }
-
-            if (navBar.attr('data-top') - navBar.outerHeight() <= $(this).scrollTop()) {
-                navBar.addClass('navbar-fixed-top');
-            } else {
-                navBar.removeClass('navbar-fixed-top');
-            }
-
-            // Get container scroll position
-            var fromTop = $(this).scrollTop() + topMenuHeight;
-
-            // Get id of current scroll item
-            var cur = scrollItems.map(function () {
-                if ($(this).offset().top < fromTop) {
-                    return this;
-                }
-                return null;
-            });
-            // Get the id of the current element
-            cur = cur[cur.length - 1];
-            var id = cur && cur.length ? cur[0].id : "";
-
-            if (lastId !== id) {
-                lastId = id;
-                // Set/remove active class
-                menuItems
-                        .parent().removeClass("active")
-                        .end().filter("[href=#" + id + "]").parent().addClass("active");
-            }
-        });
-
-        $('.navbar li a').click(function (event) {
-            event.preventDefault();
-
-            var anchor = $($(this).attr('href'));
-            $('html, body').stop().animate({
-                scrollTop: anchor.offset().top - 30
-            }, 1000);
-        });
-    }
-</script>
+<div id="latest-updates" class="marketing-section">
+    <div class="row">
+        <div class="span6">
+            <div class="marketing-section-head"><i class="icon-twitter"></i><br/>Latest Tweets</div>
+            <div id="tweets"></div>
+            <div id="twitter-follow">
+                <a href="https://twitter.com/axelfontaine" class="twitter-follow-button" data-show-count="false"
+                   data-size="large" data-dnt="true">Follow @axelfontaine</a>
+                <script>!function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (!d.getElementById(id)) {
+                        js = d.createElement(s);
+                        js.id = id;
+                        js.src = "//platform.twitter.com/widgets.js";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }
+                }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="span6"></div>
+    </div>
 </div>
+</div>
+<script type="text/javascript" src="/assets/moment-1.7.2/moment.min.js"></script>
+<script type="text/javascript" src="/assets/index.js"></script>

@@ -49,7 +49,8 @@
     <div id="footer">
         <p>
             &copy; 2013 Snow Mountain Labs UG (haftungsbeschränkt) -
-            <a href="#impressum" data-toggle="modal">Impressum</a>
+            <a href="#impressum" data-toggle="modal">Impressum</a> -
+            <a href="#contact" data-toggle="modal">Contact Axel</a>
         </p>
 
         <p>All trademarks, trade names, logos or service marks mentioned on this site belong to their respective owners.<br/>
@@ -57,8 +58,8 @@
     </div>
     <div id="impressum" class="modal hide fade" tabindex="-1" role="dialog">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            <h3 id="myModalLabel">Impressum</h3>
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Impressum</h3>
         </div>
         <div class="modal-body">
             <p>
@@ -67,10 +68,12 @@
                 80638 München<br/>
                 Deutschland<br/>
             </p>
+
             <p>
                 +49 151 5560 2935<br/>
                 business@axelfontaine.com
             </p>
+
             <p>
                 USt-ID Nr.: DE284939966<br/>
                 Geschäftsführer: Axel Fontaine<br/>
@@ -78,7 +81,78 @@
             </p>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+            <button class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+    <div id="contact" class="modal hide fade" tabindex="-1" role="dialog">
+        <iframe name="hidden_iframe" id="hidden_iframe"
+                style="display:none;" onload="if(submitted)
+        {$('#contact').modal('hide')}"></iframe>
+        <form action="https://docs.google.com/spreadsheet/formResponse?formkey=dHkzR2t2bkl2Q2VHaWNsLTR6OXBLUnc6MQ&amp;ifq"
+              method="POST" class="form-horizontal"
+              onsubmit="submitted=true;" target="hidden_iframe">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h3>Contact Axel</h3>
+            </div>
+            <div class="modal-body">
+                <div class="control-group">
+                    <label class="control-label" for="entry_2">Your Name *</label>
+
+                    <div class="controls">
+                        <input type="text" required="required" name="entry.2.single" placeholder="Edward Example"
+                               id="entry_2">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="entry_3">Your E-mail address *</label>
+
+                    <div class="controls">
+                        <input type="email" required="required" name="entry.3.single" placeholder="edward@example.com"
+                               id="entry_3">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="entry_0">Subject *</label>
+
+                    <div class="controls">
+                        <input type="text" required="required" name="entry.0.single" placeholder="Contact Request"
+                               id="entry_0">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="entry_1">Message *</label>
+
+                    <div class="controls">
+                        <textarea required="required" name="entry.1.single" placeholder="Contact Request"
+                                  id="entry_1" rows="8" cols="75"></textarea>
+                    </div>
+                </div>
+
+                <input type="hidden" name="pageNumber" value="0">
+                <input type="hidden" name="backupCache" value="">
+                <input type="hidden" name="submit" value="Submit">
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+    <div id="contact-confirm" class="modal hide fade" tabindex="-1" role="dialog">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h3>Message sent</h3>
+        </div>
+        <div class="modal-body">
+            <p>Thanks! I'll be in touch shorty.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
     </div>
 </div>
@@ -90,7 +164,15 @@
     $(function () {
         window.prettyPrint && prettyPrint();
         $.backstretch("/assets/bg.jpg");
-        loadOnStartup();
+        window.loadOnStartup && loadOnStartup();
+    });
+
+    var submitted = false;
+    $('#contact').on('hidden', function () {
+        if (submitted) {
+            $('#contact-confirm').modal('show');
+        }
+        submitted = false;
     });
 </script>
 </body>
