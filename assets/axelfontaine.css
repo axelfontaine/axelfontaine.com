@@ -190,3 +190,11 @@ body.modal-open {
     -o-transition: opacity .2s linear, none;
     transition: opacity .2s linear, none;
 }
+
+#contact form {
+    margin: 0;
+}
+
+#contact input, #contact textarea {
+    width: 335px;
+}

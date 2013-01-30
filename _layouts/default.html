@@ -50,7 +50,7 @@
         <p>
             &copy; 2013 Snow Mountain Labs UG (haftungsbeschränkt) -
             <a href="#impressum" data-toggle="modal">Impressum</a> -
-            <a href="#contact" data-toggle="modal">Contact Axel</a>
+            <a href="" data-contact="">Contact Axel</a>
         </p>
 
         <p>All trademarks, trade names, logos or service marks mentioned on this site belong to their respective owners.<br/>
@@ -85,13 +85,9 @@
         </div>
     </div>
     <div id="contact" class="modal hide fade" tabindex="-1" role="dialog">
-        <iframe name="hidden_iframe" id="hidden_iframe"
-                style="display:none;" onload="if(submitted)
-        {$('#contact').modal('hide')}"></iframe>
+        <iframe name="contact-hidden-iframe" id="contact-hidden-iframe" class="hide"></iframe>
         <form action="https://docs.google.com/spreadsheet/formResponse?formkey=dHkzR2t2bkl2Q2VHaWNsLTR6OXBLUnc6MQ&amp;ifq"
-              method="POST" class="form-horizontal"
-              onsubmit="submitted=true;" target="hidden_iframe">
-
+              method="POST" id="contact-form" class="form-horizontal" target="contact-hidden-iframe">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3>Contact Axel</h3>
@@ -160,20 +156,6 @@
 <script src="/assets/bootstrap-2.2.2/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/assets/prettify-20110601/prettify.js" type="text/javascript"></script>
 <script src="/assets/backstretch-2.0.3/jquery.backstretch.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-    $(function () {
-        window.prettyPrint && prettyPrint();
-        $.backstretch("/assets/bg.jpg");
-        window.loadOnStartup && loadOnStartup();
-    });
-
-    var submitted = false;
-    $('#contact').on('hidden', function () {
-        if (submitted) {
-            $('#contact-confirm').modal('show');
-        }
-        submitted = false;
-    });
-</script>
+<script src="/assets/axelfontaine.js" type="text/javascript"></script>
 </body>
 </html>
