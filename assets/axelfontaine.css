@@ -41,8 +41,12 @@
     float: right;
 }
 
+#top-space {
+    margin-top: 50px;
+}
+
 #bigsell {
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 120px;
     text-align: center;
     font-size: 64px;
@@ -197,4 +201,12 @@ body.modal-open {
 
 #contact input, #contact textarea {
     width: 335px;
+}
+
+#about-photo {
+    text-align: center;
+}
+
+#about-photo img {
+    border-radius: 10px;
 }
