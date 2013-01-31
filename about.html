@@ -1,10 +1,13 @@
 ---
 layout: default
+pill: about
+title: About
 ---
 <!--suppress HtmlPresentationalElement -->
+<div id="top-space"></div>
 <div id="about">
     <div class="row">
-        <div id="about-photo" class="span6"><img src="/assets/axel.jpg" alt="Axel" class="img-polaroid"/></div>
+        <div id="about-photo" class="span6"><img src="/assets/photos/axel.jpg" alt="Axel" class="img-polaroid"/></div>
         <div class="span6">
             <h3>About me</h3>
 
@@ -47,22 +50,30 @@ layout: default
                                    allowfullscreen="true" bgcolor="#222222" width="400" height="400"></embed>
                         </object>
                         <br/>
-                        In English, recorded at BeJUG in Leuven.
-                        Watch the presentation on <a href="http://parleys.com/#sl=0&st=5&id=2443">Parleys</a>.
+                        In English, recorded at BeJUG in Leuven, Belgium.
                     </p>
                     <p class="talk">
                     <iframe src="http://player.vimeo.com/video/37511307" width="400" height="227" frameborder="0"
                             webkitAllowFullScreen mozallowfullscreen allowFullScreen class="img-polaroid"></iframe>
                     <br/>
-                    In English, recorded at JUGS in Edinburgh.
+                    In English, recorded at JUGS in Edinburgh, UK.
                     </p>
                     <p class="talk">
                         <a href="http://rheinjug.de/videos/gse.lectures.app/Talk.html#ContinuousDelivery">
                             <img src="/assets/rheinjug.jpg" alt="Rheinjug" class="img-polaroid"/>
-                        </a>
-                        <br/>
-                        In German, recorded at Rheinjug in Düsseldorf.
+                        </a><br/>
+                        In German, recorded at Rheinjug in Düsseldorf, Germany.
                     </p>
+
+                    <div id="talk-map-container">
+                        <div class="img-polaroid">
+                            <div id="talk-map"></div>
+                        </div>
+                        <div id="talk-map-legend">
+                            <img src="/assets/pin-small-green.png" alt="Green"/> <span>Upcoming talk</span>
+                            <img src="/assets/pin-small-gray.png" alt="Gray"/> Past talk
+                        </div>
+                    </div>
                 </div>
                 <div class="span4"></div>
             </div>
@@ -83,4 +94,7 @@ layout: default
         </div>
         <div class="span1"></div>
     </div>
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAurHcBSMbJSiHxjG8ZbVElzYEM6OO1QVk&sensor=false"></script>
+    <script type="text/javascript" src="/assets/about.js"></script>
 </div>
