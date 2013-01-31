@@ -210,3 +210,43 @@ body.modal-open {
 #about-photo img {
     border-radius: 10px;
 }
+
+#about-social {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 48px;
+}
+
+#about-social a {
+    color: #808080;
+    padding: 10px;
+}
+
+#about-social a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+#about-social #stackoverflow {
+    width: 100px;
+    height: 50px;
+    background: url('/assets/stackoverflow.png') no-repeat center;
+    color: #808080;
+    padding: 10px 30px;
+}
+
+#about-social a#stackoverflow:hover {
+    background: url('/assets/stackoverflow-hover.png') no-repeat center;
+}
+
+.about-section {
+    margin-top: 50px;
+}
+
+#about .talk {
+    margin-bottom: 30px;
+    font-size: 12px;
+}
+
+#about .img-polaroid {
+    border-radius: 10px; }
