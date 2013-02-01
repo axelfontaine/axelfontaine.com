@@ -14,6 +14,14 @@
     margin-right: 10px;
 }
 
+#title a, #subtitle a {
+    color: #000000;
+}
+
+#title a:hover, #subtitle a:hover {
+    text-decoration: none;
+}
+
 #title {
     float: left;
     line-height: 64px;
