@@ -6,6 +6,7 @@ function loadOnStartup() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
+    //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
         ['JAX 2013', 'Mainz, Germany', 49.9928617, 8.2472526,
             [
@@ -16,6 +17,12 @@ function loadOnStartup() {
             [
                 ['2013-04-04', 'Flyway: The agile database migration framework for Java', 'https://2013.con-fess.com/sessions/-/details/78/Flyway--The-agile-database-migration-framework-for-Java'],
                 ['2013-04-03', 'Architecting for Continuous Delivery', 'https://2013.con-fess.com/sessions/-/details/77/Architecting-for-Continuous-Delivery']
+            ]
+        ],
+        ['33rd Degree', 'Warsaw, Poland', 52.2296756, 21.0122287,
+            [
+                ['2013-03-14', 'Flyway: The agile database migration framework for Java', 'https://2013.con-fess.com/sessions/-/details/78/Flyway--The-agile-database-migration-framework-for-Java'],
+                ['2013-03-13', 'Architecting for Continuous Delivery', 'https://2013.con-fess.com/sessions/-/details/77/Architecting-for-Continuous-Delivery']
             ]
         ],
         ['jDays 2012', 'Göteborg, Sweden', 57.70887, 11.97456,
@@ -135,5 +142,4 @@ function addVenueLink(marker, talk) {
     google.maps.event.addListener(marker, 'click', function () {
         window.location = talk[4][0][2];
     });
-
 }
