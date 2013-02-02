@@ -1,0 +1,65 @@
+---
+layout: blog
+title: ! 'Maven Releases on Steroids: Adios Release Plugin!'
+permalink: /blog/maven-releases-steroids.html
+---
+One of the central themes of my current series of talks about Continuous Delivery is <b>releasing software</b>.<br/>
+<br/>Releasing software encompasses a number of activities such as<br/>
+<ul>
+    <li>Picking a version number</li>
+    <li>Checking out the latest revision from SCM</li>
+    <li>Building and Testing binaries</li>
+    <li>Tagging the SCM revison with the version number</li>
+    <li>Publishing the binary artifacts in an Artifact Repository</li>
+    <li>Writing release notes, announcement e-mails, etc...</li>
+</ul><br/>In order to avoid the <a
+        href="http://www.codinghorror.com/blog/2007/03/the-works-on-my-machine-certification-program.html"><b>Works On
+    My Machine</b></a> syndrome, releases are typically built centrally on a <b>continuous integration
+    server</b> such as <strike>Hudson</strike> <a href="http://jenkins-ci.org/">Jenkins</a>.<br/>
+<br/>The Continuous Integration server serves as a choreographer between the following components:<br/>
+<ul>
+    <li>SCM (<a href="http://subversion.apache.org/">Subversion</a>, <a
+            href="http://mercurial.selenic.com/">Mercurial</a>, <a href="http://git-scm.com/">Git</a>, ...)
+    </li>
+    <li>Build Tool (<a href="http://maven.apache.org/">Maven</a>, <a href="http://ant.apache.org/">Ant</a>, <a
+            href="http://www.gradle.org/">Gradle</a>, ...)
+    </li>
+    <li>Artifact Repository (<a href="http://nexus.sonatype.org/">Nexus</a>, <a
+            href="http://www.jfrog.org/products.php">Artifactory</a>, ...)
+    </li>
+</ul><br/>On <b>Maven
+    projects</b>, the Building, Testing, Tagging and Publishing steps have traditionally been handled by the <a
+        href="http://maven.apache.org/plugins/maven-release-plugin/"><b>Maven Release
+    Plugin</b></a>. It works, to a reasonable degree, and it has a decent <a
+        href="http://wiki.jenkins-ci.org/display/HUDSON/M2+Release+Plugin">Jenkins plugin</a>.<br/>
+<br/>Using Jenkins and the Release Plugin, here are the typical steps performed by the various components:<br/><span
+        class="Apple-style-span" style="font-size: x-small;">(<b><span class="Apple-style-span" style="color: red;">Safety Notice:</span></b> buckle up, it's going to be a wild ride!)</span>
+<br/>
+<ul>
+    <li>Jenkins <b>checks out</b> the latest revision from SCM</li>
+    <li>Maven <b>compiles</b> the sources and runs the <b>tests</b></li>
+    <li>Release Plugin <b>transforms the POMs</b> with the new version number</li>
+    <li>Maven <b>compiles</b> the sources and runs the <b>tests</b></li>
+    <li>Release Plugin <b>commits</b> the new POMs into SCM</li>
+    <li>Release Plugin <b>tags</b> the new SCM revision with the version number</li>
+    <li>Release Plugin <b>transforms the POMs</b> to version n+1 -SNAPSHOT</li>
+    <li>Release Plugin <b>commits</b> the new new POMs into SCM</li>
+    <li>Release Plugin <b>checks out</b> the new tag from SCM</li>
+    <li>Maven <b>compiles</b> the sources and runs the <b>tests</b></li>
+    <li>Maven <b>publishes</b> the binaries into the Artifact Repository</li>
+</ul><br/>Phew! Did you count it?<br/><br/>That's <b>3 full clean/compile/test cycles</b>, <b>2 POM transformation
+    rounds</b> and <b>3 different SCM revisions</b>!<br/>
+<br/>No wonder this thing has proved to be error prone and frustrating to many developers for years now. And let's not even get me started on how well this thing blows up when another team member unsuspectingly checks in a change to the POM in the middle of this multiple transform and commit carousel...
+<br/><br/><b style="font-size: large;">So is there another way?</b><br/>
+<br/>What if we could deal with only a <b>single SCM revision</b> (the one we want to release) going through a <b>single
+    clean/compile/test run</b> before <b>tagging</b> the source and <b>publishing</b> the binaries?<br/>
+<br/>Let me say this loud and clear: yes, we can!<br/><br/>The
+<b>solution</b> I present in part 2 does just that. This is what it looks like:<br/>
+<ul>
+    <li>Jenkins <b>checks out</b> the latest revision from SCM</li>
+    <li>Maven <b>compiles</b> the sources and runs the <b>tests</b></li>
+    <li>Maven <b>tags</b> the SCM revision with the version number</li>
+    <li>Maven <b>publishes</b> the binaries into the Artifact Repository</li>
+</ul><br/><b>Simple and to the point.</b><br/><br/>Continue to <a
+        href="/blog/maven-releases-steroids-2.html"><b>Part
+    2</b></a> where we go into the adjustments to make to the POMs.

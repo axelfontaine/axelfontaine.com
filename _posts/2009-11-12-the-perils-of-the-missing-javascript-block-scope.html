@@ -1,0 +1,30 @@
+---
+layout: blog
+title: The perils of the missing javascript block scope
+permalink: /blog/javascript-block-scope.html
+---
+Javascript variable scope is something of a strange thing. You have a <i>global</i> and a <i>function</i> scope. <b>But
+    unlike most other languages, there is no <i>block</i> scope!</b> This is often a cause for hard to find bugs.<br/>
+<br/>Let me show you the consequences of this with a small puzzler:<br/><br/>
+<pre class="prettyprint">&lt;html&gt;<br/>&lt;body&gt;<br/>&lt;a id="link1" href=""&gt;Link 1&lt;/a&gt; &lt;span id="part1"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link2" href=""&gt;Link 2&lt;/a&gt; &lt;span id="part2"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link3" href=""&gt;Link 3&lt;/a&gt; &lt;span id="part3"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link4" href=""&gt;Link 4&lt;/a&gt; &lt;span id="part4"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link5" href=""&gt;Link 5&lt;/a&gt; &lt;span id="part5"&gt;&lt;/span&gt;&lt;br/&gt;<br/>No Link 6 &lt;span id="part6"&gt;&lt;/span&gt;&lt;br/&gt;<br/><br/>&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"&gt;&lt;/script&gt;<br/>&lt;script type="text/javascript"&gt;<br/>  $(document).ready(function() {<br/>    for (i = 1; i &lt;= 5; i++) {<br/>      $("#link"+i).click(function() {<br/>        $("#part"+i).html("Clicked !");<br/>        return false;<br/>      });<br/>    }<br/>  });<br/>&lt;/script&gt;<br/>&lt;/body&gt;<br/>&lt;/html&gt;<br/></pre>
+<br/><br/><b>Now what does this do?</b> (you need a bit of <a
+        href="http://www.jquery.com/">jquery</a> knowledge to guess it)<br/>
+<br/>At first glance, it walks over the 5 links present on this page, and registers a handler for mouse clicks that adds the text "Clicked !" to the span element with the same number as the link.
+<br/><br/><b>Or does it?</b><br/><br/>Well, this is what the output looks like when you click on "Link 3":<br/>
+<div class="separator" style="clear: both; text-align: center;"><br/></div><img src="/assets/posts/javascript-block-scope/test.png" alt="Test"/>
+<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><br/></div><b style="color: red;">It is totally wrong
+    !</b> Now why is that? Well, as we have no block scope, by the time we are done with the for loop, the variable<b> i
+    has been incremented up to 6</b>. It is however <b>still in scope</b>, and therefore this last value gets used <b>when
+    the closure for the click event gets called</b>. And so it is part 6 that receives the new text !<br/><br/><b>So how
+    can we fix this?</b><br/><br/>We have to <b>separate the scopes</b>, and to do that we need a <b>new
+    function</b>. This is what the correct code looks like:<br/><br/>
+<pre class="prettyprint">&lt;html&gt;<br/>&lt;body&gt;<br/>&lt;a id="link1" href=""&gt;Link 1&lt;/a&gt; &lt;span id="part1"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link2" href=""&gt;Link 2&lt;/a&gt; &lt;span id="part2"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link3" href=""&gt;Link 3&lt;/a&gt; &lt;span id="part3"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link4" href=""&gt;Link 4&lt;/a&gt; &lt;span id="part4"&gt;&lt;/span&gt;&lt;br/&gt;<br/>&lt;a id="link5" href=""&gt;Link 5&lt;/a&gt; &lt;span id="part5"&gt;&lt;/span&gt;&lt;br/&gt;<br/>No Link 6 &lt;span id="part6"&gt;&lt;/span&gt;&lt;br/&gt;<br/><br/>&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"&gt;&lt;/script&gt;<br/>&lt;script type="text/javascript"&gt;<br/>  $(document).ready(function() {<br/>    for (i = 1; i &lt;= 5; i++) {<br/>      addClickEvent(i);<br/>    }<br/>  });<br/>  <br/>  function addClickEvent(i) {<br/>    $("#link"+i).click(function() {<br/>      $("#part"+i).html("Clicked !");<br/>      return false;<br/>    });<br/>  }<br/>&lt;/script&gt;<br/>&lt;/body&gt;<br/>&lt;/html&gt;<br/></pre>
+<br/>
+<br/>With the registration of the click event taking place in a separate function (and therefore a separate scope for the variable i), this is what the output looks like:
+<br/>
+<div class="separator" style="clear: both; text-align: center;"><br/></div><img src="/assets/posts/javascript-block-scope/testOk.png" alt="Test OK"/>
+<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><br/>
+</div>Which is much more like what we were expecting !<br/><br/><b>So beware of the lack of <i>block</i> scope in
+    Javascript! It can come and bite more easily than you think if you're not extra careful about it!</b>

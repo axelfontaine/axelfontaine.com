@@ -1,0 +1,72 @@
+---
+layout: blog
+title: Transparently supporting HTTP HEAD requests in Java and Spring MVC
+permalink: /blog/http-head.html
+---
+The http 1.1 specification (RFC 2616) defines a number of <a
+        href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html">methods</a>: OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE and CONNECT.
+<br/><br/>Of these, the most familiar are <b>GET</b> and <b>POST</b>.
+<br/>Web browsers rely on these two methods to send and receive data from web servers. (In compliance with the <a
+        href="http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.1">W3C Html 4 recommendation</a>) <br/><br/><a
+        href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3"><b>GET</b></a> is meant for <b>retrieving
+    content</b> from a web server. The requests should be
+<b>idempotent</b>. No critical state should change. Successive requests should return the same content. (This makes them ideal candidates for caching!)
+<br/><br/><a
+        href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.5"><b>POST</b></a> on the other hand is typically used for operations that
+<b>manipulate content</b> on the server, such as adding, editing or removing content.<br/><br/><br/><br/><b><span
+        style="font-size: large;"><i>So, what about the other methods, you might ask?</i></span></b><br/>
+<br/>Well it turns out browsers are not the only clients talking to our web servers. The web of 2009 has two more essential infrastructure components that our servers frequently have to deal with:
+<b>proxy servers</b> and <b>web crawlers</b>.
+<br/>And it turns out these two types of clients are very fond of a third http method: <b>HEAD</b>.<br/><br/><a
+        href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.4"><b>HEAD</b></a> is identical to GET except that only the http headers are returned. The body is discarded. This is primarily used for checking the validity of URLs. The load on the server will most likely remain the same as the content-length header must be returned (and thus potentially calculated based on the generated response body). Only the bandwidth is saved.
+<br/><br/><br/><br/><b><span style="font-size: large;"><i>How do Java servlets deal with this?</i></span></b><br/>
+<br/>Not too bad it turns out ! Deep inside the HttpServlet class (part of the Servlet API 2.5), we find the following code:
+<br/>
+<pre class="prettyprint">protected void doHead(HttpServletRequest req, HttpServletResponse resp)<br/> throws ServletException, IOException {<br/>    NoBodyResponse response = new NoBodyResponse(resp);<br/> <br/>    doGet(req, response);<br/>    response.setContentLength();<br/>}<br/></pre>
+<br/>Here is what  the <b>NoBodyResponse</b> wrapper does (from the source code documentation):<br/>
+<blockquote>A response that includes no body, for use in (dumb) "HEAD" support.<br/>This just swallows that body,
+    counting the bytes in order to set the content length appropriately. All other methods delegate directly to the
+    HttpServletResponse object used to construct this one.
+</blockquote><br/>So this means the standard way of the servlet api to deal with with HEAD requests consists of:<br/>
+<ol>
+    <li>Wrapping the response using the NoBodyResponse in order to suppress the body, but preserve the headers.</li>
+    <li>Execute the GET functionnality of the application (with the wrapped response object)</li>
+    <li>Set the content-length header of the response</li>
+    <li>Return the response headers to the client (without the body)</li>
+</ol><br/>Sounds exactly like what we need, so where is the problem?<br/><br/><br/><i><span
+        style="font-size: large;"><b>Comes in Spring MVC...</b></span></i><br/>
+<br/>A typical Spring MVC 2.5 controller looks like this (from the Spring 2.5.6 reference documentation):<br/>
+<pre class="prettyprint">@Controller<br/>@RequestMapping("/editPet.do")<br/>@SessionAttributes("pet")<br/>public class EditPetForm {<br/>    private final Clinic clinic;<br/><br/>    @Autowired<br/>    public EditPetForm(Clinic clinic) {<br/>        this.clinic = clinic;<br/>    }<br/><br/>    @ModelAttribute("types")<br/>    public Collection&lt;pettype&gt; populatePetTypes() {<br/>        return this.clinic.getPetTypes();<br/>    }<br/><br/>    @RequestMapping(method = RequestMethod.GET)<br/>    public String setupForm(@RequestParam("petId") int petId, ModelMap model) {<br/>        Pet pet = this.clinic.loadPet(petId);<br/>        model.addAttribute("pet", pet);<br/>        return "petForm";<br/>    }<br/><br/>    @RequestMapping(method = RequestMethod.POST)<br/>    public String processSubmit(<br/>            @ModelAttribute("pet") Pet pet, BindingResult result, SessionStatus status) {<br/><br/>        new PetValidator().validate(pet, result);<br/>        if (result.hasErrors()) {<br/>            return "petForm";<br/>        }<br/>        else {<br/>            this.clinic.storePet(pet);<br/>            status.setComplete();<br/>            return "redirect:owner.do?ownerId=" + pet.getOwner().getId();<br/>        }<br/>    }<br/>}</pre>
+<br/>The editPetForm controller will respond to the /editPet.do URL.<br/><br/><b>GET /editPet.do</b> executes the <b>setupForm</b> method.
+<br/><b>POST /editPet.do</b> executes the <b>processSubmit</b> method.<br/><br/><br/><span style="font-size: large;"><b><i>But
+    what about HEAD /editPet.do?</i></b></span><br/><br/><b><span
+        style="color: red;">It generates an error!</span></b> Spring MVC cannot find a method annotated with<br/>
+<pre class="prettyprint">@RequestMapping(method = RequestMethod.HEAD)</pre>and throws an exception.<br/>
+<br/>There are two solutions to this problem.<br/><br/><b><span style="font-size: large;">Solution #1</span></b><br/><b>Add
+    the missing RequestMapping annotation to all controllers handling GET
+    requests.</b> This solves the problem, but not without significant <b>drawbacks</b>:<br/>
+<ul>
+    <li>It is verbose (this annotation must be added to all relevant controllers)</li>
+    <li>It is tedious (every controller must be reviewed)</li>
+    <li>It is error-prone (the burden lies on the developer not to forget this)</li>
+</ul><br/>But luckily there is an alternative...<br/><br/><span style="font-size: large;"><b>Solution #2</b></span><br/>
+<b>Add a servlet filter (in web.xml) in front of the Spring MVC servlet to lie about the http method and present all
+    HEAD requests as GET.</b><br/><br/>Here is the code:<br/>
+<pre class="prettyprint">//Imports and documentation have been omitted...<br/><br/>public class HttpHeadFilter implements Filter {<br/>    public void init(FilterConfig filterConfig) throws ServletException {<br/>    }<br/><br/>    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {<br/>        HttpServletRequest httpServletRequest = (HttpServletRequest) request;<br/><br/>        if (isHttpHead(httpServletRequest)) {<br/>            chain.doFilter(new ForceGetRequestWrapper(httpServletRequest), response);<br/>        } else {<br/>            chain.doFilter(request, response);<br/>        }<br/>    }<br/><br/>    public void destroy() {<br/>    }<br/><br/>    private boolean isHttpHead(HttpServletRequest request) {<br/>        return "HEAD".equals(request.getMethod());<br/>    }<br/><br/>    private class ForceGetRequestWrapper extends HttpServletRequestWrapper {<br/>        public ForceGetRequestWrapper(HttpServletRequest request) {<br/>            super(request);<br/>        }<br/><br/>        public String getMethod() {<br/>            return "GET";<br/>        }<br/>    }<br/>}<br/></pre>
+<br/>With this filter, our previous example would work as follows:<br/>
+<br/>The HEAD request will be seen as a GET by Spring MVC and therefore<b> HEAD /editPet.do</b> executes the <b>setupForm</b> method without the need for the extra annotation!
+<br/><br/><br/><b><span style="font-size: large;"><i>But what about the response?</i></span></b><br/>
+<br/>The Spring MVC DispatcherServlet<b> overrides the doService
+    method</b> from HttpServlet. This means that the nice NoBodyResponse logic is overridden, and thus never called.
+<br/><br/><br/>There are once again two solutions to this problem:<br/><br/><span style="font-size: large;"><b>Solution
+    #1</b></span><br/><b>Rely on your web
+    container </b>to suppress the response body for HEAD requests. Some containers, like Apache Tomcat, provide this functionality out of the box. Relying on container-specific behavior will increase your dependency on this particular server. This may or may not be a
+<b>problem</b>.<br/><br/><b><span style="font-size: large;">Solution #2</span></b><br/><b>Integrate the
+    NoBodyResponse</b> wrapper with the HttpHeadFilter.<br/><br/>This is how the final solution looks like:<br/>
+<pre class="prettyprint">//Imports and documentation have been omitted...<br/><br/>public class HttpHeadFilter implements Filter {<br/>    public void init(FilterConfig filterConfig) throws ServletException {<br/>    }<br/><br/>    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {<br/>        HttpServletRequest httpServletRequest = (HttpServletRequest) request;<br/><br/>        if (isHttpHead(httpServletRequest)) {<br/>            HttpServletResponse httpServletResponse = (HttpServletResponse) response;<br/>            NoBodyResponseWrapper noBodyResponseWrapper = new NoBodyResponseWrapper(httpServletResponse);<br/><br/>            chain.doFilter(new ForceGetRequestWrapper(httpServletRequest), noBodyResponseWrapper);<br/>            noBodyResponseWrapper.setContentLength();<br/>        } else {<br/>            chain.doFilter(request, response);<br/>        }<br/>    }<br/><br/>    public void destroy() {<br/>    }<br/><br/>    private boolean isHttpHead(HttpServletRequest request) {<br/>        return "HEAD".equals(request.getMethod());<br/>    }<br/><br/>    private class ForceGetRequestWrapper extends HttpServletRequestWrapper {<br/>        public ForceGetRequestWrapper(HttpServletRequest request) {<br/>            super(request);<br/>        }<br/><br/>        public String getMethod() {<br/>            return "GET";<br/>        }<br/>    }<br/><br/>    private class NoBodyResponseWrapper extends HttpServletResponseWrapper {<br/>        private final NoBodyOutputStream noBodyOutputStream = new NoBodyOutputStream();<br/>        private PrintWriter writer;<br/><br/>        public NoBodyResponseWrapper(HttpServletResponse response) {<br/>            super(response);<br/>        }<br/><br/>        public ServletOutputStream getOutputStream() throws IOException {<br/>            return noBodyOutputStream;<br/>        }<br/><br/>        public PrintWriter getWriter() throws UnsupportedEncodingException {<br/>            if (writer == null) {<br/>                writer = new PrintWriter(new OutputStreamWriter(noBodyOutputStream, getCharacterEncoding()));<br/>            }<br/><br/>            return writer;<br/>        }<br/><br/>        void setContentLength() {<br/>            super.setContentLength(noBodyOutputStream.getContentLength());<br/>        }<br/>    }<br/><br/>    private class NoBodyOutputStream extends ServletOutputStream {<br/>        private int contentLength = 0;<br/><br/>        int getContentLength() {<br/>            return contentLength;<br/>        }<br/><br/>        public void write(int b) {<br/>            contentLength++;<br/>        }<br/><br/>        public void write(byte buf[], int offset, int len) throws IOException {<br/>            contentLength += len;<br/>        }<br/>    }<br/>}<br/></pre>
+<br/><br/><b><span style="font-size: large;"><i>Conclusion</i></span></b><br/><br/>We now have a <b>drop-in
+    solution</b>, compatible with any web framework and any container. It allows us to <b>transparently support http
+    HEAD</b> requests in our applications and finally treat web crawlers and proxy servers as first class citizens.<br/>
+<br/>The source code for <b>HttpHeadFilter</b> is available <a
+        href="/assets/posts/http-head/HttpHeadFilter.java">here</a>. Feel free to use it as you wish.<br/>
+<br/>Feedback is always welcome.

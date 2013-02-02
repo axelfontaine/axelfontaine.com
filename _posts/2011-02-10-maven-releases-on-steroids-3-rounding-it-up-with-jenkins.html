@@ -1,0 +1,110 @@
+---
+layout: blog
+title: ! 'Maven Releases on Steroids (3): Rounding it up with Jenkins'
+permalink: /blog/maven-releases-steroids-3.html
+---
+In <a href="/blog/maven-releases-steroids-2.html"><b>Part
+    2</b></a>, we looked at what changes where necessary to the Maven POMs to make it all work.<br/>
+<br/>In this final part, we'll put the finishing touch by choosing a <b>version number</b> strategy and
+<b>integrating</b> what we have so far <b>with Jenkins</b>.<br/><br/><b style="font-size: large;">Version
+    Number</b><br/><br/>A good version number has a number of properties:<br/>
+<ul>
+    <li><b>Natural order:</b> it should be possible to determine at a glance between two versions which one is newer
+    </li>
+    <li><b>Maven support:</b> Maven should be able to deal with the format of the version number to enfore the natural
+        order
+    </li>
+    <li><b>Machine incrementable:</b> so you don't have to specify it explicitely every time</li>
+</ul><br/>Typical candidates can be:<br/>
+<ul>
+    <li>build number</li>
+    <li>timestamp (in a suitable format such as yyyy.MM.dd.HH.mm)</li>
+    <li>revision number (SVN only)</li>
+</ul>
+<br/>We must now find one we can use. Luckily for us, it turns out Jenkins has a very useful feature for this. During each build Jenkins exposes
+<a href="http://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-JenkinsSetEnvironmentVariables">a number of environments
+    variables</a>. A few of these are particularly interesting:<br/><br/>
+<blockquote>
+    <table border="1">
+        <tbody>
+        <tr>
+            <th style="padding: 10px;">Environment Variable</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">BUILD_NUMBER</td>
+            <td style="padding: 10px;">The current build number, such as "153"</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">BUILD_ID</td>
+            <td style="padding: 10px;">The current build id, such as "2005-08-22_23-59-59" (YYYY-MM-DD_hh-mm-ss)</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">SVN_REVISION</td>
+            <td style="padding: 10px;">For Subversion-based projects, this variable contains the revision number of the
+                module. If you have more than one module specified, this won't be set.
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</blockquote><br/>In this article, we''ll use the
+<b>BUILD_NUMBER</b> variable as a version number for our releases. We could have used one of the others as well, but this one fits our need perfectly: a fine machine-incremented number with a natural order supported by Maven.
+<br/><br/><br/><b style="font-size: large;">Jenkins</b><br/>
+<br/>The first thing to do is to set up a new Maven 2/3 project.<br/><br/>In this project you must<br/>
+<ul>
+    <li>configure the <b>SCM URL</b></li>
+    <li>set the <b>Maven Goals and options</b> to<br/>clean deploy scm:tag -DVERSION_NUMBER=<b>${BUILD_NUMBER}</b></li>
+</ul><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/maven-releases-steroids-3/JenkinsConfig.png"
+                                                                          alt="Jenkins Config"/></div>
+<br/>And that's it! Every time this job is run, a new release is produced, the artifacts will be deployed and the source code will be tagged. The version of the release will be the BUILD_NUMBER of the Jenkins project. Nice and simple.
+<br/><br/><br/><b style="font-size: large;">A small note for Nexus users:</b><br/>
+<br/>In order to allow Maven to <b>upload the corrected POMs</b> from Part 2 of this article, you need to set the <b>Deployment
+    Policy</b> of the <i>Releases</i> repository to <b>Allow Redeploy</b>.<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/maven-releases-steroids-3/NexusConfig.png"
+                                                                          alt="Nexus Config"/></div><br/><br/><b style="font-size: large;">Next step</b><br/>
+<br/>You're now ready to add a build trigger on SCM changes in Jenkins. Once you have this,<b>every</b> commit causing a
+<b>green build</b> will produce a <b>new release</b>. It's the next step up.<br/><br/><br/><b style="font-size: large;">Download</b><br/>
+<br/>Last, but not least, here is a sample <b>multi-module Maven
+    Project</b> with all the POMs correctly set up available for <a
+        href="/assets/posts/maven-releases-steroids-3/releasesonsteroids.zip"><b>download</b></a>.<br/><br/><br/><b style="font-size: large;">Conclusion</b><br/>
+<br/>Looking back at the workflow of the Release Plugin we discussed in <a
+        href="/blog/maven-releases-steroids.html"><b>Part
+    1</b></a>, we have come a long way!<br/><br/>If you're willing to live with 3 simple things:<br/>
+<ul>
+    <li>you do NOT depend on SNAPSHOTs, ever.</li>
+    <li>the POM does not contain the version number</li>
+    <li>you ALWAYS build releases from a CI server, and NEVER locally on a developer's machine</li>
+</ul><br/>you can now enjoy <b>very fast (3x) and robust releases</b>, without the headaches of the Release Plugin.<br/>
+<br/>For reference:<br/>
+<blockquote>
+    <table border="1">
+        <tbody>
+        <tr>
+            <th></th>
+            <th style="padding: 10px;">Releases on Steroids</th>
+            <th style="padding: 10px;">Release Plugin</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">clean/compile/test cycle</td>
+            <td style="padding: 10px;"><b>1 </b></td>
+            <td style="padding: 10px;"><span class="Apple-style-span" style="color: red;"><b>3</b></span></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">POM transformations</td>
+            <td style="padding: 10px;"><b>0 </b></td>
+            <td style="padding: 10px;"><b><span class="Apple-style-span" style="color: red;">2</span></b></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">commits</td>
+            <td style="padding: 10px;"><b>0 </b></td>
+            <td style="padding: 10px;"><span class="Apple-style-span" style="color: red;"><b>2</b></span></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px;">SCM revisons</td>
+            <td style="padding: 10px;"><b>1 </b></td>
+            <td style="padding: 10px;"><b><span class="Apple-style-span" style="color: red;">3</span></b></td>
+        </tr>
+        </tbody>
+    </table>
+</blockquote><br/><br/><b>Enjoy !</b> (You'll never look back :-) )

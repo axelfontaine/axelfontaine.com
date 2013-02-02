@@ -1,0 +1,58 @@
+---
+layout: blog
+title: ! 'Maven Releases on Steroids (2): Preparing the POMs'
+permalink: /blog/maven-releases-steroids-2.html
+---
+In <a href="/blog/maven-releases-steroids.html"><b>Part
+    1</b></a>, I wrote about the problems with the Maven Release Plugin and what could be a better way to perform releases with Maven.
+<br/><br/>In this part, we will make the necessary adjustments to the POMs to make it all work.<br/>
+<br/>Our goal is to have a <b>single command</b> to:<br/>
+<ul>
+    <li>Build and Test the SCM revision currently checked out</li>
+    <li>Deploy the binary artifacts to the Artifact Repository</li>
+    <li>Tag the SCM revision with the version number of the artifacts</li>
+</ul><br/>As we only want one commit instead of 3 per release, the <b>version number can not be contained inside the
+    POM</b> anymore, as this would make it impossible to update it without updating the POM itself.
+<br/>We have to balance this against the need for a <b>default version number</b> when performing local, <b>non-release
+    builds</b>, as we don't want to pass in a version number for every build.<br/>
+<br/>This means we have the following requirements:<br/>
+<ul>
+    <li>Version number settable from outside for release builds</li>
+    <li>Default version number for local, non-release builds</li>
+</ul><br/>This can be solved by introducing a <b>VERSION_NUMBER</b> property:<br/><br/>Parent POM:<br/>
+<pre class="prettyprint">&lt;project ...&gt;<br/>  ...<br/>  &lt;version&gt;${VERSION_NUMBER}&lt;/version&gt;<br/>  ...<br/>  &lt;properties&gt;<br/>    ...<br/>    &lt;VERSION_NUMBER&gt;1.0-SNAPSHOT&lt;/VERSION_NUMBER&gt;<br/>    ...<br/>  &lt;/properties&gt;<br/>  ...<br/></pre>
+<br/>Child POMs:<br/>
+<pre class="prettyprint">&lt;project ...&gt;<br/>  ...<br/>  &lt;parent&gt;<br/>    ...<br/>    &lt;version&gt;${VERSION_NUMBER}&lt;/version&gt;<br/>    ...<br/>  &lt;/parent&gt;<br/>  ...<br/>  &lt;version&gt;${VERSION_NUMBER}&lt;/version&gt;<br/>  ...<br/></pre>
+<br/>The VERSION_NUMBER property now determines the version of our project.<br/>
+<br/>By default it is set to 1.0-SNAPSHOT for local, non-release builds.
+<br/>It can also be set externally using -DVERSION_NUMBER=... for release builds.<br/><br/><b>And normally, this should
+    be it!</b><br/><br/>Unfortunately, Maven has a <a
+        href="http://jira.codehaus.org/browse/MNG-2971"><b>minefield</b></a> <a
+        href="http://jira.codehaus.org/browse/MNG-4223"><b>of</b></a> <a
+        href="http://jira.codehaus.org/browse/MINSTALL-50"><b>bugs</b></a> we need to work around. What it basically boils down to, is that Maven neglects to replace variables in installed (local repo) and deployed (remote repo) POMs. This means our POMs get deployed with &lt;version&gt;${VERSION_NUMBER}&lt;/version&gt;, which causes problems at runtime.
+<br/>
+<br/>We will need to overwrite the broken POMs with a new version that has its variables replaced with their values.
+<br/>
+<br/>The first thing we need to add (only to our parent POM) is a way to distinguisch between snapshot and release builds:
+<br/>
+<pre class="prettyprint">&lt;project ...&gt;<br/>  ...<br/>  &lt;properties&gt;<br/>    ...<br/>    &lt;releaseRepoUrl&gt;http://my.release.repo&lt;/releaseRepoUrl&gt;<br/>    &lt;snapshotRepoUrl&gt;http://my.snapshot.repo&lt;/snapshotRepoUrl&gt;<br/>    &lt;deployRepoUrl&gt;${releaseRepoUrl}&lt;/deployRepoUrl&gt;<br/>    &lt;isRelease&gt;true&lt;/isRelease&gt;<br/>    ...<br/>  &lt;/properties&gt;<br/>  ...<br/>  &lt;profiles&gt;<br/>    &lt;profile&gt;<br/>      &lt;id&gt;snapshot-deploy-url-override&lt;/id&gt;<br/>      &lt;activation&gt;<br/>        &lt;property&gt;<br/>          &lt;name&gt;!VERSION_NUMBER&lt;/name&gt;<br/>        &lt;/property&gt;<br/>      &lt;/activation&gt;<br/>      &lt;properties&gt;<br/>        &lt;deployRepoUrl&gt;${snapshotRepoUrl}&lt;/deployRepoUrl&gt;<br/>        &lt;isRelease&gt;false&lt;/isRelease&gt;<br/>      &lt;/properties&gt;<br/>    &lt;/profile&gt;<br/>  &lt;/profiles&gt;<br/>  ...<br/>  &lt;distributionManagement&gt;<br/>    &lt;snapshotRepository&gt;<br/>      &lt;id&gt;snapshots-repo&lt;/id&gt;<br/>      &lt;name&gt;Snapshots Repo&lt;/name&gt;<br/>      &lt;url&gt;${snapshotRepoUrl}&lt;/url&gt;<br/>    &lt;/snapshotRepository&gt;<br/>    &lt;repository&gt;<br/>      &lt;id&gt;releases-repo&lt;/id&gt;<br/>      &lt;name&gt;Releases Repo&lt;/name&gt;<br/>      &lt;url&gt;${releaseRepoUrl}&lt;/url&gt;<br/>    &lt;/repository&gt;<br/>  &lt;/distributionManagement&gt;<br/>  ...<br/></pre>
+<br/>And now comes the real juicy part (only necessary in the parent POM):<br/>
+<ul>
+    <li>Fixing the POM by substituting the variables</li>
+    <li>Overwriting the existing POM in the local repo</li>
+    <li>Overwriting the existing POM in the remote repo</li>
+</ul>
+<pre class="prettyprint">&lt;project ...&gt;<br/>  ...<br/>  &lt;build&gt;<br/>    ...<br/>    &lt;plugins&gt;<br/>      &lt;plugin&gt;<br/>        &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;<br/>        &lt;version&gt;2.4.3&lt;/version&gt;<br/>        &lt;executions&gt;<br/>          &lt;execution&gt;<br/>            &lt;id&gt;replace-pom-placeholder&lt;/id&gt;<br/>            &lt;phase&gt;package&lt;/phase&gt;<br/>            &lt;goals&gt;<br/>              &lt;goal&gt;copy-resources&lt;/goal&gt;<br/>            &lt;/goals&gt;<br/>            &lt;configuration&gt;<br/>              &lt;resources&gt;<br/>                &lt;resource&gt;<br/>                  &lt;directory&gt;${basedir}&lt;/directory&gt;<br/>                  &lt;includes&gt;<br/>                    &lt;include&gt;pom.xml&lt;/include&gt;<br/>                  &lt;/includes&gt;<br/>                  &lt;filtering&gt;true&lt;/filtering&gt;<br/>                &lt;/resource&gt;<br/>              &lt;/resources&gt;<br/>              &lt;outputDirectory&gt;${project.build.directory}/pom-install-deploy-fix&lt;/outputDirectory&gt;<br/>            &lt;/configuration&gt;<br/>          &lt;/execution&gt;<br/>        &lt;/executions&gt;<br/>      &lt;/plugin&gt;<br/><br/>      &lt;plugin&gt;<br/>        &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;<br/>        &lt;version&gt;2.3.1&lt;/version&gt;<br/>        &lt;executions&gt;<br/>          &lt;execution&gt;<br/>            &lt;id&gt;overwrite-pom&lt;/id&gt;<br/>            &lt;phase&gt;install&lt;/phase&gt;<br/>            &lt;goals&gt;<br/>              &lt;goal&gt;install-file&lt;/goal&gt;<br/>            &lt;/goals&gt;<br/>            &lt;configuration&gt;<br/>              &lt;packaging&gt;pom&lt;/packaging&gt;<br/>              &lt;file&gt;target/pom-install-deploy-fix/pom.xml&lt;/file&gt;<br/>              &lt;pomFile&gt;target/pom-install-deploy-fix/pom.xml&lt;/pomFile&gt;<br/>              &lt;version&gt;${project.version}&lt;/version&gt;<br/>            &lt;/configuration&gt;<br/>          &lt;/execution&gt;<br/>        &lt;/executions&gt;<br/>      &lt;/plugin&gt;<br/><br/>      &lt;plugin&gt;<br/>        &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;<br/>        &lt;version&gt;2.5&lt;/version&gt;<br/>        &lt;executions&gt;<br/>          &lt;execution&gt;<br/>            &lt;id&gt;overwrite-pom&lt;/id&gt;<br/>            &lt;phase&gt;deploy&lt;/phase&gt;<br/>            &lt;goals&gt;<br/>              &lt;goal&gt;deploy-file&lt;/goal&gt;<br/>            &lt;/goals&gt;<br/>            &lt;configuration&gt;<br/>              &lt;packaging&gt;pom&lt;/packaging&gt;<br/>              &lt;file&gt;target/pom-install-deploy-fix/pom.xml&lt;/file&gt;<br/>              &lt;pomFile&gt;target/pom-install-deploy-fix/pom.xml&lt;/pomFile&gt;<br/>              &lt;url&gt;${deployRepoUrl}&lt;/url&gt;<br/>              &lt;version&gt;${project.version}&lt;/version&gt;<br/>              &lt;updateReleaseInfo&gt;${isRelease}&lt;/updateReleaseInfo&gt;<br/>              &lt;uniqueVersion&gt;false&lt;/uniqueVersion&gt;<br/>            &lt;/configuration&gt;<br/>          &lt;/execution&gt;<br/>        &lt;/executions&gt;<br/>      &lt;/plugin&gt;<br/>      ...<br/>    &lt;/plugins&gt;<br/>    ...<br/>  &lt;/build&gt;<br/>  ...<br/></pre>
+<br/>If you also want to deploy <b>source artifacts</b>, check out the <a
+        href="http://maven.apache.org/plugins/maven-source-plugin/usage.html">Maven Source Plugin</a>.<br/>
+<br/>So far, so good: we now have taken care of the <b>deployment in the Artifact Repository</b>!<br/><br/><br/>
+<br/>Let's add the final bit to enable <b>SCM tagging</b>...<br/><br/>First add the scm section to your parent POM:<br/>
+<pre class="prettyprint">&lt;project ...&gt;<br/>  ...<br/>  &lt;scm&gt;<br/>    &lt;connection&gt;scm:my-provider:my-read-url&lt;/connection&gt;<br/>    &lt;developerConnection&gt;scm:my-provider:my-read-write-url&lt;/developerConnection&gt;<br/>  &lt;/scm&gt;<br/>  ...<br/></pre>
+<br/>And now add the scm plugin to the plugins section of the parent POM:<br/>
+<pre class="prettyprint">&lt;plugin&gt;<br/>    &lt;artifactId&gt;maven-scm-plugin&lt;/artifactId&gt;<br/>    &lt;version&gt;1.4&lt;/version&gt;<br/>    &lt;configuration&gt;<br/>      &lt;tag&gt;${project.artifactId}-${VERSION_NUMBER}&lt;/tag&gt;<br/>    &lt;/configuration&gt;<br/>  &lt;/plugin&gt;<br/></pre>
+<br/>Done!<br/><br/><br/><br/>We can now<br/>
+<ul>
+    <li><b>publish new snapshots</b> using<br/>mvn clean deploy<br/></li>
+    <li><b>release and tag new versions</b> using<br/>mvn clean deploy scm:tag -DVERSION_NUMBER=1.2.3</li>
+</ul><br/>In <a href="/blog/maven-releases-steroids-3.html"><b>Part
+    3</b></a>, we conclude our adventure by choosing a version number strategy and looking at Jenkins integration.

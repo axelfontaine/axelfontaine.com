@@ -1,0 +1,251 @@
+---
+layout: blog
+title: Optional Dependency Strategies for Java Libraries
+permalink: /blog/optional-dependencies.html
+---
+<div dir="ltr" style="text-align: left;" trbidi="on">In software, contrary to common belief, <b>lines of code are a
+    liability not an asset</b>. As you gradually accumulate code, little by little the pain sets in. The complexity
+increases. It gets harder to understand. And eventually, quality suffers.<br/><br/><b>Dependencies only&nbsp;exacerbate&nbsp;this
+    problem.</b> With each dependency you add, you pull in more code, more APIs to learn and more potential
+bugs.<br/><br/><a
+        href="http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Transitive_Dependencies">Transitive
+    dependencies</a> take this problem to 11. You now have the possible issue of conflicting dependencies! And
+before you know it ... you have landed in <a href="http://en.wikipedia.org/wiki/Java_Classloader#jarhell">JAR
+    Hell</a>! So much for laughing at our Windows friends stuck in&nbsp;<a
+        href="http://en.wikipedia.org/wiki/DLL_hell">DLL Hell</a>...<br/><br/>And yet, dependencies are a necessary
+evil. If you want to avoid reinventing the wheel or if you want to integrate with the outside world, there very
+often is no way to avoid them. In the spirit of <a href="http://www.xprogramming.com/Practices/PracSimplest.html">doing
+    the simplest thing that could possibly work</a>, strive to <b>reduce the number of dependencies to the absolute
+    minimum required</b>. Every single dependency you add should be weighed carefully: does the functional benefit
+outweigh the complexity cost?<br/><br/><br/><h4 style="text-align: left;"><span style="font-size: x-large;">Special case: Libraries and Frameworks</span>
+</h4><br/>A library&nbsp;or framework&nbsp;in broad general use&nbsp;(like <a
+        href="http://code.google.com/p/flyway/">Flyway</a>) usually supports a wide range of scenarios for a very
+diverse set of users. In Flyway's case this currently means dependencies on:<br/>
+<ul style="text-align: left;">
+    <li>10+ Jdbc Drivers</li>
+    <li>Spring Jdbc</li>
+    <li>OSGi (Equinox)</li>
+    <li>JBoss VFS v2</li>
+    <li>JBoss VFS v3</li>
+    <li>Ant</li>
+    <li>Maven</li>
+</ul>
+<div><br/>Nobody in their right mind would be keen on pulling all these dependencies in just to use the subset they
+    need. And in fact, it wouldn't even be possible as some of them are conflicting! Yes, JBoss VFS v2 and v3, it's
+    you I'm looking at!
+</div>
+<div><br/></div>
+<div>How do we solve this? How do we support all users without forcing all these dependencies onto each and everyone
+    of them?
+</div>
+<div><br/></div>
+<div>The answer lies in <b>optional dependencies</b>.</div>
+<div>
+    <a href="http://www.amazon.de/gp/product/B005F2MVGO/ref=as_li_qf_sp_asin_tl?ie=UTF8&amp;camp=1638&amp;creative=6742&amp;creativeASIN=B005F2MVGO&amp;linkCode=as2&amp;tag=axelfont-21"><img
+            alt="Rock Band 2 Triple Cymbal Expansion Kit  (PS and PS3 compatible)"
+            src="http://ecx.images-amazon.com/images/I/41onyx-PtWL._SL500_AA300_.jpg"/></a></div>
+<div>There are <b>5 basic strategies</b> for dealing with optional dependencies:</div>
+<div>
+    <ul style="text-align: left;">
+        <li>Create a separate module which depends on the base module and the optional dependency</li>
+        <li>Create a module per optional dependency which the base module depends on.</li>
+        <li>Mark the dependency as non-transitive and activate the functionality at runtime if present</li>
+        <li>Use reflection and activate the functionality at runtime if present</li>
+        <li>Use a Service Provider Interface and call the correct implementation at runtime</li>
+    </ul>
+    <div><br/>Each of these strategies has its pros and cons. Let's look at them in turn.</div>
+</div>
+<div><br/><br/><br/></div>
+<div><br/></div>
+<h4 style="text-align: left;"><span style="font-size: x-large;">Separate Module</span></h4>
+
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;">
+    <img src="/assets/posts/optional-dependencies/SeparateModule.png" alt="Separate Module"/>
+</div>
+<div class="clear"><b>Typical use case:</b></div>
+<div>Well-isolated dependencies that do not need to be combined together. In Flyway's case, this applies to the
+    Ant and Maven dependencies. You will not need the Ant dependency when executing the Maven plugin and vice
+    versa.
+</div>
+<div><br/></div>
+<b>Advantage for the End-User:</b>
+
+<div>Smallest amount of code in KB as no code to support other optional dependencies is pulled in.</div>
+<div>All dependencies are transitive.</div>
+<div><br/></div>
+<div><b>Disadvantage for the End-User:</b></div>
+<div>Must know which specific module from the library should be imported.<br/>Can only make use of one of the
+    optional dependencies at a time.
+</div>
+<div><br/></div>
+<div><b>Advantage for the Library Developer:</b></div>
+<div>Compile-time checking and IDE completion when working with the optional dependency.</div>
+<div><br/></div>
+<div><b>Disadvantage for the Library Developer:</b></div>
+<div>Two modules to maintain and release instead of one.</div>
+<div><br/><br/></div>
+<div><br/></div>
+<div><br/><br/></div>
+<h4><span style="font-size: x-large;">Module per Dependency</span></h4>
+
+<div>
+    <div class="separator" style="clear: both; text-align: center;"></div>
+    <div class="separator" style="clear: both; text-align: center;"></div>
+    <div class="separator" style="clear: both; text-align: center;"></div>
+    <br/>
+
+    <div class="separator" style="clear: both; text-align: center;"><img
+            src="/assets/posts/optional-dependencies/ModulePerDependency.png"
+            alt="Module per Dependency"/></div>
+    <div class="clear"><b>Typical use case:</b></div>
+    <div>Dependencies that require a large amount of custom code to deal with. This becomes especially relevant
+        in environments where application size has a direct impact on user experience. (Installation size vs
+        download times on mobile, ...)
+    </div>
+    <div><br/></div>
+    <b>Advantage for the End-User:</b></div>
+<div>Smallest amount of code in KB as no code to support other optional dependencies is pulled in.</div>
+<div>Can depend on multiple optional dependencies at the same time.</div>
+<div><br/></div>
+<div><b>Disadvantage for the End-User:</b></div>
+<div>No transitive dependency support. Must manually reference the correct library module for the optional
+    dependency. <br/>Largest amount of modules to manage overall.
+</div>
+<div><br/></div>
+<div><b>Advantage for the Library Developer:</b></div>
+<div>Compile-time checking and IDE completion when working with the optional dependency.</div>
+<div><br/></div>
+<div><b>Disadvantage for the Library Developer:</b></div>
+<div>Two modules to maintain and release instead of one.<br/>All access to the code of the optional dependency
+    support module must be carefully guarded to avoid NoClassDefFoundError.
+</div>
+<div><br/><br/></div>
+<div><br/></div>
+<div><br/><br/></div>
+<br class="Apple-interchange-newline"/><h4 style="text-align: left;"><b><span style="font-size: x-large;">Non-transitive Dependency</span></b>
+</h4>
+
+<div class="separator" style="clear: both; text-align: center;"></div>
+<div class="separator" style="clear: both; text-align: center;"><img
+        src="/assets/posts/optional-dependencies/Optional.png"
+        alt="Optional"/>
+</div>
+<div class="clear"><b>Typical use case:</b></div>
+<div>Dependencies that can be combined together. In Flyway's case, this applies to JBoss VFS, OSGi and Spring
+    Jdbc. It is very well possible for a JBoss or an OSGi user to have Spring on board. Being able to use both
+    at the same time is critical.
+</div>
+<br/><b>Advantage for the End-User:</b>
+
+<div>A single library module to depend upon.<br/>Can depend on multiple optional dependencies at the same time.
+</div>
+<div><br/></div>
+<div><b>Disadvantage for the End-User:</b></div>
+<div>Must pull in some unused code to support the other missing optional dependencies.</div>
+<div>No transitive dependency support. Must manually reference optional dependency in own project.</div>
+<div><br/></div>
+<div><b>Advantage for the Library Developer:</b></div>
+<div>Compile-time checking and IDE completion when working with the optional dependency.</div>
+<div>A single module to maintain and release.</div>
+<div><br/></div>
+<div><b>Disadvantage for the Library Developer:</b></div>
+<div>All access to the code relying on the optional dependency must be carefully guarded to avoid
+    NoClassDefFoundError.
+</div>
+<div><br/></div>
+<br/><br/><br/><h4 style="text-align: left;"><span style="font-size: x-large;">Reflection</span></h4>
+
+<div class="separator" style="clear: both; text-align: center;">
+    <img src="/assets/posts/optional-dependencies/Reflection.png" alt="Reflection"/>
+</div>
+<div class="clear"><b>Typical use case:</b></div>
+<div>Support multiple, mutually incompatible versions of the same dependency. In Flyway's case, this applies to
+    JBoss VFS v2 and v3. Even though they have different package structures, they share the same artifact id.
+    Maven will therefore always pull in the higher version. One of them can be declared and used as regular
+    optional dependency, while the other must then be used via reflection (and not appear in the POM).
+</div>
+<div><br class="Apple-interchange-newline"/></div>
+<b>Advantage for the End-User:</b>
+
+<div>A single library module to depend upon.<br/>Can depend on multiple optional dependencies at the same time.
+</div>
+<div><br/></div>
+<div><b>Disadvantage for the End-User:</b></div>
+<div>Must pull in some unused code to support the other missing optional dependencies.<br/>No transitive dependency
+    support. Must manually reference optional dependency in own project.<br/><br/><b>Advantage for the Library
+        Developer:</b></div>
+<div>Possibility to support multiple, mutually incompatible versions of the same dependency.</div>
+<div>A single module to maintain and release.</div>
+<div><br/></div>
+<div><b>Disadvantage for the Library Developer:</b></div>
+<div>The code relying on the optional dependency must use reflection, sacrificing readability and compiler safety.
+</div>
+<div>
+    <div>All access to the code relying on the optional dependency must be carefully guarded to avoid
+        NoClassDefFoundError.
+    </div>
+</div>
+<div><br/></div>
+<div><br/><br/><br/></div>
+<h4 style="text-align: left;"><span style="font-size: x-large;">Service Provider Interface</span></h4>
+
+<div><img
+        src="/assets/posts/optional-dependencies/SPI.png"
+        alt="SPI"/></div>
+<div class="clear"><b>Typical use case:</b><br/>Support various implementations of the same
+    interface. In Flyway's case, this applies to the Jdbc drivers. Flyway supports many of them, and yet
+    they are all accessed through the same API (Jdbc).
+</div>
+<div><br class="Apple-interchange-newline"/></div>
+<b>Advantage for the End-User:</b>
+
+<div>A single library module to depend upon.<br/>Smallest amount of code in KB as only code to support the
+    common SPI is pulled in.
+</div>
+<div><br/></div>
+<div><b>Disadvantage for the End-User:</b></div>
+<div>No transitive dependency support. Must manually reference optional dependency in own project.<br/>May have
+    to configure which SPI implementation to use.
+</div>
+<div><br class="Apple-interchange-newline"/></div>
+<div><b>Advantage for the Library Developer:</b></div>
+<div>Common SPI to program against, with compile-time checking and IDE completion.</div>
+<div>A single module to maintain and release.</div>
+<div><br/></div>
+<div><b>Disadvantage for the Library Developer:</b></div>
+<div>Must match the SPI with its implementation at runtime. Failure to properly do so will result in Exceptions
+    at runtime.<br/>Should test the library with the different SPI implementations to ensure they behave as
+    expected.
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/><br/></div>
+<h4 style="text-align: left;"><span
+        style="font-size: x-large;">Checking if a dependency is present at runtime</span></h4>
+
+<div><br/>A number of these strategies depend on being able to check whether a certain dependency is available at
+    runtime and guard against using its related features if it isn't.<br/><br/>This sounds complicated, but it turns
+    out to be relatively easy on the Java platform: <br/>
+    <pre class="prettyprint">public static boolean isPresent(String className) {<br/>    try {<br/>        Class.forName(className);<br/>        return true;<br/>    } catch (Throwable ex) {<br/>        // Class or one of its dependencies is not present...<br/>        return false;<br/>    }<br/>}<br/><br/>...<br/><br/>if (isPresent("com.optionaldependency.DependencyClass")) {<br/>    // This block will never execute when the dependency is not present<br/>    // There is therefore no more risk of code throwing NoClassDefFoundException.<br/>    executeCodeLinkingToDependency();<br/>}<br/></pre>
+</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<h4 style="text-align: left;"><span style="font-size: x-large;">Conclusion</span></h4>
+
+<div><br/>The 5 different strategies each deal with different scenarios and different forces that must be balanced.
+    Even in a relatively small library like Flyway, it wasn't possible to simply rely on a single one. Know them
+    well and know when to use them. But if there has to be a single most important guideline to remember, let it be
+    this one:
+</div>
+<div><br/></div>
+<div><b>Always favor the convenience of the end-user over your own when designing your library or framework.</b>
+</div>
+<div><br/></div>
+<div><br/><br/></div>
+<div><br/></div>
+<div>Thanks for reading this far! Find out more and stay in touch by <a href="https://twitter.com/axelfontaine">following
+    me on Twitter</a><br/><br/></div>
+</div>

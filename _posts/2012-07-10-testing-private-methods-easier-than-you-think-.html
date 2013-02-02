@@ -1,0 +1,69 @@
+---
+layout: blog
+title: ! 'Testing private methods: easier than you think!'
+permalink: /blog/private-methods.html
+---
+<div dir="ltr" style="text-align: left;" trbidi="on">Testing private methods is something that has traditionally drawn
+    <a href="http://stackoverflow.com/questions/34571/whats-the-proper-way-to-test-a-class-with-private-methods-using-junit">heated
+        debates</a> in the Java world.<br/><br/>The solutions usually fall into 4 categories:<br/>
+    <ul style="text-align: left;">
+        <li>Don't test private methods</li>
+        <li>Use reflection</li>
+        <li>Use a nested class</li>
+        <li>Change the visibility</li>
+    </ul>
+    <div><br/>Let's look at them in turn:</div>
+    <div><br/></div>
+    <div><b>Don't test private methods</b></div>
+    <div><b><br/></b></div>
+    <div>This really leaves us with three choices:</div>
+    <div>
+        <ul style="text-align: left;">
+            <li>refactor to make the method public in some helper class</li>
+            <li>test through a calling method with a higher visibility</li>
+            <li>give up</li>
+        </ul>
+        <div>A delightful choice between increased bloat, higher test complexity and resignation!</div>
+    </div>
+    <div><br/></div>
+    <div>No, thank you!</div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><b>Use reflection</b></div>
+    <div><br/></div>
+    <div>Why make things simple when you can also make them hard and long-winded? Haven't you always been dreaming of
+        needing 10 lines of code to make a method call?&nbsp;(Yes, there are now even entire&nbsp;<a
+                href="http://dp4j.com/">tools</a>&nbsp;dedicated to this big operation!)&nbsp;Extra bonus points because
+        you can now also prevent your IDE's compiler and refactoring tools from helping you!
+    </div>
+    <div><br/></div>
+    <div>No, thank you!</div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><b>Use a nested class</b></div>
+    <div><br/></div>
+    <div>No too bad, but with 3 significant drawbacks: <br/>
+        <ul style="text-align: left;">
+            <li>no separate sources / test sources folders</li>
+            <li>larger classes</li>
+            <li>unit test code in production binaries</li>
+        </ul>
+    </div>
+    <div>We can do better.<br/><br/>No thank you!</div>
+    <div><br/></div>
+    <div><br/></div>
+    <div><b>Change the visibility</b></div>
+    <div><br/></div>
+    <div>This leaves us with the last option. Not perfect either, but by far the most pragmatic!</div>
+    <div><br/></div>
+    <div>It trades a slight increase in visibility (to package-protected) for greatly simplified calling (a regular
+        method call, no less!), while still preserving the valuable sources / test sources separation.
+    </div>
+    <div><br/>And with a simple&nbsp;documentation&nbsp;habit, it becomes clear to everyone why this design trade-off
+        was made:
+    </div>
+    <div>
+        <pre class="prettyprint">/* private -&gt; testing */ void myMethodUnderTest() {<br/>    ...<br/>}<br/></pre>
+        <br/><br/>So the next time you face this problem, choose the pragmatic route. And enjoy a coffee while everyone
+        else is still trying to complicate things. :-)<br/><br/></div>
+</div>

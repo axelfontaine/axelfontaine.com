@@ -365,3 +365,32 @@ body.modal-open {
     width: 400px;
     height: 280px;
 }
+
+#blog-post-date {
+    color: #808080;
+    font-weight: bold;
+}
+
+.blog-post-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    line-height: 36px;
+}
+
+#blog-post-nav {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#blog-post-previous {
+    float: left;
+}
+
+#blog-post-next {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}

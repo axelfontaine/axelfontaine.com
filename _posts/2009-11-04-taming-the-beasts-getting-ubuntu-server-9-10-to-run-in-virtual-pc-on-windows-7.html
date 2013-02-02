@@ -1,0 +1,41 @@
+---
+layout: blog
+title: ! 'Taming the beasts: Getting Ubuntu Server 9.10 to run in Virtual PC on Windows
+7'
+permalink: /blog/ubuntu-server-virtualpc.html
+---
+As I
+<a href="/blog/ie-6-7-8.html">wrote</a>, I am a big fan of Windows 7 and virtualization. While my development environment for
+<a href="http://www.veturanto.com/">Veturanto</a> runs on Windows, the production server runs on <a
+        href="http://www.ubuntu.com/products/whatIsubuntu/serveredition">Ubuntu
+    Server</a>. Ubuntu Server is great and by far the best Linux distribution available at the moment. One piece of the Veturanto infrastructure puzzle I haven't talked about yet is the test server. As I want it to be as close as possible to the production environment, it also naturally runs the same OS. And being a virtualization fan, I want it to run in a window to boot.
+<br/><br/>However <b>Virtual PC and Ubuntu Server</b> have a history of making life difficult for each other and <b>not
+    playing together nicely</b>. There is however a way to get them to cooperate.<br/><br/><span
+        style="font-size: large;">So let's go and tame these beasts!</span><br/><br/><b>For this to work you will
+    need:</b><br/>
+<ul>
+    <li>Windows 7 with Virtual PC installed (see my <a
+            href="/blog/ie-6-7-8.html">previous blog
+        post</a>)
+    </li>
+    <li>The <a href="http://www.ubuntu.com/getubuntu/download-server">Ubuntu Server 9.10 32-bit ISO</a> (Virtual PC does
+        not yet support 64-bit guests)
+    </li>
+</ul><br/><span style="font-size: large;">Ok, let's get started!</span><br/><br/>1. In the <b>Virtual
+    Machines</b> folder, create a new VM. Before launching it, edit the settings to<b> mount the Ubuntu ISO</b><br/>
+<br/>2. Launch the VM and run the installation normally.<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ubuntu-server-virtualpc/install.png" alt="Install"/><br/>
+</div><br/>3. In Grub, select the <b>Linux 2.6.31-14-generic-pae</b> entry and press "<b>e</b>" to edit it.<br/>
+<br/>4. Add "<b>noreplace-paravirt vga=771</b>" (no quotes) before "<b>quiet
+    splash</b>" on the second last line and press <b>Ctrl+x</b> to boot<br/><br/>5. Log in and create a file called "<b>/etc/default/grub</b>" as root with this content:
+<br/>
+<pre class="brush: text">GRUB_DEFAULT=0<br/>GRUB_CMDLINE_LINUX_DEFAULT="noreplace-paravirt vga=771 quiet splash"<br/></pre>
+<br/>6. Execute this command:<br/>
+<pre class="brush: shell">sudo update-grub<br/></pre><br/>7. Reboot<br/><br/>8. <b>Welcome to Ubuntu Server 9.10 under
+    Virtual PC on Windows 7 !</b><br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ubuntu-server-virtualpc/welcome.png" alt="Welcome"/><br/>
+</div><br/><br/><b>Note:</b> Credits go to <a
+        href="http://www.myoddweb.com/2009/07/04/install-ubuntu-9-on-virtual-pc-2007-part-deux/">this post</a> and <a
+        href="http://tombuntu.com/index.php/2007/09/05/making-ubuntu-server-work-in-virtualbox/">this
+    post</a> as they were essential inspiration to arrive at this solution!<br/><br/><span style="color: red;"><b>Update:</b><span
+        style="color: black;"> Removed the bit about changing the kernel. It wasn't necessary.</span></span>

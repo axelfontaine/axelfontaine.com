@@ -1,0 +1,39 @@
+---
+layout: blog
+title: Environment Detection
+permalink: /blog/environment-detection.html
+---
+One of the key aspects of my <a href="/blog/continuous-delivery-rheinjug.html"><b>Continuous</b></a>
+<a href="http://parleys.com/#st=5&id=2443"><b>Delivery</b></a> talks is applications being aware of where they are.<br/>
+<br/><b>Environment
+    Detection</b> stands for the ability to sense in which environment an application is currently deployed using the simplest means at its disposal.
+<br/>
+<br/>Once this information is available you can act on it in a number of meaningful ways, such as loading the appropriate configuration or enabling/disabling features for the current environment.
+<br/>
+<br/>This is powerful and simpler than it sounds. I'll show you a number of ways to implement the detection and then, we'll look at how to integrate it in an application. But always remember: use the simplest technique that works for you.
+<br/><br/><br/>The most common detection strategies are:<br/>
+<ul>
+    <li>IP Address/Range</li>
+    <li>HostName</li>
+    <li>File contents</li>
+    <li>Operating System</li>
+    <li>System Property</li>
+</ul><br/>Let's have a look at how to implement them in Java.<br/><br/><h4>IP Address/Range</h4>
+<pre class="prettyprint">// Assuming 1.2.3.4 is the IP Address of your DEV machine<br/>// and 5.6.7.x is the IP Range of your PROD environment<br/>String ipAddress = InetAddress.getLocalHost().getHostAddress();<br/>if ("1.2.3.4".equals(ipAddress)) {<br/>    // DEV<br/>} else if (ipAddress.startsWith("5.6.7.")) {<br/>    // PROD<br/>}</pre>
+<br/><h4>HostName</h4>
+<pre class="prettyprint">// Assuming abc and def are the hostNames of your DEV and PROD servers<br/>String hostName = InetAddress.getLocalHost().getHostName();<br/>if ("abc".equals(hostName)) {<br/>    // DEV<br/>} else if ("def".equals(hostName)) {<br/>    // PROD<br/>}<br/></pre>
+<br/><h4>File contents</h4>
+<pre class="prettyprint">import org.springframework.util.FileCopyUtils;<br/><br/>// Assuming /etc/my.env exists<br/>// and contains the name of the environment such as DEV, TEST, PROD, ...<br/>String environment = FileCopyUtils.copyToString(new FileReader("/etc/my.env"));<br/></pre>
+<br/><h4>Operating System</h4>
+<pre class="prettyprint">// Assuming DEV is on Windows and PROD on Linux<br/>String operatingSystem = System.getProperty("os.name");<br/>if (operatingSystem.startsWith("Windows")) {<br/>    // DEV<br/>} else {<br/>    // PROD<br/>}<br/></pre>
+<br/><h4>System Property</h4>
+<pre class="prettyprint">// Assuming my.env is set<br/>// and contains the name of the environment such as DEV, TEST, PROD, ...<br/>String environment = System.getProperty("my.env");<br/></pre>
+<br/>And that's all there is to it !<br/><br/><br/>Here is a <b>quick
+    example</b> of how to leverage this newly acquired piece of information:<br/>
+<br/>Say we use a framework like Spring and want to easily load the <b>appropriate configuration for the current
+    environment</b>.<br/>
+<br/>We use an EnvironmentDetectionService to detect the environment and store the result in a System Property called my.env. The configuration for each environment is stored in a separate folder.
+<br/><br/>We can now load the appropriate configuration like this:<br/>
+<pre class="prettyprint">&lt;bean id="environmentDetectionService" class="my.pkg.EnvironmentDetectionService"<br/>    init-method="detectEnvironment"/&gt;<br/><br/>&lt;bean<br/>    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"<br/>    depends-on="environmentDetectionService"&gt;<br/>    &lt;property name="location" value="/config/${my.env}/my.properties"/&gt;<br/>&lt;/bean&gt;<br/></pre>
+<br/><br/><b>Environment
+    Detection</b> is a simple, yet very powerful capability. Start using it today and you'll never look back!

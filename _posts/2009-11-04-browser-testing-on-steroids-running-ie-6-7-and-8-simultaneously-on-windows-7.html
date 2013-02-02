@@ -1,0 +1,115 @@
+---
+layout: blog
+title: ! 'Browser testing on steroids: Running IE 6, 7 and 8 simultaneously on Windows
+7'
+permalink: /blog/ie-6-7-8.html
+---
+I use Windows 7 on my development machine. It works great, and I've especially come to like the deep integration features provided by Windows Virtual PC, as I'll show you in this blog post. They have been a tremendous time-saver when it comes to testing
+<a href="http://www.veturanto.com/">Veturanto</a>, the website I am currently working on. I usually test the website using Firefox 3.5, Chrome 3, IE 6, IE7 and IE8.
+<br/>
+<br/>Firefox, Chrome and IE8 all run natively on Windows 7, no problem there. But what about IE6 and IE7? These guys only run on XP (IE 6 &amp; 7) and Vista (IE 7). Are we out of luck? Not quite. First we have virtualization to the rescue and second we don't even need our own licenses as Microsoft freely provides
+<a href="http://www.microsoft.com/DOWNLOADS/details.aspx?FamilyID=21eabb90-958f-4b64-b5f1-73d0a413c8ef&amp;displaylang=en">VHDs
+    of both these browsers both on XP SP3 and
+    Vista</a> to run tests on. (Note that they do expire every few months, but Microsoft always provides new ones in time.)
+<br/><br/>This post shows how to use them most effectively to<b> deeply integrate IE 6 and IE 7 into Windows 7</b>.<br/>
+<br/><span style="font-size: large;">So let's get to work!</span><br/><br/>For this to work we will
+<b>need</b> the following things:<br/>
+<ul>
+    <li>Windows 7 with <a href="http://www.microsoft.com/windows/virtual-pc/download.aspx">Windows Virtual PC</a>
+        installed. It is a free optional component of Windows 7. (On the download page, select Ultimate to reveal the
+        download buttons. If you have Windows 7 Home Premium<a
+                href="http://blogs.msdn.com/virtual_pc_guy/archive/2009/10/22/windows-virtual-pc-windows-xp-mode-rtm-now-available-for-general-download.aspx#9911442">
+            you can still use Virtual PC, but not XP Mode</a>)
+    </li>
+    <li>The <a
+            href="http://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=21eabb90-958f-4b64-b5f1-73d0a413c8ef">XP
+        SP3 IE6 and XP SP3 IE7 application compatibility VHDs</a>, extracted in your Virtual Machines folder.
+    </li>
+    <li>A Windows XP Installation CD in your CD drive (this will be needed for the Integration Components
+        installation)
+    </li>
+</ul><br/>
+<br/>Now that we have all that ready, let's get started. The following steps describe the IE 6 installation, simply repeat them with the other VHD to install IE 7.
+<br/><br/><br/>1. Select the <b>IE6 on XP SP3.vhd</b> file and click <b>Create virtual machine</b> to create a new VM
+<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img
+        src="/assets/posts/ie-6-7-8/CreateVirtualMachine.png" alt="Create VM"/><br/>
+</div><br/>2. For simplicity's sake, name it to match the VHD<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/VMName.png"
+                                                                     alt="VM Name"/><br/>
+</div>
+<div class="separator" style="clear: both; text-align: center;"><br/></div>
+<div class="separator" style="clear: both; text-align: left;">3. Leave the memory to its default setting of 512 MB<br/>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/VMmemory.png"
+                                                                     alt="VM Memory"/><br/>
+</div><br/>4. Associate the VHD with the VM and click <b>Create</b><br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/VMvhd.png"
+                                                                     alt="VM VHD"/><br/>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: left;">5. Select the VM (<b>IE 6 on XP SP3.vmcx</b>) and click
+    <b>Settings </b>to mount the XP CD<br/></div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/xpcd.png" alt="XP CD"/><br/>
+</div><br/>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: left;">6. Launch the VM by clicking <b>Open </b>and watch XP boot<br/>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/OpenVirtualMachine.png"
+                                                                     alt="Open VM"/><br/>
+</div><br/><br/>7. By default a user <b>IETest</b> with Administrator privileges gets created. <b>Assign it a
+    password</b> (Start -&gt; Control Panel -&gt; User Accounts -&gt; IETest -&gt; Create a password) Pick
+<b>IETest </b>again to keep it simple.<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/createpassword.png"
+                                                                     alt="Create Password"/><br/>
+</div><br/>8. <b>Update the integration components</b>, and let the installer reboot the VM when it needs to.<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/upgradeIntegration.png"
+                                                                     alt="Upgrade Integration"/><br/>
+</div><br/>9. Make sure that at the end of the installation, the checkbox "<b>Download updates required for running
+    virtual applications from your PC</b>" is checked before clicking Finish.<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/downloadcheckbox.png"
+                                                                     alt="Download checkbox"/><br/>
+</div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: left;">10. Download and run the <b>RemoteApp </b>installer. The
+    VM will restart at the end after you click Finish.<br/></div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/remoteapp.png"
+                                                                     alt="Remote App"/><br/>
+</div><br/>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: left;">&nbsp;11. Log in and click <b>Enable Integration
+    features</b><br/></div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/enablefeatures.png"
+                                                                     alt="Enable features"/><br/>
+</div><br/><br/>12. When prompted for credentials, click "<b>Use another account</b>" and enter
+<b>IETest/IETest</b> and don't forget to <b>tick the checkbox</b><br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/credentials.png"
+                                                                     alt="Credentials"/><br/>
+</div><br/>13. Right click Start and select "<b>Open all users</b>", go into
+<b>Programs </b>and drag the IE icon from the desktop into this folder.<br/><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/ieinxp.png"
+                                                                     alt="IE in XP"/><br/>
+</div>
+<div class="separator" style="clear: both; text-align: center;"><br/></div>
+<div class="separator" style="clear: both; text-align: left;">14. If you now go back to the Windows 7 Start menu, you
+    will magically find the IE icon again under<br/></div>
+<div class="separator" style="clear: both; text-align: left;"><b>All Programs -&gt; Windows Virtual PC -&gt; IE 6 on XP
+    SP3 Applications</b><br/></div>
+<div class="separator" style="clear: both; text-align: left;"><br/></div>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/ieon7.png"
+                                                                     alt="IE in Win7"/><br/>
+</div><br/><br/>15. Repeat for IE 7 :-)<br/>
+<br/>16. (optional) Pin the icons to the taskbar next to the IE 8 icon, so that they are just only click away.<br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/pin.png"
+                                                                     alt="pin"/><br/>
+</div><br/><br/>And finally there you have it, <b>IE 6, IE 7 and IE 8 all running at the same time on Windows 7</b>:
+<br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ie-6-7-8/ie678.png"
+                                                                     alt="IE 6 7 8"/><br/>
+</div>
+<br/>Hope you enjoyed it and that it improved your life as much as mine when it comes to testing in different browsers !

@@ -1,0 +1,35 @@
+---
+layout: blog
+title: Ubuntu Server 10.10 on Virtual PC under Win7
+permalink: /blog/ubuntu-server-10-virtualpc.html
+---
+A while ago, I described how to <a
+        href="/blog/ubuntu-server-virtualpc.html">get Ubuntu Server 9.10
+    to run Windows Virtual PC</a>.<br/><br/>As it turned out though, the beasts were only tamed for a release or two. For Ubuntu Server 10.10 this guide needed an update, so here it is!<br/>
+<br/>These are the steps required to get <b>Ubuntu Server
+    10.10</b> to run on <b>Windows Virtual PC</b> under <b>Windows 7</b>.<br/><br/>For this to work you will need:
+<br/>
+<ul>
+    <li>Windows 7 with Virtual PC installed</li>
+    <li>The <a
+            href="http://www.ubuntu.com/server/get-ubuntu/download">Ubuntu Server 10.10 32-bit ISO</a>&nbsp;<i>(Virtual PC still does not support 64-bit guests)</i>
+    </li>
+</ul><br/>Ready? Let's go !<br/><br/>1.&nbsp;In the&nbsp;<b>Virtual
+    Machines</b>&nbsp;folder, create a new VM. Before launching it, edit the settings to<b>&nbsp;mount the Ubuntu
+    ISO<br/></b><br/>2. Launch the VM and select your language.<br/>
+<br/>3. Press <b>F4</b> and select <b>Install
+    a minimum virtual machine<br/></b><br/>
+<div class="separator" style="clear: both; text-align: center;"><img src="/assets/posts/ubuntu-server-10-virtualpc/mode-select.png"
+                                                                          alt="Mode select"/></div><br/>
+<br/>4. Perform the installation all the way through.<br/>
+<br/>5. After the reboot, in Grub, select the <b>first
+    entry</b> and press "<b>e</b>" to edit it.<br/><br/>6.&nbsp;Add "<b>noreplace-paravirt
+    vga=771</b>" (no quotes) before "<b>quiet</b>" on the second last line and press&nbsp;<b>Ctrl+x</b>
+&nbsp;to boot<br/>
+<br/>7.&nbsp;Log in and edit the file called "<b>/etc/default/grub</b>" as root. Change the line with <b>GRUB_CMDLINE_LINUX_DEFAULT</b> in:<br/>
+<pre class="prettyprint">GRUB_CMDLINE_LINUX_DEFAULT="noreplace-paravirt vga=771 quiet"<br/></pre>8. Execute this command:
+<br/>
+<pre class="prettyprint">sudo update-grub</pre>9. Reboot<br/><br/>10. <b>Welcome to Ubuntu Server 10.10 under Virtual
+    PC on Windows 7!<br/></b><br/>
+<div class="separator" style="clear: both; text-align: center;">
+    <img src="/assets/posts/ubuntu-server-10-virtualpc/login-prompt.png" alt="Login prompt"/></div>
