@@ -94,18 +94,18 @@
     height: 180px;
 }
 
-#offering-navbar {
+.navbar {
     margin-bottom: 0;
 }
 
-#offering-navbar .nav,
-#offering-navbar .nav > li {
+.navbar .nav,
+.navbar .nav > li {
     float: none;
     display: inline-block;
     vertical-align: top;
 }
 
-#offering-navbar .navbar-inner {
+.navbar .navbar-inner {
     text-align: center;
     border-radius: 0;
 }

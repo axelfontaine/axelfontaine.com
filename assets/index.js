@@ -6,29 +6,22 @@ function loadOnStartup() {
 
 function initScrollSpy() {
     var navBar = $('#offering-navbar');
+    var navBarFixed = $('#offering-navbar-fixed');
     var lastId;
-    var topMenuHeight = navBar.outerHeight() + 15;
+    var topMenuHeight = navBar.outerHeight();
     // All list items
-    var menuItems = navBar.find("a");
+    var menuItems = navBarFixed.find("a");
     // Anchors corresponding to menu items
     var scrollItems = menuItems.map(function () {
         return $($(this).attr("href"));
     });
+    scrollItems.push($("#clients"));
 
     $(document).scroll(function () {
-        // If has not activated (has no attribute "data-top"
-        if (!navBar.attr('data-top')) {
-            // If already fixed, then do nothing
-            if (navBar.hasClass('navbar-fixed-top')) return;
-            // Remember top position
-            var offset = navBar.offset();
-            navBar.attr('data-top', offset.top);
-        }
-
-        if (navBar.attr('data-top') - navBar.outerHeight() <= $(this).scrollTop()) {
-            navBar.addClass('navbar-fixed-top');
+        if (navBar.offset().top <= $(this).scrollTop()) {
+            navBarFixed.removeClass('hide');
         } else {
-            navBar.removeClass('navbar-fixed-top');
+            navBarFixed.addClass('hide');
         }
 
         // Get container scroll position
@@ -105,7 +98,7 @@ function loadLatestTweets() {
 }
 
 function relativeLatestPostDate() {
-    $('#latest-posts span').each(function() {
+    $('#latest-posts').find('span').each(function() {
         $(this).text(moment($(this).text()).fromNow());
     });
 }
