@@ -28,7 +28,7 @@
 <body>
 <div id="main" class="container">
     <div id="header" class="row">
-        <div class="span8">
+        <div class="span7">
             <div id="logo"><a href="/"><img src="/assets/logo.png" alt="axelfontaine.com"></a></div>
             <div id="title"><a href="/">Axel Fontaine</a></div>
             <div id="subtitle"><a href="/">Software Development Expert</a></div>
@@ -39,6 +39,16 @@
                 <li {% if page.pill == 'blog' %} class="active" {% endif %}><a href="/blog">Blog</a></li>
                 <li {% if page.pill == 'about' %} class="active" {% endif %}><a href="/about.html">About</a></li>
             </ul>
+        </div>
+        <div class="span2">
+            <form action="/search.html" id="cse-search-box">
+              <div>
+                <input type="hidden" name="cx" value="004353962589231355928:k98dl_sh-nm" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                <input type="text" name="q" class="google-branding" />
+                <input type="submit" name="sa" value="Search" style="position: absolute; left: -9999px" />
+              </div>
+            </form>
         </div>
     </div>
 

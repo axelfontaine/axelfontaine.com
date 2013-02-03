@@ -3,6 +3,14 @@ $(function () {
     $.backstretch("/assets/bg.jpg");
     window.loadOnStartup && loadOnStartup();
 
+    var searchBox = $("#cse-search-box").find("input");
+    searchBox.focus(function() {
+        $(this).removeClass("google-branding");
+    });
+    searchBox.blur(function() {
+        $(this).addClass("google-branding");
+    });
+
 
     var submitted = false;
 
