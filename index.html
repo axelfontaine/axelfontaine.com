@@ -369,21 +369,38 @@ pill: home
         <div class="span6">
             <div class="marketing-section-head"><i class="icon-twitter"></i><br/>Latest Tweets</div>
             <div id="tweets"></div>
-            <div id="twitter-follow">
-                <a href="https://twitter.com/axelfontaine" class="twitter-follow-button" data-show-count="false"
-                   data-size="large" data-dnt="true">Follow @axelfontaine</a>
-                <script>!function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = "//platform.twitter.com/widgets.js";
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, "script", "twitter-wjs");</script>
+        </div>
+        <div class="span6">
+            <div class="marketing-section-head"><i class="icon-pencil"></i><br/>Latest Blog Posts</div>
+
+            <div class="row">
+                <div class="span1"></div>
+                <div class="span4">
+                    <div id="latest-posts">
+                        {% for post in site.posts limit:7 %}
+                        <div><a href="{{ post.permalink }}">{{ post.title | xml_escape }}</a><br/>
+                            <span class="tweet-link">{{ post.date | date: "%Y-%m-%d" }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
             </div>
         </div>
-        <div class="span6"></div>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <div class="call-to-action">
+                <a href="https://twitter.com/intent/follow?region=follow_link&screen_name=axelfontaine"
+                   class="btn btn-large btn-primary">Follow me on Twitter</a>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="call-to-action">
+                <a href="/blog"
+                   class="btn btn-large btn-primary">Read my blog</a>
+            </div>
+        </div>
     </div>
 </div>
 </div>

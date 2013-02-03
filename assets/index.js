@@ -1,5 +1,6 @@
 function loadOnStartup() {
     initScrollSpy();
+    relativeLatestPostDate();
     loadLatestTweets();
 }
 
@@ -100,5 +101,11 @@ function loadLatestTweets() {
             var tweetLink = '<span class="tweet-link"><a href="https://twitter.com/#!/axelfontaine/status/'+data[i].id_str+'">'+createdDate+'</a></span>';
             $("#tweets").append('<div class="row"><div class="span1"></div><div class="tweet span4">'+tweet+'<br/>' + tweetLink + '</div></div>');
         }
+    });
+}
+
+function relativeLatestPostDate() {
+    $('#latest-posts span').each(function() {
+        $(this).text(moment($(this).text()).fromNow());
     });
 }

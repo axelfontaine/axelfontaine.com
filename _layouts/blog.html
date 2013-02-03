@@ -8,9 +8,7 @@ category: Blog
     <div class="row">
         <div class="span1"></div>
         <div class="span10">
-            <script type="text/javascript">
-                document.write('<p id="blog-post-date">' + moment('{{page.date}}').format('YYYY-MM-DD') + '</p>');
-            </script>
+            <p id="blog-post-date">{{page.date | date: "%Y-%m-%d"}}</p>
             <p class="blog-post-title">{{ page.title }}</p>
 
             {{ content }}

@@ -255,6 +255,14 @@
     text-align: center;
 }
 
+#latest-posts {
+    margin-top: 10px;
+}
+
+#latest-posts div {
+    margin-bottom: 20px;
+}
+
 #footer {
     text-align: center;
     font-size: 10px;
@@ -393,4 +401,8 @@ body.modal-open {
 
 .clear {
     clear: both;
+}
+
+#articles li {
+    line-height: 32px;
 }
