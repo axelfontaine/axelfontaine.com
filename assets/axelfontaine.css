@@ -374,7 +374,7 @@ body.modal-open {
     height: 280px;
 }
 
-#blog-post-date {
+.blog-post-date {
     color: #808080;
     font-weight: bold;
 }
@@ -388,7 +388,7 @@ body.modal-open {
 
 #blog-post-nav {
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
 }
 
 #blog-post-previous {
@@ -399,10 +399,21 @@ body.modal-open {
     float: right;
 }
 
+#blog-post-archive {
+    clear: both;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
 .clear {
     clear: both;
 }
 
 #articles li {
     line-height: 32px;
+}
+
+#blog-archive {
+    line-height: 200%;
 }

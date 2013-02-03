@@ -8,7 +8,7 @@ category: Blog
     <div class="row">
         <div class="span1"></div>
         <div class="span10">
-            <p id="blog-post-date">{{page.date | date: "%Y-%m-%d"}}</p>
+            <p class="blog-post-date">{{page.date | date: "%Y-%m-%d"}}</p>
             <p class="blog-post-title">{{ page.title }}</p>
 
             {{ content }}
@@ -25,6 +25,10 @@ category: Blog
                     <a href="{{page.next.url}}">{{ page.next.title }} »</a>
                 </div>
                 {% endif %}
+
+                <div id="blog-post-archive">
+                    <a href="/blog/archive.html">Browse complete blog archive</a>
+                </div>
 
             </div>
 

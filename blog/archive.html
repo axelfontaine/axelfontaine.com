@@ -1,0 +1,31 @@
+---
+layout: default
+pill: blog
+category: Blog
+title: Complete Archive
+---
+<div id="blog-archive">
+    <div id="top-space"></div>
+    <div class="row">
+        <div class="span1"></div>
+        <div class="span10">
+            <p class="blog-post-title">{{ page.title }}</p>
+
+            {% for post in site.posts %}
+            <div>
+                <span class="blog-post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.permalink }}">{{ post.title | xml_escape }}</a><br/>
+            </div>
+            {% endfor %}
+
+            <p>&nbsp;</p>
+
+            <div class="call-to-action">
+                <a href="/blog"
+                   class="btn btn-large btn-primary">Read latest post</a>
+            </div>
+
+        </div>
+        <div class="span1"></div>
+    </div>
+</div>
