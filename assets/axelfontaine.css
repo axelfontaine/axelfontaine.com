@@ -382,8 +382,15 @@ body.modal-open {
 .blog-post-title {
     font-size: 32px;
     font-weight: bold;
-    margin-bottom: 50px;
     line-height: 36px;
+    margin-bottom: 50px;
+}
+#social-buttons {
+    margin-bottom: 50px;
+}
+
+#social-buttons td {
+    width: 120px;
 }
 
 #blog-post-nav {
