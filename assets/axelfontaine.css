@@ -302,10 +302,6 @@ body.modal-open {
     text-align: center;
 }
 
-#about-photo img {
-    border-radius: 10px;
-}
-
 #about-social {
     margin-top: 40px;
     text-align: center;
@@ -357,10 +353,6 @@ body.modal-open {
 
 #about .talk img {
     margin-bottom: 5px;
-}
-
-#about .img-polaroid {
-    border-radius: 10px;
 }
 
 #about #talk-map-container {
@@ -454,4 +446,9 @@ body.modal-open {
 
 #blog-archive {
     line-height: 200%;
+}
+
+.img-polaroid {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
