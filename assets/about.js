@@ -19,6 +19,11 @@ function loadOnStartup() {
                 ['2013-04-03', 'Architecting for Continuous Delivery', 'https://2013.con-fess.com/sessions/-/details/77/Architecting-for-Continuous-Delivery']
             ]
         ],
+        ['Devoxx France', 'Paris, France', 48.856614, 2.3522219,
+            [
+                ['2013-03-28', 'Architecting for Continuous Delivery', 'http://www.devoxx.com/display/FR13/Accueil']
+            ]
+        ],
         ['33rd Degree', 'Warsaw, Poland', 52.2296756, 21.0122287,
             [
                 ['2013-03-14', 'Flyway: The agile database migration framework for Java', 'https://2013.con-fess.com/sessions/-/details/78/Flyway--The-agile-database-migration-framework-for-Java'],
