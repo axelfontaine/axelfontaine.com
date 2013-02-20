@@ -66,15 +66,20 @@
     display: table;
 }
 
-#talks .conference div {
-    float: left;
+#talks table tr {
+    margin-bottom: 10px;
 }
 
-#talks .conference .conference-logo {
-    clear: both;
+#talks table tr td:first-child {
+    vertical-align: top;
+    font-weight: bold;
+    padding-right: 10px;
+}
+
+#talks table tr td {
+    margin-left: 10px;
     margin-right: 10px;
-    margin-top: -3px;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 #top-space {
