@@ -21,7 +21,7 @@ function loadOnStartup() {
         ],
         ['Devoxx France', 'Paris, France', 48.856614, 2.3522219,
             [
-                ['2013-03-28', 'Architecting for Continuous Delivery', 'http://www.devoxx.com/display/FR13/Accueil']
+                ['2013-03-28', 'Architecting for Continuous Delivery', 'http://www.devoxx.com/display/FR13/Architecting+for+Continuous+Delivery']
             ]
         ],
         ['33rd Degree', 'Warsaw, Poland', 52.2296756, 21.0122287,
