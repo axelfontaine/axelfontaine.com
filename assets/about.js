@@ -10,7 +10,7 @@ function loadOnStartup() {
     var talks = [
         ['JAX 2013', 'Mainz, Germany', 49.9928617, 8.2472526,
             [
-                ['2013-04-25', 'Architecting for Continuous Delivery', 'http://jax.de/2013/sessions/#session-24808']
+                ['2013-04-25', 'Architecting for Continuous Delivery', 'http://jax.de/2013/sessions/?tid=2886#session-24808']
             ]
         ],
         ['CONFESS_2013', 'Vienna, Austria', 48.2081743, 16.3738189,
