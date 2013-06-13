@@ -4,18 +4,17 @@ pill: home
 ---
 <!--suppress HtmlPresentationalElement -->
 <div id="home">
-
-<!--
 <div id="talks">
     <p><strong>My Upcoming Conference Talks</strong></p>
 
     <table>
         <tr>
-            <td>No talks scheduled at this time</td>
+            <td><a href="http://www.javazone.no">JavaZone 2013</a></td>
+            <td><a href=" http://www.javazone.no">2013-09-11
+                Flyway: The agile database migration framework for Java</a><br/></td>
         </tr>
     </table>
 </div>
--->
 <div id="top-space"></div>
 <div id="bigsell">
     <p>make your project<br/>a success</p>
@@ -113,10 +112,13 @@ pill: home
         <div class="span5">
             <div class="quote">
                 <div class="bubble">
-                    designaffairs is impressed by the effectiveness and efficiency of Axel’s work. He managed to evaluate
-                    the application in an extremely short time frame. His work resulted in a very detailed summary which provides
+                    designaffairs is impressed by the effectiveness and efficiency of Axel’s work. He managed to
+                    evaluate
+                    the application in an extremely short time frame. His work resulted in a very detailed summary which
+                    provides
                     precise recommendations regarding activities in order to increase the maturity of the software.
-                    Axel’s depth and breadth of experience is impressive. He gets things done and is always focused on the
+                    Axel’s depth and breadth of experience is impressive. He gets things done and is always focused on
+                    the
                     end goal or deliverable.
                 </div>
                 <div class="attribution">
@@ -362,9 +364,22 @@ pill: home
 
 <div id="latest-updates" class="marketing-section">
     <div class="row">
-        <div class="span6">
+        <div class="span1"></div>
+        <div class="span5">
             <div class="marketing-section-head"><i class="icon-twitter"></i><br/>Latest Tweets</div>
-            <div id="tweets"></div>
+            <a class="twitter-timeline" href="https://twitter.com/axelfontaine" data-widget-id="345179840179232768"
+               data-link-color="#08c" data-chrome="noheader nofooter noborders noscrollbar transparent" data-width="300"
+               data-tweet-limit="5">Tweets
+                by @axelfontaine</a>
+            <script>!function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                if (!d.getElementById(id)) {
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = p + "://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }
+            }(document, "script", "twitter-wjs");</script>
         </div>
         <div class="span6">
             <div class="marketing-section-head"><i class="icon-pencil"></i><br/>Latest Blog Posts</div>
@@ -373,7 +388,7 @@ pill: home
                 <div class="span1"></div>
                 <div class="span4">
                     <div id="latest-posts">
-                        {% for post in site.posts limit:7 %}
+                        {% for post in site.posts limit:9 %}
                         <div><a href="{{ post.permalink }}">{{ post.title | xml_escape }}</a><br/>
                             <span class="tweet-link">{{ post.date | date: "%Y-%m-%d" }}</span>
                         </div>

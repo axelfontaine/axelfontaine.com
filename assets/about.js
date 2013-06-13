@@ -8,6 +8,11 @@ function loadOnStartup() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['JavaZone 2013', 'Oslo, Norway', 59.913869, 10.752245,
+            [
+                ['2013-09-11', 'Flyway: The agile database migration framework for Java', 'http://www.javazone.no']
+            ]
+        ],
         ['JAX 2013', 'Mainz, Germany', 49.9928617, 8.2472526,
             [
                 ['2013-04-25', 'Architecting for Continuous Delivery', 'http://jax.de/2013/sessions/?tid=2886#session-24808']
