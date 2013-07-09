@@ -124,6 +124,10 @@
     border-radius: 0;
 }
 
+.navbar i {
+    padding-right: 5px;
+}
+
 .navbar-fixed-top {
     left: auto;
     right: auto;
@@ -236,6 +240,10 @@
     margin-left: 20px;
     margin-right: 20px;
     text-align: center;
+}
+
+.course i {
+    font-size: 55px;
 }
 
 .course .section-head {
