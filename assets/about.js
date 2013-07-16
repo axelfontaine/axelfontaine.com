@@ -10,8 +10,8 @@ function loadOnStartup() {
     var talks = [
         ['XP Days 2013', 'Kiev, Ukraine', 50.4501, 30.5234,
             [
-                ['2013-10-11', 'Flyway: The agile database migration framework for Java', 'http://xpdays.com.ua/'],
-                ['2013-10-11', 'Architecting for Continuous Delivery and Zero Downtime', 'http://xpdays.com.ua/']
+                ['2013-10-11', 'Flyway: The agile database migration framework for Java', 'http://xpdays.com.ua/program/#flyway'],
+                ['2013-10-11', 'Architecting for Continuous Delivery and Zero Downtime', 'http://xpdays.com.ua/program/#continuous-delivery']
             ]
         ],
         ['JavaZone 2013', 'Oslo, Norway', 59.913869, 10.752245,
