@@ -465,3 +465,7 @@ body.modal-open {
     border-radius: 10px;
     -webkit-border-radius: 10px;
 }
+
+.small {
+    font-size: 10px;
+}

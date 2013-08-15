@@ -1,0 +1,227 @@
+---
+layout: blog
+title: 'Maven Release Plugin: The Final Nail in the Coffin'
+permalink: /blog/final-nail.html
+---
+<div>
+<p>
+    Two and half years ago, I published a very <a href="/blog/maven-releases-steroids.html">popular</a> <a
+        href="/blog/maven-releases-steroids-2.html">article</a>
+    <a href="/blog/maven-releases-steroids-3.html">series</a> titled 'Maven Releases on Steroids'. The goal of the
+    series was to provide a simple and efficient way to produce releases on a Maven Project. Not only that, but
+    it did so in a way that is compatible with Continuous Delivery.</p>
+
+<p>Maven has traditionally required the version number to be present in the project descriptor (pom.xml). This
+    concept permeates through all aspects of the Maven ecosystem, culminating with the monstrosity commonly referred
+    to as the Release Plugin.</p>
+
+<p>So how big exactly was the improvement of Releases On Steroids over the Release Plugin? See for yourself:</p>
+
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <th></th>
+        <th>Releases on Steroids</th>
+        <th>Release Plugin</th>
+    </tr>
+    <tr>
+        <td>Clean/Compile/Test cycle</td>
+        <td><strong>1</strong></td>
+        <td style="color: red;"><strong>3</strong></td>
+    </tr>
+    <tr>
+        <td>POM transformations</td>
+        <td><strong>0</strong></td>
+        <td style="color: red;"><strong>2</strong></td>
+    </tr>
+    <tr>
+        <td>Commits</td>
+        <td><strong>0</strong></td>
+        <td style="color: red;"><strong>2</strong></td>
+    </tr>
+    <tr>
+        <td>SCM revisons</td>
+        <td><strong>1</strong></td>
+        <td style="color: red;"><strong>3</strong></td>
+    </tr>
+    </tbody>
+</table>
+
+<p>&nbsp;</p>
+
+<h3>Fast forward to 2013</h3>
+
+<p>The original article was written in January 2011. Two and a half years have passed, and boy did thing
+    change in the
+    SCM space! In 2011, CVS was dead and burried, Subversion was well-established and both Git and Mercurial were on
+    the rise and battling it out to be the Next Big Thing&trade;.</p>
+
+<p>And then one thing happened: GitHub's popularity exploded. It triggered a mass-exodus from Sourceforge, Java.net
+    and Google Code. The SCM war had been decided. Git was the new King of the Hill.</p>
+
+<p>Git then trickled down from its open-source roots into the deep dark SCM alleys of the enterprise, effectively
+    relegating Subversion to legacy street.</p>
+
+<p>This change brings a number of advantages, of which one is of particular interest to us today: massively improved
+    initial checkout performance.
+
+    <code>git clone</code> is orders of magnitude faster than <code>svn checkout</code>!</p>
+
+<p>The Releases on Steroids process comes from a time where an initial checkout was slow. To keep performance in
+    check
+    the practice was to update the working copy with the latest changes instead of checking it out fresh every
+    time. This meant that for the update to succeed the working copy could not contain local changes, as these would
+    cause conflicts.</p>
+
+<p>The Releases on Steroids process went through great lengths (and worked around many Maven bugs) to ensure
+    this.</p>
+
+<p>But now with the performance of Git, things have changed. And in change lies opportunity. So let's revisit
+    Releases on Steroids and bring it into 2013's brave new world!</p>
+
+<p>&nbsp;</p>
+
+<h3>Revisiting the Release Process</h3>
+
+<p>Even though technology has evolved, the purpose of a release hasn't. What we want is being able to link a version of
+    the
+    software as deployed onto a machine back to the matching revision of the source code in SCM. This is essential
+    to reproduce bugs and revert to previous versions deterministically if required.</p>
+
+<p>To accomplish this we have to go through a number of steps. At a minimum these include:</p>
+<ul>
+    <li>checking out the software as it is</li>
+    <li>giving it a version so it can be uniquely identified</li>
+    <li>building, testing and packaging it</li>
+    <li>deploying it to an artifact repository where it can then be picked for actual roll out on target machines
+    </li>
+    <li>tagging this state in SCM so it can be associated with the matching artifact</li>
+</ul>
+
+<p>Pretty simple, isn't it?</p>
+
+<p>&nbsp;</p>
+
+<h3>Releases with Maven and Git</h3>
+
+<p>Let's see what this translates to in a Git and Maven world:</p>
+
+<ol>
+    <li>Checking the software out: <code>git clone</code></li>
+    <li>Giving it a version: <code>mvn versions:set</code></li>
+    <li>Building, testing, packaging and deploying it to an artifact repository: <code>mvn deploy</code></li>
+    <li>Tagging this state in SCM: <code>mvn scm:tag</code></li>
+</ol>
+
+<p>But first, the POM needs some preparation.</p>
+
+<p>Having the project version come from outside means we can use a simple generic snapshot version for the code
+    checking into SCM. Our <code>pom.xml</code> then looks like this:</p>
+
+    <pre class="prettyprint">&lt;project ...&gt;
+    ...
+    &lt;version&gt;0-SNAPSHOT&lt;/version&gt;
+    ...
+&lt;/project&gt;</pre>
+
+<p>We can now add our project's Git and artifact repository urls, as well as some basic plugin configuration:</p>
+
+    <pre class="prettyprint">&lt;scm&gt;
+    &lt;connection&gt;scm:git:<em>&lt;&lt;your-git-repo-url&gt;&gt;</em>&lt;/connection&gt;
+&lt;/scm&gt;
+
+&lt;distributionManagement&gt;
+    &lt;repository&gt;
+        &lt;id&gt;artifact-repository&lt;/id&gt;
+        &lt;url&gt;<em>&lt;&lt;your-artifact-repo-url&gt;&gt;</em>&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/distributionManagement&gt;
+
+&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+            &lt;artifactId&gt;versions-maven-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.1&lt;/version&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-scm-plugin&lt;/artifactId&gt;
+            &lt;version&gt;1.8.1&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;tag&gt;${project.artifactId}-${project.version}&lt;/tag&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</pre>
+<p>And that's it! Nothing more is required!</p>
+
+<p>Now let's take this 11 and integrate it in a CI environment. Jenkins is the absolute
+    market leader, so that's what we'll use.</p>
+
+<p>&nbsp;</p>
+
+<h3>Jenkins integration</h3>
+
+<p><strong>Prerequisites:</strong> Jenkins with a JDK and Maven configured, and both
+    the <em>Git</em> and the <em>Workspace Cleanup</em> plugins installed.</p>
+
+<p>We're going to start by creating a new Maven job and making sure we have a fresh workspace for every build:</p>
+
+<img src="/assets/posts/final-nail/clean.png"/>
+
+<p>&nbsp;</p>
+
+<p>We can now point the job to our Git repository:</p>
+
+<img src="/assets/posts/final-nail/git.png"/>
+
+<p>&nbsp;</p>
+
+<p>The next step is to set the version upon checkout. There are two main strategies we can apply:</p>
+<ul>
+    <li>Create a parametrized build and pass the version in</li>
+    <li>Let Jenkins assign the version</li>
+</ul>
+
+<p>In this example we're going to use the latter. A good version number is both unique and chronological. We're
+    going to use the Jenkins BUILD_NUMBER as it fulfills both these criteria wonderfully.</p>
+
+<p>So let's set the version in a pre-build step:</p>
+
+<img src="/assets/posts/final-nail/version.png"/>
+
+<p>&nbsp;</p>
+
+<p>We are now ready to build, test, package, deploy (to the artifact repository) and tag (the Git repository):</p>
+
+<img src="/assets/posts/final-nail/deploy.png"/>
+
+<p>&nbsp;</p>
+
+<p>All that is left now is deciding between</p>
+<ul>
+    <li>Triggering the release build manually (the classic way)</li>
+    <li>Polling SCM to release after every commit (the Continuous Delivery way)</li>
+</ul>
+
+<p>Happy releasing with Jenkins!</p>
+
+<p>&nbsp;</p>
+
+<h3>Conclusion</h3>
+
+<p>In this article we've followed the footsteps of the Releases on Steroids articles and taken the concepts to their
+    natural conclusion: <strong>the simplest and most effective way to create releases on projects using Maven and
+        Git.</strong></p>
+
+<p>Along the way, we've kept a strong focus on keeping as much knowledge as possible inside the POM. This keeps the
+    release process concise and minimizes dependencies on specific environments or CI servers.</p>
+
+<p>So come with me and <strong>wave the Maven Release Plugin goodbye. This was the final nail in its coffin. Good
+    riddance.</strong></p>
+
+<p>&nbsp;</p>
+
+<p class="small">P.S.: I've published a companion repository on GitHub to get you started easily: <a
+        href="http://github.com/axelfontaine/final-nail">http://github.com/axelfontaine/final-nail</a></p>
+</div>
