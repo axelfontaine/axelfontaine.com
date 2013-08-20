@@ -8,6 +8,11 @@ function loadOnStartup() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['jDays 2013', 'Göteborg, Sweden', 57.70887, 11.97456,
+            [
+                ['2013-11-27', 'Inspiration over Perspiration: Java App Deployment for the 21st century', 'https://www.jdays.se/']
+            ]
+        ],
         ['XP Days 2013', 'Kiev, Ukraine', 50.4501, 30.5234,
             [
                 ['2013-10-11', 'Flyway: The agile database migration framework for Java', 'http://xpdays.com.ua/program/#flyway'],
