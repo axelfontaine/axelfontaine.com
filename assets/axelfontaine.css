@@ -467,6 +467,10 @@ body.modal-open {
     clear: both;
 }
 
+.center {
+    text-align: center;
+}
+
 #articles li {
     line-height: 32px;
 }
@@ -482,4 +486,8 @@ body.modal-open {
 
 .small {
     font-size: 10px;
+}
+
+.logo-list img {
+    padding: 5px;
 }

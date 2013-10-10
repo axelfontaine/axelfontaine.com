@@ -122,8 +122,8 @@ function initTalksMap() {
         ],
         ['33rd Degree', 'Warsaw, Poland', 52.2296756, 21.0122287,
             [
-                ['2013-03-14', 'Flyway: The agile database migration framework for Java', 'https://2013.con-fess.com/sessions/-/details/78/Flyway--The-agile-database-migration-framework-for-Java'],
-                ['2013-03-13', 'Architecting for Continuous Delivery', 'https://2013.con-fess.com/sessions/-/details/77/Architecting-for-Continuous-Delivery']
+                ['2013-03-14', 'Flyway: The agile database migration framework for Java', 'http://2013.33degree.org/talk/show/52'],
+                ['2013-03-13', 'Architecting for Continuous Delivery', 'http://2013.33degree.org/talk/show/51']
             ]
         ],
         ['jDays 2012', 'Göteborg, Sweden', 57.70887, 11.97456,
