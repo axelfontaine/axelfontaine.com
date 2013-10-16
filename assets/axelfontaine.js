@@ -12,23 +12,24 @@ $(function () {
     });
 
 
-    var submitted = false;
+    var confirm = null;
 
-    $('#contact-form').submit(function () {
-        submitted = true;
-    });
-
-    $('#contact-hidden-iframe').load(function () {
-        if (submitted) {
-            $('#contact').modal('hide')
+    $('#contact-form').submit(function (e) {
+        if ($('#entry_0').val().indexOf("http://") == 0) {
+            e.preventDefault();
+            confirm = 'contact-spam';
+        } else {
+            confirm = 'contact-confirm';
         }
+
+        $('#contact').modal('hide');
     });
 
     $('#contact').on('hidden', function () {
-        if (submitted) {
-            $('#contact-confirm').modal('show');
+        if (confirm != null) {
+            $('#' + confirm).modal('show');
         }
-        submitted = false;
+        confirm = null;
     });
 
     $('a[data-contact]').click(function(e) {
