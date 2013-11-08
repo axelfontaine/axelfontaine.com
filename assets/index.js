@@ -75,7 +75,7 @@ function initTalksMap() {
     var talks = [
         ['LJUG', 'München, Germany', 48.1366069, 11.5770851,
             [
-                ['2013-12-07', 'Inspiration over Perspiration: Java App Deployment for the 21st century', 'http://www.meetup.com/Lightweight-Java-User-Group-Munchen/']
+                ['2013-12-02', 'Photon: The End Of App Deployment As You Know It', 'http://www.meetup.com/Lightweight-Java-User-Group-Munchen/events/148055102/']
             ]
         ],
         ['jDays 2013', 'Göteborg, Sweden', 57.70887, 11.97456,
