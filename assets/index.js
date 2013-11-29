@@ -73,6 +73,18 @@ function initTalksMap() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['JAX 2014', 'Mainz, Germany', 49.9928617, 8.2472526,
+            [
+                ['2014-05-14', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/']
+            ]
+        ],
+        ['Jfocus 2014', 'Stockholm, Sweden', 59.32893, 18.06491,
+            [
+                ['2014-02-06', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'http://www.jfokus.se/jfokus/training.jsp'],
+                ['2014-02-04', 'Continuous Delivery and Zero Downtime', 'http://www.jfokus.se/jfokus/talks.jsp#ContinuousDeliveryan'],
+                ['2014-02-03', 'Continuous Delivery: from Zero to Hero (3 hour tutorial)', 'http://www.jfokus.se/jfokus/talks.jsp#ContinuousDelivery%3Af']
+            ]
+        ],
         ['LJUG', 'München, Germany', 48.1366069, 11.5770851,
             [
                 ['2013-12-02', 'Photon: The End Of App Deployment As You Know It', 'http://www.meetup.com/Lightweight-Java-User-Group-Munchen/events/148055102/']
@@ -97,6 +109,11 @@ function initTalksMap() {
             [
                 ['2013-10-11', 'Flyway: The agile database migration framework for Java', 'http://xpdays.com.ua/program/#flyway'],
                 ['2013-10-11', 'Architecting for Continuous Delivery and Zero Downtime', 'http://xpdays.com.ua/program/#continuous-delivery']
+            ]
+        ],
+        ['SourceTalk Tage 2013', 'Göttingen, Germany', 51.5400673, 9.9243452,
+            [
+                ['2013-10-02', 'Architecting for Continuous Delivery: from Zero to Hero', 'http://www.sourcetalk.de/2013/']
             ]
         ],
         ['JavaZone 2013', 'Oslo, Norway', 59.913869, 10.752245,

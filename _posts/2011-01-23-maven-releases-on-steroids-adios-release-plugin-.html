@@ -3,6 +3,8 @@ layout: blog
 title: ! 'Maven Releases on Steroids: Adios Release Plugin!'
 permalink: /blog/maven-releases-steroids.html
 ---
+<div class="well well-small"><strong>Update:</strong> I updated this article in 2013 as <a href="/blog/final-nail.html">Maven Release Plugin: The Final Nail in the Coffin</a></div>
+
 One of the central themes of my current series of talks about Continuous Delivery is <b>releasing software</b>.<br/>
 <br/>Releasing software encompasses a number of activities such as<br/>
 <ul>
@@ -32,9 +34,8 @@ One of the central themes of my current series of talks about Continuous Deliver
         href="http://maven.apache.org/plugins/maven-release-plugin/"><b>Maven Release
     Plugin</b></a>. It works, to a reasonable degree, and it has a decent <a
         href="http://wiki.jenkins-ci.org/display/HUDSON/M2+Release+Plugin">Jenkins plugin</a>.<br/>
-<br/>Using Jenkins and the Release Plugin, here are the typical steps performed by the various components:<br/><span
-        class="Apple-style-span" style="font-size: x-small;">(<b><span class="Apple-style-span" style="color: red;">Safety Notice:</span></b> buckle up, it's going to be a wild ride!)</span>
-<br/>
+<br/>Using Jenkins and the Release Plugin, here are the typical steps performed by the various components:<br/>
+<p style="font-size: x-small;">(<strong style="color: red;">Safety Notice:</strong> buckle up, it's going to be a wild ride!)</p>
 <ul>
     <li>Jenkins <b>checks out</b> the latest revision from SCM</li>
     <li>Maven <b>compiles</b> the sources and runs the <b>tests</b></li>
