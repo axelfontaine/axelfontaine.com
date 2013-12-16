@@ -82,6 +82,11 @@
     padding-bottom: 10px;
 }
 
+#upcoming .soldout {
+    color: red;
+    font-weight: bold;
+}
+
 #top-space {
     margin-top: 50px;
 }
