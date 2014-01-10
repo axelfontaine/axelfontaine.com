@@ -80,6 +80,7 @@ function initTalksMap() {
         ],
         ['Jfocus 2014', 'Stockholm, Sweden', 59.32893, 18.06491,
             [
+                ['2014-03-12', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'http://www.jfokus.se/jfokus/training.jsp'],
                 ['2014-02-06', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'http://www.jfokus.se/jfokus/training.jsp'],
                 ['2014-02-04', 'Continuous Delivery and Zero Downtime', 'http://www.jfokus.se/jfokus/talks.jsp#ContinuousDeliveryan'],
                 ['2014-02-03', 'Continuous Delivery: from Zero to Hero (3 hour tutorial)', 'http://www.jfokus.se/jfokus/talks.jsp#ContinuousDelivery%3Af']
