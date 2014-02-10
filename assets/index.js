@@ -73,7 +73,12 @@ function initTalksMap() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
-        ['JAX 2014', 'Mainz, Germany', 49.9928617, 8.2472526,
+        ['Geekout 2014', 'Tallinn, Estonia', 59.4369608, 24.7535746,
+            [
+                ['2014-06-12', 'Continuous Delivery and Zero Downtime', 'http://2014.geekout.ee/']
+            ]
+        ],
+       ['JAX 2014', 'Mainz, Germany', 49.9928617, 8.2472526,
             [
                 ['2014-05-14', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/']
             ]
