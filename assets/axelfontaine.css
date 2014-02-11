@@ -424,6 +424,60 @@ body.modal-open {
     color: black;
 }
 
+#talk-cd {
+    width: 400px;
+    text-align: center;
+    font-size: 160px;
+}
+
+#talk-cd-en {
+    background: url("/assets/talk-cd-en.png") no-repeat top left;
+}
+
+#talk-cd-de {
+    background: url("/assets/talk-cd-de.png") no-repeat top left;
+}
+
+#talk-cd-fr {
+    background: url("/assets/talk-cd-fr.png") no-repeat top left;
+}
+
+#talk-cd a {
+    padding-top: 30px;
+    display: block;
+    width: 400px;
+    height: 195px;
+    color: #808080;
+}
+
+#talk-cd a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+#talk-flyway {
+    width: 400px;
+    text-align: center;
+    font-size: 160px;
+}
+
+#talk-flyway-en {
+    background: url("/assets/talk-flyway-en.png") no-repeat top left;
+}
+
+#talk-flyway a {
+    padding-top: 30px;
+    display: block;
+    width: 400px;
+    height: 195px;
+    color: #808080;
+}
+
+#talk-flyway a:hover {
+    text-decoration: none;
+    color: black;
+}
+
 #blog-popular {
     margin-left: -30px;
 }
