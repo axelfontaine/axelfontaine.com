@@ -402,28 +402,6 @@ body.modal-open {
     height: 325px;
 }
 
-#parleys {
-    background: url("/assets/parleys.png") no-repeat center;
-    height: 300px;
-    width: 400px;
-    text-align: center;
-    font-size: 200px;
-    margin-bottom: 5px;
-}
-
-#parleys a {
-    display: block;
-    width: 400px;
-    height: 300px;
-    padding-top: 50px;
-    color: #808080;
-}
-
-#parleys a:hover {
-    text-decoration: none;
-    color: black;
-}
-
 #talk-cd {
     width: 400px;
     text-align: center;
@@ -447,12 +425,14 @@ body.modal-open {
     display: block;
     width: 400px;
     height: 195px;
-    color: #808080;
+    color: #404040;
+    text-shadow: -3px 0 #808080, 0 3px #808080, 3px 0 #808080, 0 -3px #808080;
 }
 
 #talk-cd a:hover {
     text-decoration: none;
-    color: black;
+    color: #808080;
+    text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
 }
 
 #talk-flyway {
@@ -470,12 +450,14 @@ body.modal-open {
     display: block;
     width: 400px;
     height: 195px;
-    color: #808080;
+    color: #404040;
+    text-shadow: -3px 0 #808080, 0 3px #808080, 3px 0 #808080, 0 -3px #808080;
 }
 
 #talk-flyway a:hover {
     text-decoration: none;
-    color: black;
+    color: #808080;
+    text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
 }
 
 #blog-popular {
