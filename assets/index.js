@@ -83,6 +83,11 @@ function initTalksMap() {
                 ['2014-05-14', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/']
             ]
         ],
+        ['Javaforum', 'Stockholm, Sweden', 59.32893, 18.06491,
+            [
+                ['2014-03-11', 'Inspiration over Perspiration: Java App Deployment for the 21st century', 'http://www.jforum.se/jf/?meeting=118']
+            ]
+        ],
         ['Jfocus 2014', 'Stockholm, Sweden', 59.32893, 18.06491,
             [
                 ['2014-03-12', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'http://www.jfokus.se/jfokus/training.jsp'],
