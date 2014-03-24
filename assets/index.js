@@ -78,6 +78,11 @@ function initTalksMap() {
                 ['2014-06-12', 'Continuous Delivery and Zero Downtime', 'http://2014.geekout.ee/']
             ]
         ],
+        ['33rd Degree 2014', 'Krakow, Poland', 50.0646501, 19.9449799,
+            [
+                ['2014-06-11', 'Inspiration over Perspiration: Java App Deployment for the 21st century', 'http://2014.33degree.org/talk/show/69']
+            ]
+        ],
        ['JAX 2014', 'Mainz, Germany', 49.9928617, 8.2472526,
             [
                 ['2014-05-14', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/']
