@@ -73,6 +73,16 @@ function initTalksMap() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['SkillsMatter', 'London, UK', 51.508515, -0.1254872,
+            [
+                ['2014-06-23', 'Immutable Server Generation: the new App Deployment', 'https://skillsmatter.com/meetups/6343-immutable-server-generation-the-new-app-deployment']
+            ]
+        ],
+        ['SkillsMatter', 'London, UK', 51.508515, -0.1254872,
+            [
+                ['2014-06-23', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'https://skillsmatter.com/courses/506-axel-fontaine-s-architecting-for-continuous-delivery-from-zero-to-hero']
+            ]
+        ],
         ['Geekout 2014', 'Tallinn, Estonia', 59.4369608, 24.7535746,
             [
                 ['2014-06-12', 'Continuous Delivery and Zero Downtime', 'http://2014.geekout.ee/']
