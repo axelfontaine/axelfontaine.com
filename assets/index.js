@@ -73,6 +73,16 @@ function initTalksMap() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['JAX 2014', 'München, Germany', 48.1366069, 11.5770851,
+            [
+                ['2014-11-05', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/wjax2014/sessions/inspiration-statt-transpiration-java-app-deployment-fuer-das-21-jahrhundert']
+            ]
+        ],
+        ['JavaOne 2014', 'San Fransisco, USA', 37.7749295, -122.4194155,
+            [
+                ['2014-09-30', 'Continuous Delivery and Zero Downtime', 'https://www.oracle.com/javaone/agenda/index.html']
+            ]
+        ],
         ['SkillsMatter', 'London, UK', 51.508515, -0.1254872,
             [
                 ['2014-06-23', 'Immutable Server Generation: the new App Deployment', 'https://skillsmatter.com/meetups/6343-immutable-server-generation-the-new-app-deployment']
@@ -93,7 +103,7 @@ function initTalksMap() {
                 ['2014-06-10', 'Inspiration over Perspiration: Java App Deployment for the 21st century', 'http://2014.33degree.org/talk/show/69']
             ]
         ],
-       ['JAX 2014', 'Mainz, Germany', 49.9928617, 8.2472526,
+        ['JAX 2014', 'Mainz, Germany', 49.9928617, 8.2472526,
             [
                 ['2014-05-14', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/']
             ]
