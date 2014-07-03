@@ -66,8 +66,9 @@ function relativeLatestPostDate() {
 function initTalksMap() {
     var map = new google.maps.Map(document.getElementById("talk-map"), {
         center: new google.maps.LatLng(48.1366069, 11.5770851),
-        zoom: 8,
+        zoom: 3,
         disableDefaultUI: true,
+        scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -78,9 +79,19 @@ function initTalksMap() {
                 ['2014-11-05', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/wjax2014/sessions/inspiration-statt-transpiration-java-app-deployment-fuer-das-21-jahrhundert']
             ]
         ],
+        ['B-DoSE 2014', 'Berlin, Germany', 52.519171, 13.4060912,
+            [
+                ['2014-10-08', 'Continuous Delivery and Zero Downtime', 'http://www.berlin-dose.de/continous-delivery-and-zero-downtime/']
+            ]
+        ],
         ['JavaOne 2014', 'San Fransisco, USA', 37.7749295, -122.4194155,
             [
                 ['2014-09-30', 'Continuous Delivery and Zero Downtime', 'https://www.oracle.com/javaone/agenda/index.html']
+            ]
+        ],
+        ['JavaZone 2014', 'Oslo, Norway', 59.913869, 10.752245,
+            [
+                ['2014-09-10', 'Immutable Server Generation: the new App Deployment', 'http://2014.javazone.no/presentation.html?id=2d36ece1']
             ]
         ],
         ['SkillsMatter', 'London, UK', 51.508515, -0.1254872,
@@ -289,7 +300,8 @@ function initTalksMap() {
 
         addVenueLink(marker, talk);
     }
-    map.fitBounds(bounds);
+    map.panToBounds(bounds);
+    map.setCenter(bounds.getCenter());
 }
 
 function addVenueLink(marker, talk) {

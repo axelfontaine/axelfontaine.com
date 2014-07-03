@@ -383,7 +383,8 @@ body.modal-open {
 }
 
 #talk-map-container {
-    width: 780px;
+    margin-left: 20px;
+    width: 940px;
     margin-bottom: 20px;
 }
 
@@ -398,7 +399,7 @@ body.modal-open {
 }
 
 #talk-map {
-    width: 770px;
+    width: 940px;
     height: 325px;
 }
 
