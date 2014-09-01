@@ -74,6 +74,11 @@ function initTalksMap() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['Devoxx 2014', 'Antwerpen, Belgium', 51.2192159, 4.4028818,
+            [
+                ['2014-11-11', 'Boxfuse: Immutable Server Generation', 'http://www.devoxx.be']
+            ]
+        ],
         ['JAX 2014', 'München, Germany', 48.1366069, 11.5770851,
             [
                 ['2014-11-05', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/wjax2014/sessions/inspiration-statt-transpiration-java-app-deployment-fuer-das-21-jahrhundert']
