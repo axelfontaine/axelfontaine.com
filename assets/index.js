@@ -96,7 +96,7 @@ function initTalksMap() {
         ],
         ['JavaZone 2014', 'Oslo, Norway', 59.913869, 10.752245,
             [
-                ['2014-09-10', 'Immutable Server Generation: the new App Deployment', 'http://2014.javazone.no/presentation.html?id=2d36ece1']
+                ['2014-09-11', 'Immutable Server Generation: the new App Deployment', 'http://2014.javazone.no/presentation.html?id=2d36ece1']
             ]
         ],
         ['SkillsMatter', 'London, UK', 51.508515, -0.1254872,
