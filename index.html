@@ -9,12 +9,6 @@ pill: home
 
     <table>
         <tr>
-            <td><a href="http://2014.javazone.no/presentation.html?id=2d36ece1">JavaZone 2014</a></td>
-            <td>
-                <a href="http://2014.javazone.no/presentation.html?id=2d36ece1">2014-09-11 Immutable Server Generation: the new App Deployment</a><br/>
-            </td>
-        </tr>
-        <tr>
             <td><a href="https://www.oracle.com/javaone/agenda/index.html">JavaOne 2014</a></td>
             <td>
                 <a href="https://www.oracle.com/javaone/agenda/index.html">2014-09-30 Continuous Delivery and Zero Downtime</a><br/>
@@ -284,7 +278,7 @@ pill: home
             <div id="course-continuous-delivery" class="course">
                 <i class="course-icon icon-rocket"></i>
 
-                <p class="marketing-item-head">Architecting for Continuous Delivery: from Zero to Hero</p>
+                <p class="marketing-item-head">Continuous Delivery & Zero Downtime</p>
 
                 <p>Two day on-site training</p>
 
@@ -315,16 +309,17 @@ pill: home
 
                 <p class="section-text">Over the course of these two days, we will cover the following topics:</p>
                 <ul class="section-text">
-                    <li>Introduction to Continuous Delivery</li>
-                    <li>Application, CI Server and Artifact Repository Setup</li>
-                    <li>Rethinking Releases</li>
-                    <li>Environment Detection</li>
-                    <li>Configuration</li>
-                    <li>Database Migrations</li>
-                    <li>Feature Toggles</li>
-                    <li>Managing State</li>
-                    <li>Self-identifying Software</li>
-                    <li>Zero-Downtime Deployments</li>
+                    <li>What is Continuous Delivery?</li>
+                    <li>How does it impact my architecture?</li>
+                    <li>What is the optimal setup for my CI infrastructure?</li>
+                    <li>How are releases produced?</li>
+                    <li>How do I deal with configuration?</li>
+                    <li>How do I bridge the gaps between environments?</li>
+                    <li>How do I reliably evolve my database schema?</li>
+                    <li>How do I keep software releasable at all times?</li>
+                    <li>How should I handle state? What is its impact on releases?</li>
+                    <li>How do I deploy with Zero-Downtime?</li>
+                    <li>How does it fit in with monitoring?</li>
                 </ul>
 
                 <div class="call-to-action">
@@ -391,7 +386,7 @@ pill: home
     <div class="marketing-section-head"><i class="icon-comments"></i><br/>Speaking</div>
     <div class="marketing-section-sub">
         Over the last few years, I have given a large number of talks at conferences and user groups.<br/>
-        The focus has been Continuous Delivery, Flyway and Boxfuse.
+        The focus has been Immutable Infrastructure, Continuous Delivery, <a href="http://flywaydb.org">Flyway</a> and <a href="http://boxfuse.com">Boxfuse</a>.
     </div>
     <div class="row">
         <div id="talk-map-container" class="span12">
@@ -407,11 +402,36 @@ pill: home
     <div class="row">
         <div class="span1"></div>
         <div class="span5">
+            <h4>Immutable Infrastructure</h4>
+
+            <div>
+                <div class="tabbable tabs-below">
+                    <div class="tab-content img-polaroid talk">
+                        <div class="tab-pane active" id="talk-ii-en">
+                            <a href="https://vimeo.com/105851488"><i class="icon-play-circle"></i></a>
+                        </div>
+                    </div>
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#talk-ii-en" data-toggle="tab">English</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <iframe class="img-polaroid" src="http://www.slideshare.net/slideshow/embed_code/39141134"
+                    width="400" height="260" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+                     allowfullscreen></iframe>
+            <p class="talk-caption">
+                From my talk at JavaZone 2014 in Oslo, Norway.
+            </p>
+
+            <p>&nbsp;</p>
+
             <h4>Continuous Delivery</h4>
 
             <div>
                 <div class="tabbable tabs-below">
-                    <div class="tab-content img-polaroid" id="talk-cd">
+                    <div class="tab-content img-polaroid talk">
                         <div class="tab-pane active" id="talk-cd-en">
                             <a href="http://www.parleys.com/share.html#play/52fcc428e4b0c04daeac9dc0"><i class="icon-play-circle"></i></a>
                         </div>
@@ -434,7 +454,7 @@ pill: home
             <iframe class="img-polaroid" src="http://www.slideshare.net/slideshow/embed_code/30846081"
                     width="400" height="260" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                      allowfullscreen></iframe>
-            <p class="talk">
+            <p class="talk-caption">
                 From my talk at Jfokus 2014 in Stockholm, Sweden.
             </p>
 
@@ -444,7 +464,7 @@ pill: home
 
             <div>
                 <div class="tabbable tabs-below">
-                    <div class="tab-content img-polaroid" id="talk-flyway">
+                    <div class="tab-content img-polaroid talk">
                         <div class="tab-pane active" id="talk-flyway-en">
                             <a href="http://www.parleys.com/play/528b40d2e4b054cd7d2ef450"><i class="icon-play-circle"></i></a>
                         </div>
@@ -459,11 +479,20 @@ pill: home
             <iframe class="img-polaroid" src="http://www.slideshare.net/slideshow/embed_code/17239961"
                     width="400" height="333" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
                     allowfullscreen></iframe>
-            <p class="talk">
+            <p class="talk-caption">
                 From my talk at 33rd Degree 2013 in Warsaw, Poland.
             </p>
         </div>
         <div class="span5">
+            <div>&nbsp;</div>
+            <div class="quote">
+                <div class="bubble">
+                    Interesting talk by @axelfontaine about infrastructure automation for PaaS with boxfuse.com #heroku #docker #aws #JavaZone
+                </div>
+                <div class="attribution">
+                    <strong>Lukas Eder</strong> at JavaZone 2014 in Oslo
+                </div>
+            </div>
             <div class="quote">
                 <div class="bubble">
                     Inspiring talk @axelfontaine about continuous delivery in #jfokus
@@ -532,7 +561,6 @@ pill: home
                     <strong>Cecilia Borg</strong> at jDays 2012 in Göteborg
                 </div>
             </div>
-            <!--
             <div class="quote">
                 <div class="bubble">
                     Very good talk on continuous deployment by @axelfontaine… #jdays
@@ -540,7 +568,7 @@ pill: home
                 <div class="attribution">
                     <strong>Oliver Gierke</strong> at jDays 2012, Göteborg
                 </div>
-            </div> -->
+            </div>
             <div class="quote">
                 <div class="bubble">
                     Thanks @axelfontaine for talking about continuous delivery at @jugch It was a great and
@@ -576,7 +604,7 @@ pill: home
                 <div class="attribution">
                     <strong>Andrew Williams</strong> at JUG Scotland in Edinburgh
                 </div>
-            </div>
+            </div>-->
             <div class="quote">
                 <div class="bubble">
                     Très bonne session de @axelfontaine sur "continuous delivery"
@@ -594,7 +622,6 @@ pill: home
                     <strong>Stephan Janssen</strong> at BeJUG in Leuven
                 </div>
             </div>
-            -->
         </div>
         <div class="span1"></div>
     </div>

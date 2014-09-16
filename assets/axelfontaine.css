@@ -373,7 +373,7 @@ body.modal-open {
     margin-top: 50px;
 }
 
-.talk {
+.talk-caption {
     margin-bottom: 30px;
     font-size: 12px;
 }
@@ -403,10 +403,29 @@ body.modal-open {
     height: 325px;
 }
 
-#talk-cd {
+.talk {
     width: 400px;
     text-align: center;
     font-size: 160px;
+}
+
+.talk a {
+    padding-top: 30px;
+    display: block;
+    width: 400px;
+    height: 195px;
+    color: #404040;
+    text-shadow: -3px 0 #808080, 0 3px #808080, 3px 0 #808080, 0 -3px #808080;
+}
+
+.talk a:hover {
+    text-decoration: none;
+    color: #808080;
+    text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
+}
+
+#talk-ii-en {
+    background: url("/assets/talk-ii-en.png") no-repeat top left;
 }
 
 #talk-cd-en {
@@ -421,44 +440,8 @@ body.modal-open {
     background: url("/assets/talk-cd-fr.png") no-repeat top left;
 }
 
-#talk-cd a {
-    padding-top: 30px;
-    display: block;
-    width: 400px;
-    height: 195px;
-    color: #404040;
-    text-shadow: -3px 0 #808080, 0 3px #808080, 3px 0 #808080, 0 -3px #808080;
-}
-
-#talk-cd a:hover {
-    text-decoration: none;
-    color: #808080;
-    text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
-}
-
-#talk-flyway {
-    width: 400px;
-    text-align: center;
-    font-size: 160px;
-}
-
 #talk-flyway-en {
     background: url("/assets/talk-flyway-en.png") no-repeat top left;
-}
-
-#talk-flyway a {
-    padding-top: 30px;
-    display: block;
-    width: 400px;
-    height: 195px;
-    color: #404040;
-    text-shadow: -3px 0 #808080, 0 3px #808080, 3px 0 #808080, 0 -3px #808080;
-}
-
-#talk-flyway a:hover {
-    text-decoration: none;
-    color: #808080;
-    text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
 }
 
 #blog-popular {
@@ -532,4 +515,8 @@ body.modal-open {
 
 .logo-list img {
     padding: 5px;
+}
+
+.icon-heart {
+    color: #990000;
 }
