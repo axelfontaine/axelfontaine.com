@@ -91,7 +91,7 @@ function initTalksMap() {
         ],
         ['JavaOne 2014', 'San Fransisco, USA', 37.7749295, -122.4194155,
             [
-                ['2014-09-30', 'Continuous Delivery and Zero Downtime', 'https://www.oracle.com/javaone/agenda/index.html']
+                ['2014-10-01', 'Continuous Delivery and Zero Downtime', 'https://www.oracle.com/javaone/agenda/index.html']
             ]
         ],
         ['JavaZone 2014', 'Oslo, Norway', 59.913869, 10.752245,
