@@ -74,6 +74,22 @@ function initTalksMap() {
 
     //Coordinate lookup: http://www.mapcoordinates.net/en
     var talks = [
+        ['Javaland 2015', 'Brühl, Germany', 50.8267554, 6.8987865,
+            [
+                ['2015-03-24', 'Immutable Infrastructure: das neue App Deployment', 'http://www.javaland.eu/']
+            ]
+        ],
+        ['Jfocus 2015', 'Stockholm, Sweden', 59.32893, 18.06491,
+            [
+                ['2015-02-05', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'http://www.jfokus.se/jfokus/training.jsp'],
+                ['2015-02-03', 'Immutable Infrastructure generation: the new App Deployment', 'http://www.jfokus.se/jfokus/talks.jsp#ImmutableInfrastruct']
+            ]
+        ],
+        ['Flavia', 'Kassel, Germany', 51.3127114, 9.4797461,
+            [
+                ['2014-11-17', 'Continuous Delivery and Zero Downtime (2 days, private)', 'http://www.flavia-it.de/']
+            ]
+        ],
         ['Devoxx 2014', 'Antwerpen, Belgium', 51.2192159, 4.4028818,
             [
                 ['2014-11-11', 'Boxfuse: Immutable Server Generation', 'http://www.devoxx.be']
