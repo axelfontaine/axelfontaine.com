@@ -98,52 +98,49 @@
         </div>
     </div>
     <div id="contact" class="modal hide fade" tabindex="-1" role="dialog">
-        <iframe name="contact-hidden-iframe" id="contact-hidden-iframe" class="hide"></iframe>
-        <form action="https://docs.google.com/spreadsheet/formResponse?formkey=dHkzR2t2bkl2Q2VHaWNsLTR6OXBLUnc6MQ&amp;ifq"
-              method="POST" id="contact-form" class="form-horizontal" target="contact-hidden-iframe">
+        <form  target="_self" onsubmit="" action="javascript: postContactForm()" id="contact-form" class="form-horizontal">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3>Contact Axel</h3>
             </div>
             <div class="modal-body">
                 <div class="control-group">
-                    <label class="control-label" for="entry_2">Your Name *</label>
+                    <label class="control-label" for="entry_338282018">Your Name *</label>
 
                     <div class="controls">
-                        <input type="text" required="required" name="entry.2.single" placeholder="Edward Example"
-                               id="entry_2">
+                        <input type="text" required="required" name="entry.338282018" placeholder="Edward Example"
+                               id="entry_338282018">
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="entry_3">Your E-mail address *</label>
+                    <label class="control-label" for="entry_1364296767">Your E-mail address *</label>
 
                     <div class="controls">
-                        <input type="email" required="required" name="entry.3.single" placeholder="edward@example.com"
-                               id="entry_3">
+                        <input type="email" required="required" name="entry.1364296767" placeholder="edward@example.com"
+                               id="entry_1364296767">
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="entry_0">Subject *</label>
+                    <label class="control-label" for="entry_1090068038">Subject *</label>
 
                     <div class="controls">
-                        <input type="text" required="required" name="entry.0.single" placeholder="Contact Request"
-                               id="entry_0">
+                        <input type="text" required="required" name="entry.1090068038" placeholder="Contact Request"
+                               id="entry_1090068038">
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label" for="entry_1">Message *</label>
+                    <label class="control-label" for="entry_1737582163">Message *</label>
 
                     <div class="controls">
-                        <textarea required="required" name="entry.1.single" placeholder="Contact Request"
-                                  id="entry_1" rows="8" cols="75"></textarea>
+                        <textarea required="required" name="entry.1737582163" placeholder="Contact Request"
+                                  id="entry_1737582163" rows="8" cols="75"></textarea>
                     </div>
                 </div>
 
-                <input type="hidden" name="pageNumber" value="0">
-                <input type="hidden" name="backupCache" value="">
+                <input type="text" name="_gotcha" style="display:none" >
                 <input type="hidden" name="submit" value="Submit">
             </div>
             <div class="modal-footer">
