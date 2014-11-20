@@ -73,7 +73,7 @@ var speakingEvents = [
     ],
     ['Jfokus 2015', 'Stockholm', 'Sweden', 59.32893, 18.06491,
         [
-            ['2015-02-05', 'Architecting for Continuous Delivery: from Zero to Hero (2 days)', 'http://www.jfokus.se/jfokus/training.jsp', true],
+            ['2015-02-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://www.jfokus.se/jfokus/training.jsp', true],
             ['2015-02-03', 'Immutable Infrastructure generation: the new App Deployment', 'http://www.jfokus.se/jfokus/talks.jsp#ImmutableInfrastruct', false]
         ]
     ],
