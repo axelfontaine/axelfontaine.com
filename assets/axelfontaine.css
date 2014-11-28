@@ -438,6 +438,10 @@ body.modal-open {
     background: url("/assets/talk-ii-en.png") no-repeat top left;
 }
 
+#talk-ii-de {
+    background: url("/assets/talk-ii-de.png") no-repeat top left;
+}
+
 #talk-cd-en {
     background: url("/assets/talk-cd-en.png") no-repeat top left;
 }
