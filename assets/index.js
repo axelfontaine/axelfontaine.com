@@ -71,6 +71,12 @@ var speakingEvents = [
             ['2015-03-24', 'Immutable Infrastructure: das neue App Deployment', 'http://www.javaland.eu/', false]
         ]
     ],
+    ['DevNexus 2015', 'Atlanta', 'USA', 33.7489954, -84.3879824,
+        [
+            ['2015-03-11', 'Flyway - Database Migration made easy', 'http://devnexus.com/s/speakers#Axel_Fontaine', false],
+            ['2015-03-11', 'Immutable Infrastructure: the new App Deployment', 'http://devnexus.com/s/speakers#Axel_Fontaine', false]
+        ]
+    ],
     ['SkillsMatter', 'London', 'UK', 51.508515, -0.1254872,
         [
             ['2015-02-09', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'https://skillsmatter.com/courses/506-architecting-for-continuous-delivery-and-zero-downtime', true]
