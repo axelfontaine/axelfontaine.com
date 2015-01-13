@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
+        [
+            ['2015-03-30', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://instil.co/courses/architecting-for-continuous-delivery-and-zero-downtime/', true]
+        ]
+    ],
     ['Javaland 2015', 'Brühl', 'Germany', 50.8267554, 6.8987865,
         [
             ['2015-03-24', 'Immutable Infrastructure: das neue App Deployment', 'http://www.javaland.eu/', false]
