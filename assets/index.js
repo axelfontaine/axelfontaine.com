@@ -82,11 +82,6 @@ var speakingEvents = [
             ['2015-03-11', 'Immutable Infrastructure: the new App Deployment', 'http://devnexus.com/s/speakers#Axel_Fontaine', false]
         ]
     ],
-    ['SkillsMatter', 'London', 'UK', 51.508515, -0.1254872,
-        [
-            ['2015-02-09', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'https://skillsmatter.com/courses/506-architecting-for-continuous-delivery-and-zero-downtime', true]
-        ]
-    ],
     ['Jfokus 2015', 'Stockholm', 'Sweden', 59.32893, 18.06491,
         [
             ['2015-02-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://www.jfokus.se/jfokus/training.jsp', true],
