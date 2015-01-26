@@ -82,6 +82,12 @@ var speakingEvents = [
             ['2015-03-11', 'Immutable Infrastructure: the new App Deployment', 'http://devnexus.com/s/speakers#Axel_Fontaine', false]
         ]
     ],
+    ['DevOps Stockholm', 'Stockholm', 'Sweden', 59.32893, 18.06491,
+        [
+            ['2015-02-05', 'Continuous Delivery and Zero Downtime', 'http://www.meetup.com/DevOps-Stockholm/events/220067315/#event-comments-section', false],
+            ['2015-02-05', 'Immutable Infrastructure generation: the new App Deployment', 'http://www.meetup.com/DevOps-Stockholm/events/220067315/#event-comments-section', false]
+        ]
+    ],
     ['Jfokus 2015', 'Stockholm', 'Sweden', 59.32893, 18.06491,
         [
             ['2015-02-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://www.jfokus.se/jfokus/training.jsp', true],
