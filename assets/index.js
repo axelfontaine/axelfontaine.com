@@ -78,12 +78,12 @@ var speakingEvents = [
     ],
     ['Javaland 2015', 'Brühl', 'Germany', 50.8267554, 6.8987865,
         [
-            ['2015-03-24', 'Immutable Infrastructure: das neue App Deployment', 'http://www.javaland.eu/', false]
+            ['2015-03-25', 'Immutable Infrastructure: das neue App Deployment', 'http://www.javaland.eu/', false]
         ]
     ],
     ['DevNexus 2015', 'Atlanta', 'USA', 33.7489954, -84.3879824,
         [
-            ['2015-03-11', 'Flyway - Database Migration made easy', 'http://devnexus.com/s/speakers#Axel_Fontaine', false],
+            ['2015-03-12', 'Flyway - Database Migration made easy', 'http://devnexus.com/s/speakers#Axel_Fontaine', false],
             ['2015-03-11', 'Immutable Infrastructure: the new App Deployment', 'http://devnexus.com/s/speakers#Axel_Fontaine', false]
         ]
     ],
@@ -96,7 +96,7 @@ var speakingEvents = [
     ['Jfokus 2015', 'Stockholm', 'Sweden', 59.32893, 18.06491,
         [
             ['2015-02-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://www.jfokus.se/jfokus/training.jsp', true],
-            ['2015-02-03', 'Immutable Infrastructure generation: the new App Deployment', 'http://www.jfokus.se/jfokus/talks.jsp#ImmutableInfrastruct', false]
+            ['2015-02-04', 'Immutable Infrastructure generation: the new App Deployment', 'http://www.jfokus.se/jfokus/talks.jsp#ImmutableInfrastruct', false]
         ]
     ],
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
