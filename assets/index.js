@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2015-05-27', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-04-23', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
