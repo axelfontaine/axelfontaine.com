@@ -587,6 +587,15 @@ body.modal-open {
     font-weight: 600;
 }
 
+.training .attribution div {
+    float: left;
+    margin-bottom: 40px;
+}
+
+.training .attribution img {
+    height: 40px;
+    margin-right: 10px;
+}
 
 #training-ad {
     padding: 10px;
