@@ -76,6 +76,11 @@ var speakingEvents = [
             ['2015-04-23', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
+    ['JAX 2015', 'Mainz', 'Germany', 49.9928617, 8.2472526,
+        [
+            ['2015-04-21', 'Auf Wolke sieben: Architektur und Deployment von Microservices für die Cloud', 'https://jax.de/2015/sessions/auf-wolke-sieben-architektur-und-deployment-von-microservices-fuer-die-cloud', false]
+        ]
+    ],
     ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
         [
             ['2015-03-30', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://instil.co/courses/architecting-for-continuous-delivery-and-zero-downtime/', true]
@@ -119,7 +124,7 @@ var speakingEvents = [
             ['2014-11-11', 'Boxfuse: Immutable Server Generation', 'http://www.devoxx.be', false]
         ]
     ],
-    ['JAX 2014', 'München', 'Germany', 48.1366069, 11.5770851,
+    ['WJAX 2014', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2014-11-05', 'Inspiration statt Transpiration: Java App Deployment für das 21. Jahrhundert', 'http://jax.de/wjax2014/sessions/inspiration-statt-transpiration-java-app-deployment-fuer-das-21-jahrhundert', false]
         ]
