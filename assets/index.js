@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['JUG Augsburg', 'Augsburg', 'Germany', 48.3714407, 10.8982552,
+        [
+            ['2015-06-11', 'Flyway - Database Migration made easy', 'http://www.jug-augsburg.de/', false]
+        ]
+    ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
             ['2015-05-27', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
