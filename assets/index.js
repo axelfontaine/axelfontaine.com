@@ -86,6 +86,11 @@ var speakingEvents = [
             ['2015-04-21', 'Auf Wolke sieben: Architektur und Deployment von Microservices für die Cloud', 'https://jax.de/2015/sessions/auf-wolke-sieben-architektur-und-deployment-von-microservices-fuer-die-cloud', false]
         ]
     ],
+    ['Bash', 'Belfast', 'UK', 54.597285, -5.93012,
+        [
+            ['2015-03-30', 'Immutable Infrastructure: the new App Deployment', 'http://www.meetup.com/devbash/events/220774267/', false]
+        ]
+    ],
     ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
         [
             ['2015-03-30', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', 'http://instil.co/courses/architecting-for-continuous-delivery-and-zero-downtime/', true]
