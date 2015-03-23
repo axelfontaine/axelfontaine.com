@@ -68,7 +68,22 @@ function relativeLatestPostDate() {
 var speakingEvents = [
     ['JUG Augsburg', 'Augsburg', 'Germany', 48.3714407, 10.8982552,
         [
-            ['2015-06-11', 'Flyway - Database Migration made easy', 'http://www.jug-augsburg.de/', false]
+            ['2015-06-25', 'Flyway - Database Migration made easy', 'http://www.jug-augsburg.de/', false]
+        ]
+    ],
+    ['Devoxx UK 2015', 'London', 'UK', 51.508515, -0.1254872,
+        [
+            ['2015-06-18', 'Flyway - Database Migration made easy', 'http://cfp.devoxx.co.uk/2015/talk/UEO-0132/Flyway_-_Database_Migration_made_easy', false]
+        ]
+    ],
+    ['GOTO Nights Berlin', 'Berlin', 'Germany', 52.519171, 13.4060912,
+        [
+            ['2015-06-03', 'Immutable Infrastructure: the new App Deployment', 'https://secure.trifork.com/berlin-2015/freeevent/index.jsp?eventOID=6973', false]
+        ]
+    ],
+    ['DevOpsCon 2015', 'Berlin', 'Germany', 52.519171, 13.4060912,
+        [
+            ['2015-06-03', 'Flyway - Database Migration made easy', 'http://devopsconference.de/2015/sessions/flyway-database-migration-made-easy', false]
         ]
     ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
