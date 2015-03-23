@@ -91,6 +91,11 @@ var speakingEvents = [
             ['2015-05-27', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
+    ['Geecon 2015', 'Krakow', 'Poland', 50.0646501, 19.9449799,
+        [
+            ['2015-05-14', 'Immutable Infrastructure: the new App Deployment', 'http://2015.geecon.org/speakers/info.html?id=33', false]
+        ]
+    ],
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-04-23', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
