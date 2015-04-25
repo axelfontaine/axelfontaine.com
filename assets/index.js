@@ -96,6 +96,11 @@ var speakingEvents = [
             ['2015-05-14', 'Immutable Infrastructure: the new App Deployment', 'http://2015.geecon.org/speakers/info.html?id=33', false]
         ]
     ],
+    ['Bucharest JUG', 'Bucharest', 'Romania', 44.4304489, 26.0979342,
+        [
+            ['2015-05-12', 'Immutable Infrastructure: the new App Deployment', 'http://www.meetup.com/Bucharest-Java-User-Group/events/221990777/', false]
+        ]
+    ],
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-04-23', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
