@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2015-09-17', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['JUG Augsburg', 'Augsburg', 'Germany', 48.3714407, 10.8982552,
         [
             ['2015-06-25', 'Flyway - Database Migration made easy', 'http://www.jug-augsburg.de/', false]
@@ -84,6 +89,11 @@ var speakingEvents = [
     ['DevOpsCon 2015', 'Berlin', 'Germany', 52.519171, 13.4060912,
         [
             ['2015-06-03', 'Flyway - Database Migration made easy', 'http://devopsconference.de/2015/sessions/flyway-database-migration-made-easy', false]
+        ]
+    ],
+    ['DevOps Norway', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2015-05-27', 'Immutable Infrastructure: the new App Deployment', 'http://www.meetup.com/DevOps-Norway/events/222018498/', false]
         ]
     ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
