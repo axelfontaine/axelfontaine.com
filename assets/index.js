@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['SkillsMatter', 'London', 'UK', 51.508515, -0.1254872,
+        [
+            ['2015-09-24', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-09-17', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
