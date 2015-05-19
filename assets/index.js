@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['W-JAX 2015', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2015-11-04', 'Auf Wolke sieben: Architektur und Deployment von Microservices für die Cloud', 'https://jax.de/wjax2015/sessions/auf-wolke-sieben-architektur-und-deployment-von-microservices-fuer-die-cloud', false]
+        ]
+    ],
     ['SkillsMatter', 'London', 'UK', 51.508515, -0.1254872,
         [
             ['2015-09-24', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
