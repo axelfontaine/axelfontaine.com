@@ -81,6 +81,11 @@ var speakingEvents = [
             ['2015-09-17', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
+    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2015-09-14', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['JUG Augsburg', 'Augsburg', 'Germany', 48.3714407, 10.8982552,
         [
             ['2015-06-25', 'Flyway - Database Migration made easy', 'http://www.jug-augsburg.de/', false]
