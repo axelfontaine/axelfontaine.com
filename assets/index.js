@@ -83,7 +83,12 @@ var speakingEvents = [
     ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
-            ['2015-09-14', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+            ['2015-09-15', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
+    ['JavaZone 2015', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2015-09-10', 'Up in the sky: Architecture and Deployment of Microservices for the Cloud', 'http://2015.javazone.no/details.html?talk=9d8b67334c65cd7cd21dee8fe8de3f9128f70a923107ee365427747e341a9c54', false]
         ]
     ],
     ['JUG Augsburg', 'Augsburg', 'Germany', 48.3714407, 10.8982552,
