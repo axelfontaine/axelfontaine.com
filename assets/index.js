@@ -66,6 +66,26 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2016-01-20', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
+    ['GOTO Berlin', 'Berlin', 'Germany', 52.519171, 13.4060912,
+        [
+            ['2015-12-03', 'Immutable Infrastructure: Kiss your Pets Goodbye, Here Comes the Cattle!', 'http://gotocon.com/berlin-2015/presentation/Immutable%20Infrastructure:%20Kiss%20your%20Pets%20Goodbye,%20Here%20Comes%20the%20Cattle', false]
+        ]
+    ],
+    ['DevOpsCon 2015', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2015-11-24', 'Immutable Infrastructure auf AWS: Hasta la vista Haustiere, hier kommt das Vieh!', 'http://devopsconference.de/session/immutable-infrastructure-auf-aws-hasta-la-vista-haustiere-hier-kommt-das-vieh/', false]
+        ]
+    ],
+    ['Worldpay', 'London', 'UK', 51.508515, -0.1254872,
+        [
+            ['2015-11-18', 'Immutable Infrastructure: Kiss your Pets Goodbye, Here Comes the Cattle!', 'http://www.meetup.com/Worldpay-Developers-engineers-and-testers/events/225943635/', false]
+        ]
+    ],
     ['W-JAX 2015', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-11-04', 'Auf Wolke sieben: Architektur und Deployment von Microservices für die Cloud', 'https://jax.de/wjax2015/sessions/auf-wolke-sieben-architektur-und-deployment-von-microservices-fuer-die-cloud', false]
@@ -79,11 +99,6 @@ var speakingEvents = [
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-09-17', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
-        ]
-    ],
-    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
-        [
-            ['2015-09-15', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
     ['JavaZone 2015', 'Oslo', 'Norway', 59.913869, 10.752245,
