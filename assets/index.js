@@ -81,7 +81,7 @@ var speakingEvents = [
             ['2015-11-24', 'Immutable Infrastructure auf AWS: Hasta la vista Haustiere, hier kommt das Vieh!', 'http://devopsconference.de/session/immutable-infrastructure-auf-aws-hasta-la-vista-haustiere-hier-kommt-das-vieh/', false]
         ]
     ],
-    ['Worldpay', 'London', 'UK', 51.508515, -0.1254872,
+    ['Worldpay London', 'London', 'UK', 51.508515, -0.1254872,
         [
             ['2015-11-18', 'Immutable Infrastructure: Kiss your Pets Goodbye, Here Comes the Cattle!', 'http://www.meetup.com/Worldpay-Developers-engineers-and-testers/events/225943635/', false]
         ]

@@ -434,6 +434,10 @@ body.modal-open {
     text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
 }
 
+#talk-cloud-en {
+    background: url("/assets/talk-cloud-en.png") no-repeat top left;
+}
+
 #talk-ii-en {
     background: url("/assets/talk-ii-en.png") no-repeat top left;
 }
@@ -531,7 +535,7 @@ body.modal-open {
     padding: 5px;
 }
 
-.icon-heart {
+.fa-heart {
     color: #990000;
 }
 
