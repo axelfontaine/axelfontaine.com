@@ -3,7 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>http://axelfontaine.com</loc>
+    <loc>https://axelfontaine.com</loc>
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -11,7 +11,7 @@
 
   {% for post in site.posts %}
   <url>
-    <loc>http://axelfontaine.com{{ post.permalink }}</loc>
+    <loc>https://axelfontaine.com{{ post.permalink }}</loc>
     <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.2</priority>
@@ -19,7 +19,7 @@
   {% endfor %}
 
   <url>
-    <loc>http://axelfontaine.com/blog/archive.html</loc>
+    <loc>https://axelfontaine.com/blog/archive.html</loc>
     <lastmod>{{ site.time | date: "%Y-%m-%d" }}</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
