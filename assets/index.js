@@ -86,6 +86,11 @@ var speakingEvents = [
             ['2015-11-18', 'Immutable Infrastructure: Kiss your Pets Goodbye, Here Comes the Cattle!', 'http://www.meetup.com/Worldpay-Developers-engineers-and-testers/events/225943635/', false]
         ]
     ],
+    ['AWS User Group München', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2015-11-09', 'Immutable Infrastructure on AWS: kiss you pets goodbye, here comes the cattle!', 'http://www.meetup.com/AWS-Munich/events/222476355/', false]
+        ]
+    ],
     ['W-JAX 2015', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2015-11-04', 'Auf Wolke sieben: Architektur und Deployment von Microservices für die Cloud', 'https://jax.de/wjax2015/sessions/auf-wolke-sieben-architektur-und-deployment-von-microservices-fuer-die-cloud', false]
