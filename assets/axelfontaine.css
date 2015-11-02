@@ -212,7 +212,6 @@
 
 .bubble {
     position: relative;
-    width: 330px;
     background: #FFFFFF;
     border: #808080 solid 2px;
     -webkit-border-radius: 10px;
@@ -220,6 +219,7 @@
     border-radius: 10px;
     padding: 10px;
     font-style: italic;
+    clear: both;
 }
 
 .bubble:after {
