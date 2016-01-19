@@ -66,14 +66,24 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['JAX 2016', 'Mainz', 'Germany', 49.9928617, 8.2472526,
+        [
+            ['2016-04-20', 'Immutable Infrastructure auf AWS: Hasta la vista Haustiere, hier kommt das Vieh!', 'https://jax.de/session/immutable-infrastructure-auf-aws-hasta-la-vista-haustiere-hier-kommt-das-vieh/', false]
+        ]
+    ],
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2016-04-11', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
-    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+    ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
         [
-            ['2016-01-20', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+            ['2016-03-14', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
+    ['QCon London 2016', 'London', 'UK', 51.508515, -0.1254872,
+        [
+            ['2016-03-07', 'Immutable Infrastructure: Kiss your Pets Goodbye!', 'http://qconlondon.com/speakers/axel-fontaine', false]
         ]
     ],
     ['GOTO Berlin', 'Berlin', 'Germany', 52.519171, 13.4060912,
