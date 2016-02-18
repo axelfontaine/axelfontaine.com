@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
+        [
+            ['2016-04-25', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['JAX 2016', 'Mainz', 'Germany', 49.9928617, 8.2472526,
         [
             ['2016-04-20', 'Immutable Infrastructure auf AWS: Hasta la vista Haustiere, hier kommt das Vieh!', 'https://jax.de/session/immutable-infrastructure-auf-aws-hasta-la-vista-haustiere-hier-kommt-das-vieh/', false]
@@ -74,11 +79,6 @@ var speakingEvents = [
     ['comSysto', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2016-04-11', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
-        ]
-    ],
-    ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
-        [
-            ['2016-03-14', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
     ['QCon London 2016', 'London', 'UK', 51.508515, -0.1254872,
