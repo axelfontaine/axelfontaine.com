@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Bash', 'Belfast', 'UK', 54.597285, -5.93012,
+        [
+            ['2016-04-25', 'Here comes the Cloud! But is your architecture ready for it?', 'http://www.meetup.com/devbash/events/229123932/', false]
+        ]
+    ],
     ['Instil', 'Belfast', 'UK', 54.597285, -5.93012,
         [
             ['2016-04-25', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
