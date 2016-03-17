@@ -86,9 +86,14 @@ var speakingEvents = [
             ['2016-04-11', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
+    ['JUG CH', 'Bern', 'CH', 46.9479739, 7.4474468,
+        [
+            ['2016-04-05', 'Immutable Infrastructure: Rise of the Machine Images', 'http://jug.ch/html/events/2016/immutable_infrastructure.html', false]
+        ]
+    ],
     ['QCon London 2016', 'London', 'UK', 51.508515, -0.1254872,
         [
-            ['2016-03-07', 'Immutable Infrastructure: Kiss your Pets Goodbye!', 'http://qconlondon.com/speakers/axel-fontaine', false]
+            ['2016-03-07', 'Immutable Infrastructure: Rise of the Machine Images', 'http://qconlondon.com/speakers/axel-fontaine', false]
         ]
     ],
     ['GOTO Berlin', 'Berlin', 'Germany', 52.519171, 13.4060912,
