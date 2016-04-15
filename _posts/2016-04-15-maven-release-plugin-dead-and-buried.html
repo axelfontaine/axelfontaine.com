@@ -1,0 +1,207 @@
+---
+layout: blog
+title: 'Maven Release Plugin: Dead and Buried'
+permalink: /blog/dead-burried.html
+---
+<div>
+    <p>
+        This is the second major update to a very <a href="/blog/maven-releases-steroids.html">popular</a> <a
+            href="/blog/maven-releases-steroids-2.html">article</a>
+        <a href="/blog/maven-releases-steroids-3.html">series</a> titled 'Maven Releases on Steroids' which I originally
+        published in 2011. The goal of the
+        series was to provide a simple and efficient way to produce releases on a Maven project. Not only that, but
+        it did so in a way that is compatible with Continuous Delivery.</p>
+
+    <p>The original series was written for Subversion.
+        By 2013 Git had taken over the market and so I published an update called
+        <a href="/blog/final-nail.html">Maven Release Plugin: The Final Nail in the Coffin</a> that integrated both Git
+        itself and the improvements it provided into the workflow.</p>
+
+    <p>With its 3.2.1 release, Maven finally introduced support for <a href="https://issues.apache.org/jira/browse/MNG-5576">Continuous Delivery friendly versions</a>.
+    While not perfect, even this minimal implementation warranted this long overdue update to my previous articles.</p>
+
+    <p>&nbsp;</p>
+
+    <h3>The improvements so far</h3>
+
+    <p>Maven has traditionally required the version number to be present in the project descriptor (pom.xml). This
+        concept permeates through all aspects of the Maven ecosystem, culminating with the monstrosity commonly referred
+        to as the Release Plugin.</p>
+
+    <p>So how big exactly was the improvement of <a href="/blog/maven-releases-steroids.html">Releases On Steroids</a>
+        and <a href="/blog/final-nail.html">Final Nail</a> over the Release Plugin? See for yourself:</p>
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th></th>
+            <th>Releases on Steroids</th>
+            <th>Release Plugin</th>
+        </tr>
+        <tr>
+            <td>Clean/Compile/Test cycle</td>
+            <td><strong>1</strong></td>
+            <td style="color: red;"><strong>3</strong></td>
+        </tr>
+        <tr>
+            <td>POM transformations</td>
+            <td><strong>0</strong></td>
+            <td style="color: red;"><strong>2</strong></td>
+        </tr>
+        <tr>
+            <td>Commits</td>
+            <td><strong>0</strong></td>
+            <td style="color: red;"><strong>2</strong></td>
+        </tr>
+        <tr>
+            <td>SCM revisons</td>
+            <td><strong>1</strong></td>
+            <td style="color: red;"><strong>3</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>The reduction in the number of Clean/Compile/Test cycles alone results in a <strong>3x build time improvement</strong>!
+        And this doesn't even take into consideration the other adavantages like increased reliability and recoverability. Quite the win indeed!</p>
+
+    <p>&nbsp;</p>
+
+    <h3>Turning it up to 11</h3>
+
+    <p>Both original article series and the Final Nail update required the use of the <a href="http://www.mojohaus.org/versions-maven-plugin/">Versions Maven Plugin</a>
+        to dynamically update the generic version contained in the POM to the new version assigned dynamically for the
+        current build. This resulted in the need to run Maven twice: once for updating the version and the again with the
+    updated version.</p>
+
+    <p>With the Maven 3.2.1 release and the newly introduced support for <a href="https://issues.apache.org/jira/browse/MNG-5576">Continuous Delivery friendly versions</a>
+        we can now finally eliminate this extra step and get down to a single execution.</p>
+
+    <p>At its core the purpose of producing a release is nothing more than being able to link a version
+        of the software as deployed onto a machine back to the matching revision of the source code in SCM. This is essential
+        to reproduce bugs and revert to previous versions deterministically if required.</p>
+
+    <p>To accomplish this we have to go through a number of steps. At a minimum these include:</p>
+    <ul>
+        <li>checking out the software as it is</li>
+        <li>giving it a version so it can be uniquely identified</li>
+        <li>building, testing and packaging it</li>
+        <li>deploying it to an artifact repository where it can then be picked for actual roll out on target machines</li>
+        <li>tagging this state in SCM so it can be associated with the matching artifact</li>
+    </ul>
+
+    <p>Surprisingly simple, isn't it?</p>
+
+    <p>&nbsp;</p>
+
+    <h3>Eliminating the Versions plugin</h3>
+
+    <p>Now let's revisit the ideas presented in <a href="/blog/final-nail.html">Final Nail</a> and see how they can be improved with Maven's new Continuous Delivery friendly versions support.</p>
+
+    <p>For this we need to ensure our POM accepts versions set externally. As this will usually only be the case on the CI machine
+        (the one and only machine you should ever build releases on), we also need a sane default for local development to avoid having to pass a dummy version for every single local build.</p>
+
+    <p>Taking that into account our <code>pom.xml</code> now looks like this:</p>
+
+    <pre class="prettyprint">&lt;project ...&gt;
+    ...
+    &lt;version&gt;${revision}&lt;/version&gt;
+
+    &lt;properties&gt;
+        &lt;!-- Sane default when no revision property is passed in from the commandline --&gt;
+        &lt;revision&gt;0-SNAPSHOT&lt;/revision&gt;
+    &lt;/properties&gt;
+
+    &lt;scm&gt;
+        &lt;connection&gt;scm:git:<em>&lt;&lt;your-git-repo-url&gt;&gt;</em>&lt;/connection&gt;
+    &lt;/scm&gt;
+
+    &lt;distributionManagement&gt;
+        &lt;repository&gt;
+            &lt;id&gt;artifact-repository&lt;/id&gt;
+            &lt;url&gt;<em>&lt;&lt;your-artifact-repo-url&gt;&gt;</em>&lt;/url&gt;
+        &lt;/repository&gt;
+    &lt;/distributionManagement&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;artifactId&gt;maven-scm-plugin&lt;/artifactId&gt;
+                &lt;version&gt;1.9.4&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;tag&gt;${project.artifactId}-${project.version}&lt;/tag&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+    ...
+&lt;/project&gt;</pre>
+
+    <p>And that's it! You can now produce releases on your CI server very easily by invoking:</p>
+
+    <pre><strong>mvn deploy scm:tag -Drevision=$BUILD_NUMBER</strong></pre>
+
+    <p>Where <code>BUILD_NUMBER</code> is the environment variable provided by your CI server to identify the current build number for the project.</p>
+
+    <p>For services and deliverables consumed by other teams and external parties you can also easily combine this technique with <a href="http://semver.org/">sematic versioning</a> by
+        prefixing the version tag in your POM with the correct semantic version. You can then automatically produce releases internally
+        and manually updated this semantic version before each external delivery.</p>
+
+    <p>Example:</p>
+
+    <pre class="prettyprint">&lt;version&gt;1.2.34.${revision}&lt;/version&gt;</pre>
+
+    <p>&nbsp;</p>
+
+    <h3>Conclusion</h3>
+
+    <p>In this article we have taken what was already a gigantic improvement over the Maven Release Plugin and simplified it even further by finally getting it down to a single Maven execution:</p>
+
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <th></th>
+            <th>This article</th>
+            <th>Releases on Steroids</th>
+            <th>Release Plugin</th>
+        </tr>
+        <tr>
+            <td>Clean/Compile/Test cycle</td>
+            <td><strong>1</strong></td>
+            <td><strong>1</strong></td>
+            <td style="color: red;"><strong>3</strong></td>
+        </tr>
+        <tr>
+            <td>POM transformations</td>
+            <td><strong>0</strong></td>
+            <td><strong>0</strong></td>
+            <td style="color: red;"><strong>2</strong></td>
+        </tr>
+        <tr>
+            <td>Commits</td>
+            <td><strong>0</strong></td>
+            <td><strong>0</strong></td>
+            <td style="color: red;"><strong>2</strong></td>
+        </tr>
+        <tr>
+            <td>SCM revisons</td>
+            <td><strong>1</strong></td>
+            <td><strong>1</strong></td>
+            <td style="color: red;"><strong>3</strong></td>
+        </tr>
+        <tr>
+            <td>Maven Executions</td>
+            <td><strong>1</strong></td>
+            <td style="color: red;"><strong>2</strong></td>
+            <td style="color: red;"><strong>2</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>This is by far the <strong>simplest and most effective way to produce releases on projects using Maven and
+            Continuous Delivery.</strong></p>
+
+    <p>Along the way, we strongly focused on keeping as much knowledge as possible inside the POM. This keeps the
+        release process concise, provides us with sane defaults and minimizes dependencies on specific environments or CI servers.</p>
+
+    <p>So do yourself a favor and join me in finally <strong>burying the Release Plugin for good. It's been dead for a while now anyway.</strong></p>
+</div>
