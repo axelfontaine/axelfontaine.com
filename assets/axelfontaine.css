@@ -1,3 +1,25 @@
+#top-cta {
+    width: 100%;
+    background-color: #008BC0;
+    text-align: center;
+}
+
+#top-cta a {
+    font-size: 16px;
+    display: block;
+    padding: 10px;
+    color: #EFF7FB;
+    line-height: 24px;
+}
+
+#top-cta a:hover {
+    text-decoration: none;
+}
+
+#top-cta a img {
+    margin-top: -5px;
+}
+
 #main {
     background-color: rgba(255, 255, 255, 0.9);
     border-left: 2px solid #808080;
