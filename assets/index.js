@@ -66,6 +66,16 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Microservices Meetup Munich', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2016-06-15', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.meetup.com/Microservices-Meetup-Munich/events/230468731/', false]
+        ]
+    ],
+    ['DevOps Lisbon', 'München', 'Germany', 38.7223263, -9.1392714,
+        [
+            ['2016-05-19', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.meetup.com/DevOps-Lisbon/events/230513782/', false]
+        ]
+    ],
     ['Bash', 'Belfast', 'UK', 54.597285, -5.93012,
         [
             ['2016-04-25', 'Here comes the Cloud! But is your architecture ready for it?', 'http://www.meetup.com/devbash/events/229123932/', false]
