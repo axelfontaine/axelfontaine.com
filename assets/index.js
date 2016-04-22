@@ -71,7 +71,7 @@ var speakingEvents = [
             ['2016-06-15', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.meetup.com/Microservices-Meetup-Munich/events/230468731/', false]
         ]
     ],
-    ['DevOps Lisbon', 'München', 'Germany', 38.7223263, -9.1392714,
+    ['DevOps Lisbon', 'Lisbon', 'Portugal', 38.7223263, -9.1392714,
         [
             ['2016-05-19', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.meetup.com/DevOps-Lisbon/events/230513782/', false]
         ]
