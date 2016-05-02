@@ -66,9 +66,19 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2016-09-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['Microservices Meetup Munich', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2016-06-15', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.meetup.com/Microservices-Meetup-Munich/events/230468731/', false]
+        ]
+    ],
+    ['Iasi JUG', 'Iasi', 'Romania', 47.1584549, 27.6014418,
+        [
+            ['2016-05-31', 'Immutable Infrastructure: Rise of the Machine Images', 'http://iasi-jug.ro/events/immutable-infrastructure-rise-of-machine-images/', false]
         ]
     ],
     ['DevOps Lisbon', 'Lisbon', 'Portugal', 38.7223263, -9.1392714,
