@@ -71,6 +71,11 @@ var speakingEvents = [
             ['2016-09-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
+    ['Devoxx Poland', 'Krakow', 'Poland', 50.0646501, 19.9449799,
+        [
+            ['2016-06-23', 'Immutable Infrastructure: Rise of the Machine Images', 'http://cfp.devoxx.pl/2016/talk/AXB-9719/Immutable_Infrastructure:_Rise_of_the_Machine_Images', false]
+        ]
+    ],
     ['Microservices Meetup Munich', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2016-06-15', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.meetup.com/Microservices-Meetup-Munich/events/230468731/', false]
