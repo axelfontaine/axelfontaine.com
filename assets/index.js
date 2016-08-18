@@ -66,9 +66,19 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
-    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+    ['ØREDEV 2016', 'Malmö', 'Sweden', 55.5790534, 13.0108705,
         [
-            ['2016-09-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+            ['2016-11-10', 'Immutable Infrastructure: Rise of the Machine Images', 'http://oredev.org/2016/speakers/axel-fontaine', false]
+        ]
+    ],
+    ['Gedoplan', 'Berlin', 'Germany', 52.519171, 13.4060912,
+        [
+            ['2016-10-24', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
+    ['JavaZone 2016', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2016-09-07', 'Immutable Infrastructure: Rise of the Machine Images', 'https://2016.javazone.no/program/immutable-infrastructure-rise-of-the-machine-images', false]
         ]
     ],
     ['Devoxx Poland', 'Krakow', 'Poland', 50.0646501, 19.9449799,
