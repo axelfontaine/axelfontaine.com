@@ -68,7 +68,7 @@ function relativeLatestPostDate() {
 var speakingEvents = [
     ['JET 2016', 'Minsk', 'Belarus', 53.9045398, 27.5615244,
         [
-            ['2016-11-18', 'Immutable Infrastructure: Rise of the Machine Images', 'http://oredev.org/2016/speakers/axel-fontaine', false]
+            ['2016-11-18', 'Immutable Infrastructure: Rise of the Machine Images', 'http://jetconf.by/#/speakers', false]
         ]
     ],
     ['ØREDEV 2016', 'Malmö', 'Sweden', 55.5790534, 13.0108705,
