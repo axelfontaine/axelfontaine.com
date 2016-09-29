@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2016-11-23', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['JET 2016', 'Minsk', 'Belarus', 53.9045398, 27.5615244,
         [
             ['2016-11-18', 'Immutable Infrastructure: Rise of the Machine Images', 'http://jetconf.by/#/speakers', false]
@@ -74,6 +79,11 @@ var speakingEvents = [
     ['ØREDEV 2016', 'Malmö', 'Sweden', 55.5790534, 13.0108705,
         [
             ['2016-11-10', 'Immutable Infrastructure: Rise of the Machine Images', 'http://oredev.org/2016/speakers/axel-fontaine', false]
+        ]
+    ],
+    ['Iasi', 'Iasi', 'Romania', 47.1584549, 27.6014418,
+        [
+            ['2016-10-20', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
     ['JavaZone 2016', 'Oslo', 'Norway', 59.913869, 10.752245,
