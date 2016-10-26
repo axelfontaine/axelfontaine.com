@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Iasi', 'Iasi', 'Romania', 47.1584549, 27.6014418,
+        [
+            ['2016-12-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
             ['2016-11-23', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
