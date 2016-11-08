@@ -66,9 +66,9 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
-    ['Iasi', 'Iasi', 'Romania', 47.1584549, 27.6014418,
+    ['EuregJUG', 'Aachen', 'Germany', 53.9045398, 27.5615244,
         [
-            ['2016-12-05', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+            ['2016-12-06', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.euregjug.eu/2016/11/08/immutable-infrastructure-rise-of-the-machine-images', false]
         ]
     ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
