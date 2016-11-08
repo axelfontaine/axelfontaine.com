@@ -66,7 +66,7 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
-    ['EuregJUG', 'Aachen', 'Germany', 53.9045398, 27.5615244,
+    ['EuregJUG', 'Aachen', 'Germany', 50.7753455, 6.0838868,
         [
             ['2016-12-06', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.euregjug.eu/2016/11/08/immutable-infrastructure-rise-of-the-machine-images', false]
         ]
