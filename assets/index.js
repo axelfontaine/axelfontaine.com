@@ -71,6 +71,11 @@ var speakingEvents = [
             ['2016-12-06', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.euregjug.eu/2016/11/08/immutable-infrastructure-rise-of-the-machine-images', false]
         ]
     ],
+    ['JUG Cologne', 'Köln', 'Germany', 50.937531, 6.9602786,
+        [
+            ['2016-11-28', 'Immutable Infrastructure: Rise of the Machine Images', 'https://www.xing.com/events/jugc-sicherheit-java-1699655', false]
+        ]
+    ],
     ['DevOps Norway', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
             ['2016-11-23', 'Here comes the cloud! But is your architecture ready for it?', 'http://www.meetup.com/DevOps-Norway/events/235486182/', false]
