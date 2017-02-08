@@ -71,6 +71,16 @@ var speakingEvents = [
             ['2017-10-16', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
+    ['CodeCamp Iasi 2017', 'Iasi', 'Romania', 47.1584549, 27.6014418,
+        [
+            ['2017-05-12', 'Immutable Infrastructure: Rise of the Machine Images', 'http://iasi.codecamp.ro/day1', false]
+        ]
+    ],
+    ['Iasi', 'Iasi', 'Romania', 47.1584549, 27.6014418,
+        [
+            ['2017-05-10', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+        ]
+    ],
     ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
             ['2017-03-20', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
