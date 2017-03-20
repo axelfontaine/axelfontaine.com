@@ -81,11 +81,6 @@ var speakingEvents = [
             ['2017-05-10', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
         ]
     ],
-    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
-        [
-            ['2017-03-20', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
-        ]
-    ],
     ['EuregJUG', 'Aachen', 'Germany', 50.7753455, 6.0838868,
         [
             ['2017-01-09', 'Immutable Infrastructure: Rise of the Machine Images', 'http://www.euregjug.eu/2016/11/08/immutable-infrastructure-rise-of-the-machine-images', false]
