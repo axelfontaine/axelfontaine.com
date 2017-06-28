@@ -307,6 +307,7 @@
 
 #client-logos img {
     padding: 20px;
+    max-height: 55px;
 }
 
 .tweet {
