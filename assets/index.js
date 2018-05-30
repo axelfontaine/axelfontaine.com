@@ -66,9 +66,39 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
-    ['ProgramUtvikling', 'Oslo', 'Norway', 59.913869, 10.752245,
+    ['JavaZone 2018', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
-            ['2017-10-16', 'Architecting for Continuous Delivery and Zero Downtime (2 days)', '/training/continuousdelivery.html', true]
+            ['2018-09-13', 'Logging in the age of Microservices and the Cloud', 'https://2018.javazone.no/info', false]
+        ]
+    ],
+    ['DevTalks 2018', 'Bucharest', 'Romania', 44.4304489, 26.0979342,
+        [
+            ['2018-06-08', 'Majestic Modular Monoliths', 'http://www.devtalks.ro/bucharest/speakers/', false]
+        ]
+    ],
+    ['Geecon 2018', 'Krakow', 'Poland', 50.0646501, 19.9449799,
+        [
+            ['2018-05-10', 'Majestic Modular Monoliths', 'https://www.meetup.com/Microservices-Meetup-Munich/events/247183652/', false]
+        ]
+    ],
+    ['Microservices Meetup', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2018-02-22', 'Majestic Modular Monoliths', 'https://www.meetup.com/Microservices-Meetup-Munich/events/247183652/', false]
+        ]
+    ],
+    ['DevOpsCon 2017', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2017-11-22', 'Logging in the age of Microservices and the Cloud', 'https://devopsconference.de/', false]
+        ]
+    ],
+    ['Joker 2017', 'St. Petersburg', 'Russia', 59.9342802, 30.3350986,
+        [
+            ['2017-11-03', 'Logging in the age of Microservices and the Cloud', 'http://2017.jokerconf.com/en/2017/talks/4kchar2meisgkimsa42que/', false]
+        ]
+    ],
+    ['JavaZone 2017', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2017-09-14', 'Majestic Modular Monoliths', 'https://2017.javazone.no/program/71f6d0cfcbee4885b95b241922cf59cc', false]
         ]
     ],
     ['CodeCamp Iasi 2017', 'Iasi', 'Romania', 47.1584549, 27.6014418,
