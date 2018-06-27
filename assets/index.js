@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['W-JAX 2018', 'München', 'Germany', 48.1366069, 11.5770851,
+        [
+            ['2018-11-06', 'Majestic Modular Monoliths', 'https://jax.de/software-architecture/majestic-modular-monoliths/', false]
+        ]
+    ],
     ['JavaZone 2018', 'Oslo', 'Norway', 59.913869, 10.752245,
         [
             ['2018-09-13', 'Logging in the age of Microservices and the Cloud', 'https://2018.javazone.no/info', false]
