@@ -66,6 +66,11 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Devoxx BE 2018', 'Antwerpen', 'Belgium', 51.2192159, 4.4028818,
+        [
+            ['2018-11-14', 'Majestic Modular Monoliths', 'https://devoxx.be/', false]
+        ]
+    ],
     ['W-JAX 2018', 'München', 'Germany', 48.1366069, 11.5770851,
         [
             ['2018-11-06', 'Majestic Modular Monoliths', 'https://jax.de/software-architecture/majestic-modular-monoliths/', false]
