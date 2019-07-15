@@ -49,7 +49,7 @@ function showContactPopup(subject) {
 
 function postContactForm() {
     $.ajax({
-        url: "//formspree.io/axel@boxfuse.com",
+        url: "//formspree.io/axel@axelfontaine.com",
         method: "POST",
         data: {
             "_replyto": $('#entry_1364296767').val(),
