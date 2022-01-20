@@ -4,34 +4,52 @@ pill: home
 ---
 <!--suppress HtmlPresentationalElement -->
 <div id="home">
-<div id="upcoming">
+<div id="upcoming" style="visibility: collapse">
     <table>
     </table>
 </div>
 <div id="top-space"></div>
 <div id="bigsell">
-    <p id="bigsell-main">Hi, I'm Axel.<br/>Software is what I do.</p>
+    <p id="bigsell-main">Hi, I'm Axel.</p>
+    <p id="bigsell-details">Serial entrepreneur, public speaker and software development expert based in
+        Munich.
+    </p>
+    <div class="row">
+        <div id="about-photo" class="span6"><img src="/assets/photos/axel.jpg" alt="Axel" class="img-polaroid"/></div>
+        <div class="span5">
+            <p>I'm the founder and CEO of <a href="https://boxfuse.com">Boxfuse</a> GmbH. Boxfuse turns your JVM app into
+                a secure &amp; immutable machine image in seconds, which can be run both on your laptop and in the
+                cloud.</p>
 
-    <p id="bigsell-details">I architect, develop, audit, talk, train and write.</p>
+            <p>I'm also the founder and project lead of <a href="https://flywaydb.org">Flyway</a>, the open-source
+                database migration tool.</p>
+
+            <p>Additionally I regularly speak at many large international conferences including JavaOne, Devoxx, Jfokus,
+                JavaZone, JAX, ...</p>
+
+            <p>You can find me on Twitter as <a href="https://twitter.com/axelfontaine">@axelfontaine</a>.</p>
+
+            <p id="about-social">
+                <a href="https://twitter.com/axelfontaine"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/axelfontaine"><i class="fa fa-github"></i></a>
+                <a href="https://stackoverflow.com/users/350428/axel-fontaine" id="stackoverflow"></a>
+            </p>
+
+            <p>&nbsp;</p>
+        </div>
+    </div>
+
 
     <p><a href="" class="btn btn-large btn-primary" data-contact="">Contact Axel</a></p>
-</div>
-<div id="photos">
-    <img alt="devoxx" src="/assets/photos/devoxx.jpg" class="img-polaroid"/>
-    <img alt="presenting" src="/assets/photos/presenting.jpg" class="img-polaroid"/>
-    <img alt="portrait" src="/assets/photos/devoxx2014.jpg" class="img-polaroid"/>
 </div>
 <div id="offering-navbar" class="navbar navbar-inverse">
     <div class="navbar-inner">
         <div class="container">
             <ul class="nav">
-                <li><a href="#audit"><i class="fa fa-heartbeat"></i>Architecture Audit</a></li>
-                <li><a href="#training"><i class="fa fa-mortar-board"></i>Training</a></li>
                 <li><a href="#speaking"><i class="fa fa-comment"></i>Speaking</a></li>
                 <li><a href="#articles"><i class="fa fa-file-text"></i>Articles</a></li>
                 <li><a href="#boxfuse"><img src="/assets/boxfuse-16.png"> Boxfuse</a></li>
                 <li><a href="#flyway"><img src="/assets/flyway-16-dark.png"> Flyway</a></li>
-                <li><a href="#about"><i class="fa fa-user"></i>About Axel</a></li>
             </ul>
         </div>
     </div>
@@ -40,633 +58,350 @@ pill: home
     <div class="navbar-inner">
         <div class="container">
             <ul class="nav">
-                <li><a href="#audit"><i class="fa fa-heartbeat"></i>Architecture Audit</a></li>
-                <li><a href="#training"><i class="fa fa-mortar-board"></i>Training</a></li>
                 <li><a href="#speaking"><i class="fa fa-comment"></i>Speaking</a></li>
                 <li><a href="#articles"><i class="fa fa-file-text"></i>Articles</a></li>
                 <li><a href="#boxfuse"><img src="/assets/boxfuse-16.png"> Boxfuse</a></li>
                 <li><a href="#flyway"><img src="/assets/flyway-16-dark.png"> Flyway</a></li>
-                <li><a href="#about"><i class="fa fa-user"></i>About Axel</a></li>
             </ul>
         </div>
-    </div>
-</div>
-<div id="audit" class="marketing-section">
-    <div class="marketing-section-head"><i class="fa fa-heartbeat"></i><br/>Your Software Architecture. Audited.
-    </div>
-    <div class="marketing-section-sub">A professional look through an independent set of eyes to provide you<br/>an
-        honest and untainted view of your software architecture.
-    </div>
-    <div class="row">
-        <div class="span6">
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-check-square-o"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">Goal Definition</div>
-                    <div class="marketing-item-body">Together we discuss and define the goals of the architecture
-                        review. We determine the areas of interest and which qualities to focus on, all tailored to
-                        your needs and budget.
-                    </div>
-                </div>
-            </div>
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-stethoscope"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">In-depth Analysis</div>
-                    <div class="marketing-item-body">I then perform an in-depth analysis of your system. I
-                        first look at the high-level aspects, then I take a deep dive into the areas of interest and the
-                        architectural qualities we agreed upon.
-                    </div>
-                </div>
-            </div>
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-sort-amount-desc"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">Recommendations</div>
-                    <div class="marketing-item-body">Afterwards I present you my findings, with specific
-                        improvement recommendations and next steps to take. This happens in-person in an interactive
-                        fashion. This is then followed, if you desire, by a written report.
-                    </div>
-                </div>
-            </div>
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-calendar-check-o"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">Follow-up</div>
-                    <div class="marketing-item-body">As the review completes, we evaluate the need for follow up
-                        sessions. In these sessions I assess the progress made by your development team and
-                        ensure it stays on course.
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="span5">
-            <div class="quote">
-                <div class="bubble">
-                    Axel came highly recommended and his domain expertise became evident in our very first talk. He understood our situation and needs immediately, and was very willing to accommodate our extremely short timelines. Working with him has been an education every step of our time-boxed process. Particularly his ability to analyse and assess our platform’s scalability in a few days and define actionable recommendations was impressive. He’s been very communicative and delivered on every commitment he made. We look forward to call upon his services again in the future!
-                </div>
-                <div class="attribution">
-                    <strong>Chiel Liezenberg</strong> -
-                    Founder <a href="https://okit.com/">okit.com</a>, Amsterdam, Netherlands.
-                </div>
-            </div>
-            <div class="quote">
-                <div class="bubble">
-                    Axel is a very good listener. His range of knowledge and experience allowed him to communicate
-                    easily with our developers and system administrators. What made the experience unique was his
-                    ability to communicate just as easily with non-technical executives. We especially appreciated how
-                    Axel brought our questions and challenges back to fundamental business objectives. This prevented us
-                    from getting sidetracked and forced us to face tough strategic decisions.
-                </div>
-                <div class="attribution">
-                    <strong>Martin Millican</strong> -
-                    President, Envoke.com, Toronto, Canada
-                </div>
-            </div>
-            <div class="quote">
-                <div class="bubble">
-                    designaffairs is impressed by the effectiveness and efficiency of Axel’s work. He managed to
-                    evaluate
-                    the application in an extremely short time frame. His work resulted in a very detailed summary which
-                    provides
-                    precise recommendations regarding activities in order to increase the maturity of the software.
-                    Axel’s depth and breadth of experience is impressive. He gets things done and is always focused on
-                    the
-                    end goal or deliverable.
-                </div>
-                <div class="attribution">
-                    <strong>Andreas Rieger</strong> -
-                    Head of Software Engineering and Project Management, designaffairs GmbH, München, Germany
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="call-to-action">
-        <a href="" data-contact="Architecture Review" class="btn btn-large btn-primary">Request an on-site Architecture
-            Review</a>
-    </div>
-</div>
-
-<div id="training" class="marketing-section">
-    <div class="marketing-section-head"><i class="fa fa-mortar-board"></i><br/>Training</div>
-    <div class="marketing-section-sub">
-        Take your team to another level. Expert training with deep insights.<br/>
-        Delivered at your company.
-    </div>
-    <div class="row">
-        <div class="span6">
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-check"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">The Highest Level of Expertise</div>
-                    <div class="marketing-item-body">
-                        Get trained straight from the source by the person who actually wrote the software. I designed
-                        and developed Flyway. No-one knows it better than I do.
-                    </div>
-                </div>
-            </div>
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-group"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">By an International Conference Speaker</div>
-                    <div class="marketing-item-body">With years of public speaking under my belt, in multiple countries
-                        and several languages, you'll get first class presentation performance by an expert speaker.
-                    </div>
-                </div>
-            </div>
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-comments"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">Tailored to your Needs</div>
-                    <div class="marketing-item-body">Together we can discuss and tailor the contents of the training to
-                        meet your specific needs. This will ensure maximum and immediate applicability to your business
-                        context.
-                    </div>
-                </div>
-                <div class="span1"></div>
-            </div>
-            <div class="marketing-item row">
-                <div class="span1"></div>
-                <div class="span1 marketing-item-icon">
-                    <i class="fa fa-globe"></i>
-                </div>
-                <div class="span4">
-                    <div class="marketing-item-head">Delivered Worldwide</div>
-                    <div class="marketing-item-body">These trainings are delivered by me personally, worldwide.
-                        Q &amp; A in any of the 5 languages I speak
-                        fluently (English, German, French, Dutch and Spanish) to maximize the communication channel with
-                        your development team.
-                    </div>
-                </div>
-                <div class="span1"></div>
-            </div>
-        </div>
-        <div class="span5">
-            <div class="quote">
-                <div class="bubble">
-                    Attending “Architecting for Continuous Delivery” was very much hands on and inspiring, leaving me
-                    with plenty of ideas of how to implement a pipeline in my current project. The course was a mixture
-                    of theory, coding and also had enough room for open discussions. I definitely recommend it.
-                </div>
-                <div class="attribution">
-                    <strong>Andreas Folkesson</strong> -
-                    Software Engineer, Object Republic AB, Stockholm, Sweden
-                </div>
-            </div>
-            <!--
-            <div class="quote">
-                <div class="bubble">
-                    The course delivers everything it promises. Axel is a true software expert.
-                </div>
-                <div class="attribution">
-                    <strong>Daniel Marell</strong> -
-                    Software Architect/Developer, CAG Contactor AB, Stockholm, Sweden
-                </div>
-            </div>
-            -->
-            <div class="quote">
-                <div class="bubble">
-                    The workshop "Architecting for Continuous Delivery: from Zero to Hero" provided me with the
-                    necessary tools to successfully tackle the challenges of deploying software continuously.
-                    Axel's expertise on the subject and his pragmatic approach made the two days a joy to attend.
-                </div>
-                <div class="attribution">
-                    <strong>Matthias Grüter</strong> -
-                    Software Engineer &amp; Manager, Transmode Systems AB, Stockholm, Sweden
-                </div>
-            </div>
-            <div class="quote">
-                <div class="bubble">
-                    I enjoyed every minute of this intense training that was as thoroughly planned as it was carried
-                    out. I am looking forward to the next session and to utilize Flyway in a production environment.
-                </div>
-                <div class="attribution">
-                    <strong>Martin Schäfer</strong> -
-                    Software Engineer, Colenet GmbH, Fulda, Germany
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span1"></div>
-        <div class="span10">
-            <div id="course-continuous-delivery" class="course">
-                <i class="course-icon fa fa-rocket"></i>
-
-                <p class="marketing-item-head">Architecting for Continuous Delivery & Zero Downtime</p>
-
-                <p>Two day on-site intensive hands-on training</p>
-
-                <p class="section-text">
-                    <strong>Continuous Delivery</strong> is all the hype these days. This training
-                    makes it
-                    a reality. We start with an overview of what Continuous Delivery is
-                    and how it can help you. We then quickly dive into the details. You
-                    will learn what it takes to architect a Java application so that it
-                    can be delivered continuously into production, with code,
-                    configuration and database delta, multiple times a day, with <strong>Zero Downtime</strong>.
-                </p>
-
-                <p class="section-text">
-                    Buckle up! This class is <strong>intensive</strong> and <strong>hands-on</strong>. You build an
-                    entire
-                    Java web app to the point
-                    where it deploys continuously, with zero downtime. We tackle
-                    the hard problems with a battle-tested approach you will be able to apply immediately.</p>
-
-                <div class="call-to-action">
-                    <a href="/training/continuousdelivery.html"
-                       class="btn btn-large btn-primary">Details and Dates</a>
-                </div>
-            </div>
-        </div>
-        <div class="span1"></div>
-    </div>
-    <div class="row">
-        <div class="span1"></div>
-        <div class="span10">
-            <div id="course-flyway" class="course">
-                <img src="/assets/flyway-logo-transparent-notext-55.png" alt="flyway"/>
-
-                <p class="marketing-item-head">Effective Database Migrations with Flyway</p>
-
-                <p>One day on-site training</p>
-
-                <p class="section-text">
-                    One day of intensive <strong>Flyway</strong> instruction. We begin with a quick overview of what problems
-                    <strong>database migration</strong> tools set out to solve. We then quickly move into thorough coverage of
-                    everything from
-                    Flyway basics to topics like existing project integration, API and build tool plugins. We finally
-                    cover more
-                    advanced topics like effective test data management, backward compatible migrations and
-                    zero-downtime migrations.</p>
-
-                <p class="section-text">
-                    This class comes with plenty of hands-on time with Flyway and will take you from complete newcomer
-                    status to
-                    Flyway competence, or from passing familiarity to Flyway and database migrations expertise.</p>
-
-                <div class="call-to-action">
-                    <a href="/training/flyway.html"
-                       class="btn btn-large btn-primary">Details and Dates</a>
-                </div>
-            </div>
-        </div>
-        <div class="span1"></div>
     </div>
 </div>
 <div id="speaking" class="marketing-section">
-<div class="marketing-section-head"><i class="fa fa-comment"></i><br/>Speaking</div>
-<div class="marketing-section-sub">
-    Over the last few years, I have given a large number of talks at conferences and user groups.<br/>
-    The focus has been Immutable Infrastructure, Continuous Delivery, <a href="http://flywaydb.org">Flyway</a> and <a
-        href="https://boxfuse.com">Boxfuse</a>.
-</div>
-<div class="row">
-    <div id="talk-map-container" class="span12">
-        <div class="">
-            <div id="talk-map"></div>
-        </div>
-        <div id="talk-map-legend">
-            <img src="/assets/pin-small-green.png" alt="Green"/> <span>Upcoming talk</span>
-            <img src="/assets/pin-small-gray.png" alt="Gray"/> Past talk
-        </div>
+    <div class="marketing-section-head"><i class="fa fa-comment"></i><br/>Speaking</div>
+    <div class="marketing-section-sub">
+        Over the last few years, I have given a large number of talks at conferences and user groups.<br/>
+        The focus has been Immutable Infrastructure, Continuous Delivery, <a href="http://flywaydb.org">Flyway</a> and <a
+            href="https://boxfuse.com">Boxfuse</a>.
     </div>
-</div>
-<div class="row">
-<div class="span1"></div>
-<div class="span5">
-    <h4>Architecture for the Cloud</h4>
-
-    <div>
-        <div class="tabbable tabs-below">
-            <div class="tab-content img-polaroid talk">
-                <div class="tab-pane active" id="talk-cloud-en">
-                    <a href="https://vimeo.com/138957702"><i class="fa fa-play-circle-o"></i></a>
-                </div>
+    <div id="photos">
+        <img alt="devoxx" src="/assets/photos/devoxx.jpg" class="img-polaroid"/>
+        <img alt="presenting" src="/assets/photos/presenting.jpg" class="img-polaroid"/>
+        <img alt="portrait" src="/assets/photos/devoxx2014.jpg" class="img-polaroid"/>
+    </div>
+    <div class="row">
+        <div id="talk-map-container" class="span12">
+            <div class="">
+                <div id="talk-map"></div>
             </div>
-
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#talk-cloud-en" data-toggle="tab">English</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div style="width: 410px">
-    <script async class="speakerdeck-embed" data-id="412dcee23b0e4157a60e0b878810b277" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-    </div>
-    <p class="talk-caption">
-        From my talk at JavaZone 2015 in Oslo, Norway.
-    </p>
-
-    <p>&nbsp;</p>
-
-    <h4>Immutable Infrastructure</h4>
-
-    <div>
-        <div class="tabbable tabs-below">
-            <div class="tab-content img-polaroid talk">
-                <div class="tab-pane active" id="talk-ii-en">
-                    <a href="https://vimeo.com/130993909"><i class="fa fa-play-circle-o"></i></a>
-                </div>
-                <div class="tab-pane" id="talk-ii-de">
-                    <a href="https://vimeo.com/111829945"><i class="fa fa-play-circle-o"></i></a>
-                </div>
+            <div id="talk-map-legend">
+                <img src="/assets/pin-small-green.png" alt="Green"/> <span>Upcoming talk</span>
+                <img src="/assets/pin-small-gray.png" alt="Gray"/> Past talk
             </div>
-
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#talk-ii-en" data-toggle="tab">English</a></li>
-                <li><a href="#talk-ii-de" data-toggle="tab">Deutsch</a></li>
-            </ul>
         </div>
     </div>
+    <div class="row">
+    <div class="span1"></div>
+    <div class="span5">
+        <h4>Architecture for the Cloud</h4>
 
-    <div style="width: 410px">
-    <script async class="speakerdeck-embed" data-id="58a39a45b30d4d1f9c0a0737035cb928" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
-    </div>
-    <p class="talk-caption">
-        From my talk at Geecon 2015 in Krakow, Poland.
-    </p>
-
-    <p>&nbsp;</p>
-
-    <h4>Continuous Delivery</h4>
-
-    <div>
-        <div class="tabbable tabs-below">
-            <div class="tab-content img-polaroid talk">
-                <div class="tab-pane active" id="talk-cd-en">
-                    <a href="https://www.youtube.com/watch?v=K1l8717tN2c"><i
-                            class="fa fa-play-circle-o"></i></a>
+        <div>
+            <div class="tabbable tabs-below">
+                <div class="tab-content img-polaroid talk">
+                    <div class="tab-pane active" id="talk-cloud-en">
+                        <a href="https://vimeo.com/138957702"><i class="fa fa-play-circle-o"></i></a>
+                    </div>
                 </div>
-                <div class="tab-pane" id="talk-cd-de">
-                    <a href="http://jaxenter.de/videos/JAX-TV-Architecting-for-Continuous-Delivery-171205"><i
-                            class="fa fa-play-circle-o"></i></a>
-                </div>
-                <div class="tab-pane" id="talk-cd-fr">
-                    <a href="https://www.youtube.com/watch?v=qCLFbNoea3E"><i class="fa fa-play-circle-o"></i></a>
-                </div>
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#talk-cloud-en" data-toggle="tab">English</a></li>
+                </ul>
             </div>
-
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#talk-cd-en" data-toggle="tab">English</a></li>
-                <li><a href="#talk-cd-de" data-toggle="tab">Deutsch</a></li>
-                <li><a href="#talk-cd-fr" data-toggle="tab">Français</a></li>
-            </ul>
         </div>
-    </div>
 
-    <iframe class="img-polaroid" src="//www.slideshare.net/slideshow/embed_code/30846081"
-            width="400" height="260" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
-            allowfullscreen></iframe>
-    <p class="talk-caption">
-        From my talk at Jfokus 2014 in Stockholm, Sweden.
-    </p>
+        <div style="width: 410px">
+        <script async class="speakerdeck-embed" data-id="412dcee23b0e4157a60e0b878810b277" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+        </div>
+        <p class="talk-caption">
+            From my talk at JavaZone 2015 in Oslo, Norway.
+        </p>
 
-    <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
-    <h4>Flyway</h4>
+        <h4>Immutable Infrastructure</h4>
 
-    <div>
-        <div class="tabbable tabs-below">
-            <div class="tab-content img-polaroid talk">
-                <div class="tab-pane active" id="talk-flyway-en">
-                    <a href="https://www.youtube.com/watch?v=pfs5bnJP2XA"><i class="fa fa-play-circle-o"></i></a>
+        <div>
+            <div class="tabbable tabs-below">
+                <div class="tab-content img-polaroid talk">
+                    <div class="tab-pane active" id="talk-ii-en">
+                        <a href="https://vimeo.com/130993909"><i class="fa fa-play-circle-o"></i></a>
+                    </div>
+                    <div class="tab-pane" id="talk-ii-de">
+                        <a href="https://vimeo.com/111829945"><i class="fa fa-play-circle-o"></i></a>
+                    </div>
                 </div>
-                <div class="tab-pane" id="talk-flyway-de">
-                    <a href="https://jaxenter.de/flyway-datenbankmigrationen-leicht-gemacht-28617"><i class="fa fa-play-circle-o"></i></a>
-                </div>
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#talk-ii-en" data-toggle="tab">English</a></li>
+                    <li><a href="#talk-ii-de" data-toggle="tab">Deutsch</a></li>
+                </ul>
             </div>
+        </div>
 
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#talk-flyway-en" data-toggle="tab">English</a></li>
-                <li><a href="#talk-flyway-de" data-toggle="tab">Deutsch</a></li>
-            </ul>
+        <div style="width: 410px">
+        <script async class="speakerdeck-embed" data-id="58a39a45b30d4d1f9c0a0737035cb928" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
         </div>
-    </div>
+        <p class="talk-caption">
+            From my talk at Geecon 2015 in Krakow, Poland.
+        </p>
 
-    <div style="width: 410px">
-        <script async class="speakerdeck-embed" data-id="c09dd4f0c1824866a676d637751c2de0" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+        <p>&nbsp;</p>
+
+        <h4>Continuous Delivery</h4>
+
+        <div>
+            <div class="tabbable tabs-below">
+                <div class="tab-content img-polaroid talk">
+                    <div class="tab-pane active" id="talk-cd-en">
+                        <a href="https://www.youtube.com/watch?v=K1l8717tN2c"><i
+                                class="fa fa-play-circle-o"></i></a>
+                    </div>
+                    <div class="tab-pane" id="talk-cd-de">
+                        <a href="http://jaxenter.de/videos/JAX-TV-Architecting-for-Continuous-Delivery-171205"><i
+                                class="fa fa-play-circle-o"></i></a>
+                    </div>
+                    <div class="tab-pane" id="talk-cd-fr">
+                        <a href="https://www.youtube.com/watch?v=qCLFbNoea3E"><i class="fa fa-play-circle-o"></i></a>
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#talk-cd-en" data-toggle="tab">English</a></li>
+                    <li><a href="#talk-cd-de" data-toggle="tab">Deutsch</a></li>
+                    <li><a href="#talk-cd-fr" data-toggle="tab">Français</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <iframe class="img-polaroid" src="//www.slideshare.net/slideshow/embed_code/30846081"
+                width="400" height="260" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"
+                allowfullscreen></iframe>
+        <p class="talk-caption">
+            From my talk at Jfokus 2014 in Stockholm, Sweden.
+        </p>
+
+        <p>&nbsp;</p>
+
+        <h4>Flyway</h4>
+
+        <div>
+            <div class="tabbable tabs-below">
+                <div class="tab-content img-polaroid talk">
+                    <div class="tab-pane active" id="talk-flyway-en">
+                        <a href="https://www.youtube.com/watch?v=pfs5bnJP2XA"><i class="fa fa-play-circle-o"></i></a>
+                    </div>
+                    <div class="tab-pane" id="talk-flyway-de">
+                        <a href="https://jaxenter.de/flyway-datenbankmigrationen-leicht-gemacht-28617"><i class="fa fa-play-circle-o"></i></a>
+                    </div>
+                </div>
+
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#talk-flyway-en" data-toggle="tab">English</a></li>
+                    <li><a href="#talk-flyway-de" data-toggle="tab">Deutsch</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="width: 410px">
+            <script async class="speakerdeck-embed" data-id="c09dd4f0c1824866a676d637751c2de0" data-ratio="1.77777777777778" src="//speakerdeck.com/assets/embed.js"></script>
+        </div>
+        <p class="talk-caption">
+            From my talk at Devoxx UK 2015 in London, UK.
+        </p>
     </div>
-    <p class="talk-caption">
-        From my talk at Devoxx UK 2015 in London, UK.
-    </p>
-</div>
-<div class="span5">
-    <div>&nbsp;</div>
-    <div class="quote">
-        <div class="bubble">
-            Rise of the Machines Images: Very nice talk about immutable infrastructure by @axelfontaine #qconlondon
+    <div class="span5">
+        <div>&nbsp;</div>
+        <div class="quote">
+            <div class="bubble">
+                Rise of the Machines Images: Very nice talk about immutable infrastructure by @axelfontaine #qconlondon
+            </div>
+            <div class="attribution">
+                <strong>Julien Vey</strong> at QCon 2016 in London
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Julien Vey</strong> at QCon 2016 in London
+        <div class="quote">
+            <div class="bubble">
+                #qconlondon. Great talk by @axelfontaine. Nice to see a live demo that shows real life technical solutions.
+            </div>
+            <div class="attribution">
+                <strong>Martin Peston</strong> at QCon 2016 in London
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            #qconlondon. Great talk by @axelfontaine. Nice to see a live demo that shows real life technical solutions.
+        <div class="quote">
+            <div class="bubble">
+                Very nice talk on infrastructure by @axelfontaine. Good questions, observations and ideas. #geecon
+            </div>
+            <div class="attribution">
+                <strong>Konrad Garus</strong> at Geecon 2015 in Krakow
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Martin Peston</strong> at QCon 2016 in London
+        <div class="quote">
+            <div class="bubble">
+                @axelfontaine rocks! Helps to rethink settled concepts. Consequently the room is fully packed. #geecon
+            </div>
+            <div class="attribution">
+                <strong>Katerina Shkor</strong> at Geecon 2015 in Krakow
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Very nice talk on infrastructure by @axelfontaine. Good questions, observations and ideas. #geecon
+        <div class="quote">
+            <div class="bubble">
+                Runder Talk rund um Deployment von @axelfontaine. Schöne Slides, Gedanken, Ideen. Danke!! #jaxcon
+            </div>
+            <div class="attribution">
+                <strong>Stefan Zörner</strong> at JAX 2015 in Mainz
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Konrad Garus</strong> at Geecon 2015 in Krakow
+        <div class="quote">
+            <div class="bubble">
+                Really enjoyed @axelfontaine's talk tonight. Another excellent @devbash and @BelfastJUG event. If you're not attending these ur missing out!
+            </div>
+            <div class="attribution">
+                <strong>Gillian Armstrong</strong> at DevBash in Belfast
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            @axelfontaine rocks! Helps to rethink settled concepts. Consequently the room is fully packed. #geecon
+        <div class="quote">
+            <div class="bubble">
+                Interesting talk by @axelfontaine about infrastructure automation for PaaS with boxfuse.com #heroku #docker
+                #aws #JavaZone
+            </div>
+            <div class="attribution">
+                <strong>Lukas Eder</strong> at JavaZone 2014 in Oslo
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Katerina Shkor</strong> at Geecon 2015 in Krakow
+        <div class="quote">
+            <div class="bubble">
+                Inspiring talk @axelfontaine about continuous delivery in #jfokus
+            </div>
+            <div class="attribution">
+                <strong>Ari Räisänen</strong> at Jfokus 2014 in Stockholm
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Runder Talk rund um Deployment von @axelfontaine. Schöne Slides, Gedanken, Ideen. Danke!! #jaxcon
+        <div class="quote">
+            <div class="bubble">
+                Really good stuff from @axelfontaine, "maybe we don't need to roll back, but we can roll forward" #jfokus
+            </div>
+            <div class="attribution">
+                <strong>Ilari Kontinen</strong> at Jfokus 2014 in Stockholm
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Stefan Zörner</strong> at JAX 2015 in Mainz
+        <div class="quote">
+            <div class="bubble">
+                Excellent continuous delivery presentation by @axelfontaine. #jfokus
+            </div>
+            <div class="attribution">
+                <strong>Janne Sinivirta</strong> at Jfokus 2014 in Stockholm
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Really enjoyed @axelfontaine's talk tonight. Another excellent @devbash and @BelfastJUG event. If you're not attending these ur missing out!
+        <div class="quote">
+            <div class="bubble">
+                Wenn man an einem Vortrag zum Thema Continuous Delivery teilgenommen haben muss, dann den von
+                @axelfontaine Spitze!
+            </div>
+            <div class="attribution">
+                <strong>DJHell</strong> at JAX 2013 in Mainz
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Gillian Armstrong</strong> at DevBash in Belfast
+        <div class="quote">
+            <div class="bubble">
+                A lot of interesting topics on #confess_2013 but the continuous delivery session of @axelfontaine is
+                my favorite to date.
+            </div>
+            <div class="attribution">
+                <strong>Bert Vado</strong> at CONFESS_2013 in Vienna
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Interesting talk by @axelfontaine about infrastructure automation for PaaS with boxfuse.com #heroku #docker
-            #aws #JavaZone
+        <div class="quote">
+            <div class="bubble">
+                #DevoxxFR, "architecting for continuous delivery", @axelfontaine, super talk !!!! Merci !
+            </div>
+            <div class="attribution">
+                <strong>François Descamps</strong> at DEVOXX FR 2013 in Paris
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Lukas Eder</strong> at JavaZone 2014 in Oslo
+        <div class="quote">
+            <div class="bubble">
+                Bon talk sur le Continuous Delivery par @axelfontaine à #devoxxfr . Bonne maitrise et présence sur
+                scène, chapeau !
+            </div>
+            <div class="attribution">
+                <strong>Eric Siber</strong> at DEVOXX FR 2013 in Paris
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Inspiring talk @axelfontaine about continuous delivery in #jfokus
+        <div class="quote">
+            <div class="bubble">
+                @axelfontaine kept the audience in a tight grip for his continuous delivery presentation, no
+                turning back! #jdays
+            </div>
+            <div class="attribution">
+                <strong>Cecilia Borg</strong> at jDays 2012 in Göteborg
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Ari Räisänen</strong> at Jfokus 2014 in Stockholm
+        <div class="quote">
+            <div class="bubble">
+                Very good talk on continuous deployment by @axelfontaine… #jdays
+            </div>
+            <div class="attribution">
+                <strong>Oliver Gierke</strong> at jDays 2012, Göteborg
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Really good stuff from @axelfontaine, "maybe we don't need to roll back, but we can roll forward" #jfokus
+        <div class="quote">
+            <div class="bubble">
+                Thanks @axelfontaine for talking about continuous delivery at @jugch It was a great and
+                inspiring Talk.
+            </div>
+            <div class="attribution">
+                <strong>Marc Bächinger</strong> at JUG CH in Zürich
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Ilari Kontinen</strong> at Jfokus 2014 in Stockholm
+        <!--
+        <div class="quote">
+            <div class="bubble">
+                Danke @axelfontaine für einen lehrreichen, witzig und kompetent präsentierten Vortrag /cc
+                @jugch #jugch
+            </div>
+            <div class="attribution">
+                <strong>Erich Oswald</strong> at JUG CH in Zürich
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Excellent continuous delivery presentation by @axelfontaine. #jfokus
+        <div class="quote">
+            <div class="bubble">
+                Continous Delivery made easy and comprehensible by @axelfontaine @jugch starts promising :-)
+            </div>
+            <div class="attribution">
+                <strong>Fabian Wabbel</strong> at JUG CH in Zürich
+            </div>
         </div>
-        <div class="attribution">
-            <strong>Janne Sinivirta</strong> at Jfokus 2014 in Stockholm
+        <div class="quote">
+            <div class="bubble">
+                Great talk from @axelfontaine on Continuous Delivery at #UKJUGS - video will be posted for
+                those who missed it!
+            </div>
+            <div class="attribution">
+                <strong>Andrew Williams</strong> at JUG Scotland in Edinburgh
+            </div>
+        </div>-->
+        <div class="quote">
+            <div class="bubble">
+                Très bonne session de @axelfontaine sur "continuous delivery"
+            </div>
+            <div class="attribution">
+                <strong>Nicolas De loof</strong> online on Parleys
+            </div>
         </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Wenn man an einem Vortrag zum Thema Continuous Delivery teilgenommen haben muss, dann den von
-            @axelfontaine Spitze!
-        </div>
-        <div class="attribution">
-            <strong>DJHell</strong> at JAX 2013 in Mainz
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            A lot of interesting topics on #confess_2013 but the continuous delivery session of @axelfontaine is
-            my favorite to date.
-        </div>
-        <div class="attribution">
-            <strong>Bert Vado</strong> at CONFESS_2013 in Vienna
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            #DevoxxFR, "architecting for continuous delivery", @axelfontaine, super talk !!!! Merci !
-        </div>
-        <div class="attribution">
-            <strong>François Descamps</strong> at DEVOXX FR 2013 in Paris
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Bon talk sur le Continuous Delivery par @axelfontaine à #devoxxfr . Bonne maitrise et présence sur
-            scène, chapeau !
-        </div>
-        <div class="attribution">
-            <strong>Eric Siber</strong> at DEVOXX FR 2013 in Paris
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            @axelfontaine kept the audience in a tight grip for his continuous delivery presentation, no
-            turning back! #jdays
-        </div>
-        <div class="attribution">
-            <strong>Cecilia Borg</strong> at jDays 2012 in Göteborg
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Very good talk on continuous deployment by @axelfontaine… #jdays
-        </div>
-        <div class="attribution">
-            <strong>Oliver Gierke</strong> at jDays 2012, Göteborg
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Thanks @axelfontaine for talking about continuous delivery at @jugch It was a great and
-            inspiring Talk.
-        </div>
-        <div class="attribution">
-            <strong>Marc Bächinger</strong> at JUG CH in Zürich
-        </div>
-    </div>
-    <!--
-    <div class="quote">
-        <div class="bubble">
-            Danke @axelfontaine für einen lehrreichen, witzig und kompetent präsentierten Vortrag /cc
-            @jugch #jugch
-        </div>
-        <div class="attribution">
-            <strong>Erich Oswald</strong> at JUG CH in Zürich
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Continous Delivery made easy and comprehensible by @axelfontaine @jugch starts promising :-)
-        </div>
-        <div class="attribution">
-            <strong>Fabian Wabbel</strong> at JUG CH in Zürich
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Great talk from @axelfontaine on Continuous Delivery at #UKJUGS - video will be posted for
-            those who missed it!
-        </div>
-        <div class="attribution">
-            <strong>Andrew Williams</strong> at JUG Scotland in Edinburgh
-        </div>
-    </div>-->
-    <div class="quote">
-        <div class="bubble">
-            Très bonne session de @axelfontaine sur "continuous delivery"
-        </div>
-        <div class="attribution">
-            <strong>Nicolas De loof</strong> online on Parleys
-        </div>
-    </div>
-    <div class="quote">
-        <div class="bubble">
-            Enjoyed the BeJUG session on "Continuous Delivery" by @axelfontaine. The deployment part was
-            most interesting.
-        </div>
-        <div class="attribution">
-            <strong>Stephan Janssen</strong> at BeJUG in Leuven
+        <div class="quote">
+            <div class="bubble">
+                Enjoyed the BeJUG session on "Continuous Delivery" by @axelfontaine. The deployment part was
+                most interesting.
+            </div>
+            <div class="attribution">
+                <strong>Stephan Janssen</strong> at BeJUG in Leuven
+            </div>
         </div>
     </div>
-</div>
-<div class="span1"></div>
-</div>
-<div class="call-to-action">
-    <a href="" data-contact="Talk Request" class="btn btn-large btn-primary">Ask Axel to present</a>
-</div>
+    <div class="span1"></div>
+    </div>
+    <div class="call-to-action">
+        <a href="" data-contact="Talk Request" class="btn btn-large btn-primary">Ask Axel to present</a>
+    </div>
 </div>
 
 <div id="articles" class="marketing-section">
@@ -800,125 +535,6 @@ pill: home
     </div>
 </div>
 
-<div id="about" class="marketing-section">
-    <div class="marketing-section-head"><i class="fa fa-user"></i><br/>About Axel</div>
-    <div class="marketing-section-sub">I'm an entrepreneur, public speaker and software development expert based in
-        Munich.
-    </div>
-    <div class="row">
-        <div id="about-photo" class="span6"><img src="/assets/photos/axel.jpg" alt="Axel" class="img-polaroid"/></div>
-        <div class="span5">
-            <p>I'm the founder and CEO of <a href="https://boxfuse.com">Boxfuse</a> GmbH. Boxfuse turns your JVM app into
-                a secure &amp; immutable machine image in seconds, which can be run both on your laptop and in the
-                cloud.</p>
-
-            <p>I'm also the founder and project lead of <a href="https://flywaydb.org">Flyway</a>, the open-source
-                database migration tool.</p>
-
-            <p>Additionally I regularly speak at many large international conferences including JavaOne, Devoxx, Jfokus,
-                JavaZone, JAX, ...</p>
-
-            <p>You can find me on Twitter as <a href="https://twitter.com/axelfontaine">@axelfontaine</a></p>
-
-            <p id="about-social">
-                <a href="http://twitter.com/axelfontaine"><i class="fa fa-twitter"></i></a>
-                <a href="https://github.com/axelfontaine"><i class="fa fa-github"></i></a>
-                <a href="http://stackoverflow.com/users/350428/axel-fontaine" id="stackoverflow"></a>
-                <a href="http://www.slideshare.net/axelfontaine" id="slideshare"></a>
-            </p>
-
-            <p>&nbsp;</p>
-        </div>
-    </div>
-    <div class="call-to-action">
-        <a href="" data-contact="" class="btn btn-large btn-primary">Contact Axel</a>
-    </div>
-</div>
-
-<div id="clients" class="marketing-section">
-    <div class="marketing-section-head"><i class="fa fa-check"></i><br/>Clients</div>
-    <div class="marketing-section-sub">
-        Some of the clients I've had the pleasure to work together with
-    </div>
-    <div class="row">
-        <div class="span1"></div>
-        <div id="client-logos" class="span10">
-            <img src="/assets/clients/okit.png" alt="OK"/>
-            <img src="/assets/clients/traveltainment.png" alt="TravelTainment"/>
-            <img src="/assets/clients/six.png" alt="SIX"/>
-            <img src="/assets/clients/paf.png" alt="Paf"/>
-            <img src="/assets/clients/visma.png" alt="Visma"/>
-            <img src="/assets/clients/bosch.png" alt="Bosch"/>
-            <img src="/assets/clients/endava.png" alt="Endava"/>
-            <img src="/assets/clients/flavia.png" alt="Flavia"/>
-            <img src="/assets/clients/mnet.png" alt="M-net"/>
-            <img src="/assets/clients/envoke.png" alt="Envoke"/>
-            <img src="/assets/clients/designaffairs.png" alt="Design Affairs"/>
-            <img src="/assets/clients/kvb.png" alt="KVB"/>
-            <img src="/assets/clients/lp.png" alt="Loyalty Partner"/>
-            <img src="/assets/clients/o2.png" alt="O2"/>
-            <img src="/assets/clients/lbs.png" alt="LBS"/>
-            <img src="/assets/clients/electrabel.png" alt="Electrabel"/>
-            <img src="/assets/clients/bnp.png" alt="BNP"/>
-            <img src="/assets/clients/zurich.png" alt="Zurich"/>
-            <img src="/assets/clients/swl.png" alt="SWL"/>
-        </div>
-        <div class="span1"></div>
-    </div>
-</div>
-
-<div id="latest-updates" class="marketing-section">
-    <div class="row">
-        <div class="span1"></div>
-        <div class="span5">
-            <div class="marketing-section-head"><i class="fa fa-twitter"></i><br/>Latest Tweets</div>
-            <a class="twitter-timeline" href="https://twitter.com/axelfontaine" data-widget-id="345179840179232768"
-               data-link-color="#08c" data-chrome="noheader nofooter noborders noscrollbar transparent" data-width="300"
-               data-tweet-limit="5">Tweets
-                by @axelfontaine</a>
-            <script>!function (d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) {
-                    js = d.createElement(s);
-                    js.id = id;
-                    js.src = p + "://platform.twitter.com/widgets.js";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }
-            }(document, "script", "twitter-wjs");</script>
-        </div>
-        <div class="span6">
-            <div class="marketing-section-head"><i class="fa fa-pencil"></i><br/>Latest Blog Posts</div>
-
-            <div class="row">
-                <div class="span1"></div>
-                <div class="span4">
-                    <div id="latest-posts">
-                        {% for post in site.posts limit:9 %}
-                        <div><a href="{{ post.permalink }}">{{ post.title | xml_escape }}</a><br/>
-                            <span class="tweet-link">{{ post.date | date: "%Y-%m-%d" }}</span>
-                        </div>
-                        {% endfor %}
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span6">
-            <div class="call-to-action">
-                <a href="https://twitter.com/intent/follow?region=follow_link&screen_name=axelfontaine"
-                   class="btn btn-large btn-primary">Follow Axel on Twitter</a>
-            </div>
-        </div>
-        <div class="span6">
-            <div class="call-to-action">
-                <a href="/blog"
-                   class="btn btn-large btn-primary">Read Axel's blog</a>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 <script type="text/javascript"
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAurHcBSMbJSiHxjG8ZbVElzYEM6OO1QVk&sensor=false"></script>

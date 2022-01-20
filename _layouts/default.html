@@ -13,27 +13,18 @@
 </head>
 <body>
 <div id="main" class="container">
-    <div id="top-cta"><a href="https://boxfuse.com">Want to deploy your JVM, Node.js ang Go apps effortlessly to AWS? Try our service <img src="/assets/boxfuse-logo-nano.png"> Boxfuse <i class="fa fa-arrow-right" style="color: #EFF7FB"></i></a></div>
     <div id="header" class="row">
-        <div class="span8">
+        <div class="span10">
+            {% if layout.pill == 'blog' %}
             <div id="logo"><a href="/"><img src="/assets/photos/axel-cropped.jpg" alt="axelfontaine.com" class="img-circle"></a></div>
             <div id="title"><a href="/">Axel Fontaine</a></div>
+            {% endif %}
         </div>
         <div class="span2">
             <ul class="nav nav-pills">
                 <li {% if page.pill == 'home' %} class="active" {% endif %}><a href="/">Home</a></li>
                 <li {% if layout.pill == 'blog' %} class="active" {% endif %}><a href="/blog">Blog</a></li>
             </ul>
-        </div>
-        <div class="span2">
-            <form action="/search.html" id="cse-search-box">
-              <div>
-                <input type="hidden" name="cx" value="004353962589231355928:k98dl_sh-nm" />
-                <input type="hidden" name="ie" value="UTF-8" />
-                <input type="text" name="q" class="google-branding" />
-                <input type="submit" name="sa" value="Search" style="position: absolute; left: -9999px" />
-              </div>
-            </form>
         </div>
     </div>
 
@@ -42,7 +33,7 @@
     <hr class="soften"/>
     <div id="footer">
         <p>
-            &copy; 2022 Axel Fontains Labs GmbH -
+            &copy; 2022 Axel Fontaine Labs GmbH -
             <a href="#impressum" data-toggle="modal">Impressum</a> -
             <a href="" data-contact="">Contact</a> -
             <a href="/blog/">Blog</a> -

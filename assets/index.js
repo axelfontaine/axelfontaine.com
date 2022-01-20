@@ -66,6 +66,21 @@ function relativeLatestPostDate() {
 
 //Coordinate lookup: http://www.mapcoordinates.net/en
 var speakingEvents = [
+    ['Private Corporate Event', 'Brussels', 'Belgium', 50.8465573, 4.351697,
+        [
+            ['2019-09-17', 'Majestic Modular Monoliths', '', false]
+        ]
+    ],
+    ['Private Corporate Event', 'Bucharest', 'Romania', 44.4304489, 26.0979342,
+        [
+            ['2019-09-13', 'Majestic Modular Monoliths', '', false]
+        ]
+    ],
+    ['Javabin', 'Oslo', 'Norway', 59.913869, 10.752245,
+        [
+            ['2019-01-28', 'Majestic Modular Monoliths', '', false]
+        ]
+    ],
     ['Devoxx BE 2018', 'Antwerpen', 'Belgium', 51.2192159, 4.4028818,
         [
             ['2018-11-14', 'Majestic Modular Monoliths', 'https://devoxx.be/', false]
@@ -627,15 +642,7 @@ function initTalksMap() {
             title: title,
             zIndex: speakingEvents.length - i
         });
-
-        addVenueLink(marker, talk);
     }
     map.panToBounds(bounds);
     map.setCenter(bounds.getCenter());
-}
-
-function addVenueLink(marker, talk) {
-    google.maps.event.addListener(marker, 'click', function () {
-        window.location = talk[5][0][2];
-    });
 }
