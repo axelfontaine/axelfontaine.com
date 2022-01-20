@@ -273,40 +273,8 @@
     margin-top: 20px;
 }
 
-.course {
-    padding: 10px;
-    border: 2px black solid;
-    background-color: #ffffff;
-    border-radius: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    text-align: center;
-}
-
-#course-continuous-delivery {
-    margin-bottom: 50px;
-}
-
-.course i {
-    font-size: 55px;
-}
-
-.course .section-head {
-    text-align: left;
-    font-weight: bold;
-}
-
-.course .section-text {
-    text-align: left;
-}
-
-#client-logos {
-    text-align: center;
-}
-
-#client-logos img {
-    padding: 20px;
-    max-height: 55px;
+.tabs-below ul {
+    margin-bottom: 0;
 }
 
 .tweet {
@@ -406,6 +374,7 @@ body.modal-open {
 }
 
 .talk-caption {
+    margin-top: 15px;
     margin-bottom: 30px;
     font-size: 12px;
 }
@@ -454,6 +423,14 @@ body.modal-open {
     text-decoration: none;
     color: #808080;
     text-shadow: -3px 0 #C0C0C0, 0 3px #C0C0C0, 3px 0 #C0C0C0, 0 -3px #C0C0C0;
+}
+
+#talk-monoliths-en {
+    background: url("/assets/talk-monoliths-en.png") no-repeat top left;
+}
+
+#talk-logging-en {
+    background: url("/assets/talk-logging-en.png") no-repeat top left;
 }
 
 #talk-cloud-en {
