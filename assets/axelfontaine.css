@@ -353,22 +353,6 @@ body.modal-open {
     padding: 10px 30px;
 }
 
-#about-social a#stackoverflow:hover {
-    background: url('/assets/stackoverflow-hover.png') no-repeat center;
-}
-
-#about-social #slideshare {
-    width: 100px;
-    height: 50px;
-    background: url('/assets/slideshare.png') no-repeat center;
-    color: #808080;
-    padding: 10px 50px;
-}
-
-#about-social a#slideshare:hover {
-    background: url('/assets/slideshare-hover.png') no-repeat center;
-}
-
 .about-section {
     margin-top: 50px;
 }

@@ -16,39 +16,6 @@ category: Blog
 
             <p>&nbsp;</p>
 
-            <div id="social-buttons">
-                <table>
-                    <tr>
-                        <td>
-                            <a href="https://twitter.com/share" class="twitter-share-button"
-                               data-text="{{ page.title }} by @axelfontaine"></a>
-                            <script>!function (d, s, id) {
-                                var js, fjs = d.getElementsByTagName(s)[0];
-                                if (!d.getElementById(id)) {
-                                    js = d.createElement(s);
-                                    js.id = id;
-                                    js.src = "//platform.twitter.com/widgets.js";
-                                    fjs.parentNode.insertBefore(js, fjs);
-                                }
-                            }(document, "script", "twitter-wjs");</script>
-                        </td>
-                        <td>
-                            <g:plusone size="medium"></g:plusone>
-                            <script type="text/javascript">
-                                (function () {
-                                    var po = document.createElement('script');
-                                    po.type = 'text/javascript';
-                                    po.async = true;
-                                    po.src = '//apis.google.com/js/plusone.js';
-                                    var s = document.getElementsByTagName('script')[0];
-                                    s.parentNode.insertBefore(po, s);
-                                })();
-                            </script>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
             <hr>
         </div>
         <div class="span1"></div>
@@ -56,85 +23,38 @@ category: Blog
 
     <div class="row">
         <div class="span1"></div>
-        <div class="span2"><img src="/assets/photos/axel.jpg" alt="Axel" class="img-polaroid"
-                                width="120"/></div>
+        <div class="span2">
+            <img src="/assets/photos/axel.jpg" alt="Axel" class="img-polaroid" width="120"/>
+        </div>
         <div class="span8">
             <p><strong>About Axel Fontaine</strong></p>
 
-            <p>Axel Fontaine is the founder and CEO of <a href="https://boxfuse.com">Boxfuse</a> the easiest way to deploy JVM and Node.js applications to AWS.</p>
+            <p>I'm an entrepreneur, public speaker and software development expert based in Munich.</p>
+            <p>
+                I'm the creator of <a href="https://sprinters.sh" target="_blank">Sprinters</a>.
+                Sprinters lets you run your GitHub Actions jobs 10x cheaper on your own AWS account with secure, ephemeral, high-performance, low-cost runners within the privacy of your own VPC.
+            </p>
+            <p>
+                I also created <a href="https://cloudcaptain.sh" target="_blank">CloudCaptain</a>, previously known as Boxfuse.
+                CloudCaptain is a cloud deployment platform enabling small and medium size companies to focus on development, while it takes care of infrastructure and operations.
+            </p>
+            <p>
+                Back in 2010, I bootstrapped <a href="https://flywaydb.org" target="_blank">Flyway</a>,
+                and grew it into the world's most popular database migration tool.
+                Starting late 2017, I expanded the project beyond its open-source roots into a highly profitable business,
+                acquiring many of the world's largest companies and public institutions as customers.
+                After two years of exponential growth, I <a href="https://www.realwire.com/releases/Redgate-cements-position-as-leading-vendor-with-Flyway-acquisition" target="_blank">sold the company to Redgate</a> in 2019.
+            </p>
+            <p>In the past I also <a href="#speaking">spoke regularly at many large international conferences</a>
+                including JavaOne, Devoxx, Jfokus, JavaZone, JAX and more about a wide range of topics including
+                modular monoliths, immutable infrastructure and continuous delivery. As part of this I received the
+                JavaOne RockStar speaker award. As a recognition for my contributions to overall Java industry,
+                Oracle awarded me the
+                <a href="https://blogs.oracle.com/java/post/new-java-champion-axel-fontaine" target="_blank">Java Champion</a>
+                title.</p>
 
-            <p>Axel is also the creator and project lead of <a href="https://flywaydb.org">Flyway</a>, the open-source tool that makes database migration easy.</p>
-
-            <p>He is a Continuous Delivery and Immutable Infrastructure expert, a Java Champion, a JavaOne Rockstar and a regular speaker at many large international conferences including JavaOne, Devoxx, Jfokus, JavaZone, QCon, JAX, ...</p>
-
-            <p>You can follow him on Twitter at <a href="https://twitter.com/axelfontaine">@axelfontaine</a></p>
-
-            <p>&nbsp;</p>
+            <p>You can find me on 𝕏 as <a href="https://x.com/axelfontaine" target="_blank">@axelfontaine</a> and email me at axel@axelfontaine.com</p>
         </div>
         <div class="span1"></div>
     </div>
-    <div class="row">
-        <div class="span1"></div>
-        <div class="span10">
-            <div id="training-ad">
-                <div id="training-ad-title">
-
-                    <i class="fa fa-rocket"></i>
-                    Architecting for Continuous Delivery and Zero Downtime
-                </div>
-                <p id="training-ad-subtitle">Two day intensive on-site training with Axel Fontaine</p>
-
-                <p><strong>Upcoming dates</strong></p>
-
-                <p>
-                    <i class="fa fa-map-marker"></i> Iasi, Romania (May 10-11, 2017)<br>
-                    <i class="fa fa-map-marker"></i> Oslo, Norway (Oct 16-17, 2017)
-                </p>
-
-                <div class="call-to-action">
-                    <a href="/training/continuousdelivery.html"
-                       class="btn btn-primary">Info and Registration</a>
-                </div>
-            </div>
-
-            <div id="blog-post-nav">
-                {% if page.previous %}
-                <div id="blog-post-previous">
-                    <a href="{{page.previous.url}}">« {{ page.previous.title }}</a>
-                </div>
-                {% endif %}
-
-                {% if page.next %}
-                <div id="blog-post-next">
-                    <a href="{{page.next.url}}">{{ page.next.title }} »</a>
-                </div>
-                {% endif %}
-
-                <div id="blog-post-archive">
-                    <a href="/blog/archive.html">Browse complete blog archive</a><br/>
-                    <a href="/blog/atom.xml"><i class="fa fa-rss"></i></a> <a href="/blog/atom.xml">Subscribe to the
-                    feed</a>
-                </div>
-
-            </div>
-
-            <div id="disqus_thread"></div>
-            <script type="text/javascript">
-                /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                var disqus_shortname = 'axelfontaine'; // required: replace example with your forum shortname
-
-                /* * * DON'T EDIT BELOW THIS LINE * * */
-                (function () {
-                    var dsq = document.createElement('script');
-                    dsq.type = 'text/javascript';
-                    dsq.async = true;
-                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-            </script>
-
-        </div>
-        <div class="span1"></div>
-    </div>
-
 </div>
